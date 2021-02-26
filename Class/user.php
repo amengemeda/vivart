@@ -13,7 +13,7 @@ class User
     protected $user_type;
 
     public function __construct($user_id,$conn=false){
-      // The constructor has two ways of implementations
+      // The constructor has two ways of implementations:
       //1.It will fetch all the data from the database when it is called
       //2. Basically, it will not do anything apart from being used to create objects
         if ($conn!=false) {
