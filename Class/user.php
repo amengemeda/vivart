@@ -38,7 +38,13 @@ class User
         return $this->first_name;
     }
     public function getLastName(){
-        return $this->first_name;
+        return $this->last_name;
+    }
+    public function getEmail(){
+        return $this->email;
+    }
+    public function getDescription(){
+        return $this->description;
     }
     public function login(){
         //to be implemented by Georgina
