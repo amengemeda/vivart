@@ -12,11 +12,11 @@ class User
     protected $is_verified;
     protected $user_type;
 
-    public function __construct($user_id,$conn=false){
+    public function __construct($user_id=false,$conn=false){
       // The constructor has two ways of implementations:
       //1.It will fetch all the data from the database when it is called
       //2. Basically, it will not do anything apart from being used to create objects
-        if ($conn!=false) {
+        if ($conn!=false && $user_id!=false) {
         $sql="SELECT * FROM user WHERE user_id=?";
         $array=[$user_id];
         $this->user_id=$user_id;

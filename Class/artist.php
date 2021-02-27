@@ -3,9 +3,9 @@ require ("user.php");
 class Artist extends User  
 {
     protected $talent;
-    public function __construct($user_id,$conn=false){
+    public function __construct($user_id=false,$conn=false){
         Parent::__construct($user_id,$conn);
-        if ($conn!=false) {
+        if ($conn!=false && $user_id!=false) {
             $sql2="SELECT talent FROM artist WHERE user_id=?";
             $array2=[$user_id];
             $result2= selectData($sql2,$conn,$array2);
