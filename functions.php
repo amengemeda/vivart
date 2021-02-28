@@ -23,5 +23,16 @@ function insertData($sql,$conn,$array){
         return false;
     }
 }
+function checkEmail($conn,$email){
+    $sql="SELECT user_id FROM user WHERE email=?";
+    $array=[$email];
+    $result=selectData($sql,$conn,$array);
+    if($result!=null){
+        return true;
+    }else {
+        return false;   
+    }
+
+}
 
 ?>
