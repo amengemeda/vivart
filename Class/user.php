@@ -46,13 +46,38 @@ class User
     public function getDescription(){
         return $this->description;
     }
+    public function getUserType(){
+        return $this->user_type;
+    }
+    public function setFirstName($first_name){
+        $this->first_name=$first_name;
+    }
+    public function setLastName($last_name){
+        $this->last_name=$last_name;
+    }
+    public function setEmail($email){
+        $this->email=$email;
+    }
+    public function setUserType($user_type){
+        $this->user_type=$user_type;
+    }
+    public function setDescription($description){
+        $this->description=$description;
+    }
+    public function setPassword($password){
+        $this->password=password_hash($password,PASSWORD_DEFAULT);
+    }
     public function login(){
         //to be implemented by Georgina
     }
+    
 
-    public function registeration(){
+    public function register($conn){
         // to be implemented by Amen
-    }
+    $sql= "INSERT INTO user (first_name,last_name,email,user_type,password) VALUES(?,?,?,?,?)";
+    $array=[$this->first_name, $this->last_name,$this->email,$this->user_type,$this->password];
+    insertData($sql,$conn,$array);
+}
     
 }
 

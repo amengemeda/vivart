@@ -1,0 +1,142 @@
+body{
+    background-color: #e9e6e6;  
+}
+
+.body h1,.body h2,.body p,.body h3 ,.leadership{
+    padding: 30px;
+    padding-top: 10px;
+}
+.body h1{
+    color: #f34728;
+    font-size: 80px;
+    height: 60px;
+}
+.body h2{
+    color: #797979;
+    font-size: 40px;
+}
+.body h3{
+    color: #797979;
+    font-size: 50px;
+    height: 20px;
+}
+.body p{
+    color: #3d3d3d;
+    font-size: 25px; 
+}
+.m-b{
+    background-color: rgba(0, 0, 0, 0.9);
+    padding-top: 20px;
+}
+.mini-body h1{
+    font-size: 50px;
+    height: 40px;
+}
+.mini-body p{
+    font-size: 23px ;
+    color: #ffffff;
+}
+.dot1,.dot2 {
+    height: 295px;
+    width: 49%;
+    background-color: white;
+    padding: 20px;
+    /* border-radius: 50%; */
+    margin-left: 7px;
+    display: inline-block;
+    animation: moveBuild 1s 0.7s forwards;
+  }
+  .dot2{
+      background-color: #f34728;
+  }
+ 
+  
+  span {
+    margin-top:10px ;
+    color: #f34728;
+    overflow: hidden;
+  }
+  .far,.fas{
+      font-size: 50px;
+      margin-left: 5%;
+  }
+  .fa-handshake,.fa-hand-holding-heart{
+      color: #ffffff;
+  }
+  .dot1 h1{
+      color: #f34728;
+      margin-left: 0px;
+      font-size: 38px;
+      height: 55px;
+  }
+  .dot2 p{
+      color: rgb(53, 53, 53);
+     
+  }
+  .dot2 h1{
+    font-size: 38px;
+    color: white;
+}
+
+  .leadership h4{
+      font-size: 50px;
+      color: #f34728;
+
+  }
+  .profile{
+      display: flex;
+  }
+  .image{
+      width: 49%;
+  }
+  .details{
+      width: 49%;
+  }
+  .details p{
+      height: 20px;
+  }
+  .image img{
+      width: 350px;
+      height:490px;
+  }
+  @media screen and (max-width: 768px) {
+      .mini-body{
+          width: 100%;
+      }
+      .profile{
+          display: block;
+      }
+      .image img{
+        width: 310px;
+        height:450px;
+    }
+    .dot1,.dot2 {
+        display: block;
+        width: 100%;
+        margin-left: 0px;
+    }
+    .body h3{
+        height: 100%;
+    }
+    .details{
+        width: 100%;
+    }
+  }
+  @media screen and (max-width: 280px) {
+
+      .m-b h1{
+          height: 100px;
+      }
+      .image img{
+          width: 270px;
+
+      }
+      .body h1,.body h2,.body p,.body h3 ,.leadership{
+        padding: 10px;
+        padding-top: 10px;
+    }
+    .footer-left h3{
+        font-size: 30px;
+
+    }
+  }
