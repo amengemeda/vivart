@@ -9,6 +9,8 @@ if(isset($_POST['type'])){
             $user = new User();
             $email = $_POST["email"];
             $password = $_POST["password"];
+            $dbConnect= new DBconnect();
+            $conn= $dbConnect->getConnection();
             if(!empty($email) && !empty($password)){
                 
                 echo $user->login($email, $password, $conn);
@@ -16,6 +18,7 @@ if(isset($_POST['type'])){
             else{
                 echo "Ensure all fields are completed";
             }
+            $dbConnect->closeConnection();
             break;
         case 'register':
             $first_name=$_POST['first_name'];
