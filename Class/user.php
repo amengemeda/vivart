@@ -76,7 +76,7 @@ class User
             if($result == null){
                 return "This account does not exist";
             }
-            if($result['password'] == $password){               
+            if(password_verify($password,$result['password'])){               
                 $sql = 'SELECT user_id FROM user WHERE email = ?';
                 $array = [$email];
                 $result = selectData($sql, $conn, $array);

@@ -49,9 +49,10 @@
                 <input type="email" name="user_email" placeholder="Email" />
                 <input type="password" name="user_password" placeholder="Password" />
             </label>
-            
+            <p class="error" id="log_error"></p>
+            <p class="success" id="log_success"></p>
             <button type="submit">Sign In</button>
-            <p id="Message" style='color:red; margin-left: 39px;'></p>
+           
         </form>
     </div>
     <div class="overlay-container">

@@ -1,7 +1,12 @@
 //For Login
+function clearMessageField() {
+    $(".error").text("");
+    $(".success").text("");
+}
 $(document).ready(function () {
     $("#formLogin").submit(function (event) {
         event.preventDefault();
+        clearMessageField();
         var email = $("input[name = 'user_email']").val();
         var password = $("input[name = 'user_password']").val();
         var type = "login";
@@ -11,7 +16,12 @@ $(document).ready(function () {
             type: type
         },
         function (data, status) {
-            $("#Message").html(data);
+            if (data=="Successful") {
+                $(".success").text(data);
+                console.log("called");
+            } else {
+                $(".error").text(data);
+            }
         });
     });
 });
@@ -19,8 +29,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#formRegister").submit(function (event) {
         event.preventDefault();
-        $(".error").text("");
-        $(".success").text("");
+        clearMessageField();
         let form=$("#formRegister")[0];
         let formData= new FormData(form);
         formData.append("type","register");
