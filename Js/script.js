@@ -1,4 +1,20 @@
 //For Login
+$(document).ready(function () {
+    $("#formLogin").submit(function (event) {
+        event.preventDefault();
+        var email = $("input[name = 'user_email']").val();
+        var password = $("input[name = 'user_password']").val();
+        var type = "login";
+        $.post("Logic/logic.php", {
+            email: email,
+            password: password,
+            type: type
+        },
+        function (data, status) {
+            $("#Message").html(data);
+        });
+    });
+});
 
 $(document).ready(function () {
     $("#formRegister").submit(function (event) {

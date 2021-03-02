@@ -67,8 +67,28 @@ class User
     public function setPassword($password){
         $this->password=password_hash($password,PASSWORD_DEFAULT);
     }
-    public function login(){
-        //to be implemented by Georgina
+    
+    public function login($email, $password, $conn){
+        try{
+            $sql = 'SELECT password FROM user WHERE email = ?';
+            $array = [$email];
+            $result = selectData($sql, $conn, $array);
+            if($result == null){
+                return "This account does not exist";
+            }
+            if($result['password'] == $password){               
+                $sql = 'SELECT user_id FROM user WHERE email = ?';
+                $array = [$email];
+                $result = selectData($sql, $conn, $array);
+                session_start();
+                $_SESSION["user_id"] = $result['user_id'];
+                // return "<script>window.location.href = 'Landing.php'</script>";
+                return "Successful";
+            }
+            return "Your username or password is incorrect";
+        }catch(PDOException $e){
+            return $e->getMessage();
+        }
     }
     
 

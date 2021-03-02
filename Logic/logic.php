@@ -6,7 +6,16 @@ if(isset($_POST['type'])){
     $type=$_POST['type'];
     switch ($type) {
         case 'login':
-
+            $user = new User();
+            $email = $_POST["email"];
+            $password = $_POST["password"];
+            if(!empty($email) && !empty($password)){
+                
+                echo $user->login($email, $password, $conn);
+            }
+            else{
+                echo "Ensure all fields are completed";
+            }
             break;
         case 'register':
             $first_name=$_POST['first_name'];

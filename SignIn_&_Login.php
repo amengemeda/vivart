@@ -46,8 +46,8 @@
             </div>
             <span>or use your account</span>
             <label>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
+                <input type="email" name="user_email" placeholder="Email" />
+                <input type="password" name="user_password" placeholder="Password" />
             </label>
             
             <button type="submit">Sign In</button>
