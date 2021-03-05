@@ -97,7 +97,25 @@ class User
     $sql= "INSERT INTO user (first_name,last_name,email,user_type,password) VALUES(?,?,?,?,?)";
     $array=[$this->first_name, $this->last_name,$this->email,$this->user_type,$this->password];
     insertData($sql,$conn,$array);
+    echo "success";
 }
+   public function addEvent($conn,$event_name,$description,$photo){
+       $sql1="SELECT MAX(event_id) as last_Id FROM event";
+       $array= array();
+       $result= selectData($sql1,$conn,$array);
+       $imageFileType = strtolower(pathinfo($photo['name'],PATHINFO_EXTENSION));
+       $event_upload_path="Image/event".$this->user_id.$result['last_Id'].".".$imageFileType;
+       $sql2="INSERT INTO event (user_id,event_name,event_description,event_upload_path) VALUES(?,?,?,?)";
+       $array2= array($this->user_id,$event_name,$description,$event_upload_path); 
+       insertData($sql2,$conn,$array2);
+      $upload_path="../".$event_upload_path;
+       move_uploaded_file($photo['tmp_name'],$upload_path);
+       echo "Successful";
+   }
+   public function logout(){
+       session_unset();
+       session_destroy();
+   }
     
 }
 

@@ -1,0 +1,109 @@
+/*  styling scrollbars  */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #a5aaad;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #348DE6;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a5aaad;
+  }
+.div_nav{
+    height: 50px;
+}
+
+.nav{
+    border-bottom: 1px solid #348DE6;
+    display: flex;
+    flex-direction: row;
+}
+.logo{
+    margin-left: 50px;
+}
+.search{
+    border: 1px solid #348DE6;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    width: 300px;
+  
+
+}
+.button_search{
+    border: none;
+    font-size: 25px;
+    box-shadow: none;
+    background-color: transparent;
+    color: #348DE6;
+}
+.input{
+    border: none;
+    box-shadow: none;
+    background: transparent;
+   
+}
+.search_form{
+    margin: 0 auto;
+}
+
+.wrapper{
+  margin-top: 30px;
+  padding-left: 20px;
+  display: inline-block;
+}
+
+.profile{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #000;
+    height: 100px;
+    width: 500px;
+    margin: 10px;
+}
+.profile_img{
+    width: 30%;
+}
+
+.img{
+    border-radius: 100px;
+    height: 80%;
+    width: 90%;
+    padding: 10%;
+}
+.profile_content{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+}
+.profile_name{
+    color: gray;
+    font-weight: 700;
+    font-size: 20px;
+    justify-content: center;
+    text-align: left;
+    height: 30%;
+    margin-bottom: 2px;
+}
+.profile_info{
+    padding-right: 3px;
+    color: rgb(94, 91, 91);
+    font-size: 18px;
+}
+.profile:hover{
+    cursor: pointer;
+    border-color: #348DE6;
+}
+#logo{
+    width: 40px;
+}
+

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>events</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/landing.css" type="text/css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head> 
+<style>
+img{
+    width: 240px;
+    height: 205px;
+}
+.body_div {
+    width: 23.33%;
+    }
+    h1{
+        color: #707070;
+
+    }
+    div p{
+        margin: 0;
+        margin-bottom: 4%;
+    }
+</style>
+
+<body>
+    <section>
+
+        <article>
+           
+            <div class="body">
+                <div class="body_div">
+                    <div>
+                        <img 
+                        id="img"class="img" src=".idea\Pictures\events_medium.jpg" />
+                    </div>
+                    <div><h1>Concert</h1> </div>
+                    <div>
+                        <p>Come one,come all,calling all the artists to come and showcase</p>
+                    </div>
+                    <div>
+                        <button>Apply</button>
+                    </div>
+
+                </div>
+
+                <div class="body_div">
+                    <div>
+                        <img 
+                        id="img"class="img" src=".idea\Pictures\events_medium.jpg" />
+                    </div>
+                    <div><h1>Concert</h1> </div>
+                    <div>
+                        <p>Come one,come all,calling all the artists to come and showcase</p>
+                    </div>
+                    <div>
+                        <button>Apply</button>
+                    </div>
+
+                </div>
+
+                <div class="body_div">
+                    <div>
+                        <img 
+                        id="img"class="img" src=".idea\Pictures\events_medium.jpg" />
+                    </div>
+                    <div><h1>Concert</h1> </div>
+                    <div>
+                        <p>Come one,come all,calling all the artists to come and showcase</p>
+                    </div>
+                    <div>
+                        <button>Apply</button>
+                    </div>
+
+                </div>
+
+                <div class="body_div">
+                    <div>
+                        <img 
+                        id="img"class="img" src=".idea\Pictures\events_medium.jpg" />
+                    </div>
+                    <div><h1>Concert</h1> </div>
+                    <div>
+                        <p>Come one,come all,calling all the artists to come and showcase</p>
+                    </div>
+                    <div>
+                        <button>Apply</button>
+                    </div>
+
+                </div>
+
+                <div class="body_div">
+                    <div>
+                        <img 
+                        id="img"class="img" src=".idea\Pictures\events_medium.jpg" />
+                    </div>
+                    <div><h1>Concert</h1> </div>
+                    <div>
+                        <p>Come one,come all,calling all the artists to come and showcase</p>
+                    </div>
+                    <div>
+                        <button>Apply</button>
+                    </div>
+
+                </div>
+                <div class="body_div">
+                    <div>
+                        <img 
+                        id="img"class="img" src=".idea\Pictures\events_medium.jpg" />
+                    </div>
+                    <div><h1>Concert</h1> </div>
+                    <div>
+                        <p>Come one,come all,calling all the artists to come and showcase</p>
+                    </div>
+                    <div>
+                        <button>Apply</button>
+                    </div>
+
+                </div>
+                <div class="body_div">
+                    <div>
+                        <img 
+                        id="img"class="img" src=".idea\Pictures\events_medium.jpg" />
+                    </div>
+                    <div><h1>Concert</h1> </div>
+                    <div>
+                        <p>Come one,come all,calling all the artists to come and showcase</p>
+                    </div>
+                    <div>
+                        <button>Apply</button>
+                    </div>
+
+                </div>
+                <div class="body_div">
+                    <div>
+                        <img 
+                        id="img"class="img" src=".idea\Pictures\events_medium.jpg" />
+                    </div>
+                    <div><h1>Concert</h1> </div>
+                    <div>
+                        <p>Come one,come all,calling all the artists to come and showcase</p>
+                    </div>
+                    <div>
+                        <button>Apply</button>
+                    </div>
+
+                </div>
+                <div class="body_div">
+                    <div>
+                        <img 
+                        id="img"class="img" src=".idea\Pictures\events_medium.jpg" />
+                    </div>
+                    <div><h1>Concert</h1> </div>
+                    <div>
+                        <p>Come one,come all,calling all the artists to come and showcase</p>
+                    </div>
+                    <div>
+                        <button>Apply</button>
+                    </div>
+
+                </div>
+                
+            </div>
+            
+
+
+
+        </article>
+    </section>
+
+
+    <script> 
+        $(document).ready(function () {
+        var small={width: "240px",height: "205px"};
+        var large={width: "400px",height: "382px"};
+        var count=2; 
+        $("#img").css(small).on('click',function () { 
+            $(this).animate((count==2)?large:small);
+            count = 2-count;
+        });
+    });
+        
+      </script>
+</body>
+
+</html>
