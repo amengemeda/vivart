@@ -1,0 +1,116 @@
+*{
+    font-family: 'Segoe UI', sans-serif;
+}
+html{
+    width: 100%;
+    background-color: white;
+}
+article{
+    padding: 30px;
+    display: flex;
+}
+article h1{
+    font-size: 40px;
+    color: #707070;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+}
+article h2{
+    font-size: 22px;
+    color: #707070;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+}
+#caption{
+    width: 80%;
+    height: 20vh;
+    outline: #348DE6;
+    border: 1px solid #348DE6;
+    color: #707070;
+    font-size: 18px;
+
+}
+#upload{
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+    background-color: #348DE6;
+    height: 30px;
+    width: 80px;
+    border: none;
+    border-radius: 10px;
+}
+#upload:hover{
+    color: #348DE6;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 1px solid #348DE6;
+}
+.body{
+    width: 30%;
+    margin-right: 10%;
+}
+#svg{
+    fill: #348DE6;
+    border: none;
+    display: flex;
+}
+#svg-1{
+    margin-top: 60px;
+    margin-right:20px ;
+}
+
+#center{
+    margin-top: 160px;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+#center-1{
+    margin-left: 40px;
+    margin-top: 100px;
+}
+#center-2{
+    margin-left: 10px;
+    margin-top: 100px;
+}
+#name{
+    width: 80%;
+    outline: #348DE6;
+    border: 1px solid #348DE6;
+    color: #707070;
+    font-size: 18px;
+
+}
+
+p.error{
+    color: red;
+    text-align: left;
+    margin: 10px 0px;
+}
+p.success{
+    color: rgb(40, 189, 23);
+    margin: 0px;
+    text-align: left;
+    margin: 10px 0px;
+}
+#event_upload_file,#craft_upload_file{
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+    background-color: #348DE6;
+    height: 30px;
+    width: 150px;
+    border: none;
+    border-radius: 10px;
+}
+#event_upload_file:hover,#craft_upload_file:hover{
+    color: #348DE6;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 1px solid #348DE6;
+}
+#craft_photo,#eventPhoto{
+    display: none;
+}

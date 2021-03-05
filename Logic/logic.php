@@ -12,7 +12,6 @@ if(isset($_POST['type'])){
             $dbConnect= new DBconnect();
             $conn= $dbConnect->getConnection();
             if(!empty($email) && !empty($password)){
-                
                 echo $user->login($email, $password, $conn);
             }
             else{
@@ -27,7 +26,7 @@ if(isset($_POST['type'])){
             $password=$_POST['password'];
             $conf_Password=$_POST['conf_password'];
             $dbConnect= new DBconnect();
-            $pdo= $dbConnect->getConnection();
+            $conn= $dbConnect->getConnection();
             if(!empty($first_name)&&!empty($last_name)&&!empty($email)&&!empty($password)&&!empty($conf_Password)){
                 if ($conf_Password==$password) {
                     if (checkEmail($pdo,$email)) {
@@ -39,8 +38,7 @@ if(isset($_POST['type'])){
                         $user->setEmail($email);
                         $user->setPassword($password);
                         $user->setUserType("Artist");
-                        $user->register($pdo);
-                        echo "success";
+                        $user->register($conn);
                     }
                 }else{
                     echo "Password mismatch";

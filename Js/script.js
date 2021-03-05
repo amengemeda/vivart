@@ -17,8 +17,8 @@ $(document).ready(function () {
         },
         function (data, status) {
             if (data=="Successful") {
+                window.location.href="dashboard.php";
                 $(".success").text(data);
-                console.log("called");
             } else {
                 $(".error").text(data);
             }
@@ -63,5 +63,70 @@ $(document).ready(function () {
     });
 });   
 
-// For Sign Up
+$(document).ready(function () {
+    $("#addEvent").submit(function (event) {
+        event.preventDefault();
+        clearMessageField();
+        let form=$("#addEvent")[0];
+        let formData= new FormData(form);
+        formData.append("type","addEvent");
+        console.log(formData.get("addEvent")); 
+        let formEmpty= false;
+        for(var value of formData.entries()){
+            formEmpty= (value[1]=="" && value['name']!=null)? true:false;
+        }
+        if(!formEmpty){
+            $.ajax({
+                url: 'Logic/logic2.php',
+                enctype: 'multipart/form-data',
+                data: formData,
+                processData: false,
+                contentType: false,
+                type: 'POST',
+                success: function(data){
+                    if (data=="Successful") {
+                        $("#eventUpload_success").text("Event uploaded Successfully");
+                    } else {
+                        $("#eventUpload_error").text(data);
+                    }
+                },
+                error: function (e) {
+                    alert(e.responseText);
+                    console.log("ERROR : ", e);
+                }
+                });        
+        }else{
+            $(".error").text("All fields are required");
+        } 
+    });
+});
+$(document).ready(function () {
+    
+    $("#logout").click(function () {
+        console.log("called");
+    let formData= new FormData();
+    formData.append("type","logout");
+    $.ajax({
+        url: 'Logic/logic2.php',
+        enctype: 'multipart/form-data',
+        type: 'POST',
+        processData: false,
+        contentType: false,
+        data: formData,
+        success: function(data){
+            if (data=="logged out") {
+                window.location.href="Signin_&_Login.php";
+            } else {
+                alert(data);
+            }
+        },
+        error: function (e) {
+            alert(e.responseText);
+            console.log("ERROR : ", e);
+        }
+        });        
+    });
 
+
+}); 
+// For Sign Up

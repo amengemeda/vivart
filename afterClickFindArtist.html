@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>landing</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/landing.css" type="text/css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head> 
+<style>
+
+</style>
+
+<body>
+    <section>
+
+        <article>
+            <div class="profile">
+                <img src=".idea\Pictures\man.jpeg" alt="man">
+                <div class="profile-1">
+                    <div class="profile-2">
+                    <h1>John Doe</h1>
+                    
+                    </div>
+
+                                 
+                     <p>A young enthusiastic kenyan-born musician with the biggest passion for photos</p>
+                </div>
+                <br>
+                 
+            </div>
+           
+
+
+
+            <div class="body">
+                <div class="body_div">
+                    <div>
+                        <img 
+                        id="img"class="img" src=".idea\Pictures\burger.jpg" />
+                    </div>
+                    <div>
+                        <p>A burger a day keeps the tummy awake</p>
+                    </div>
+                    
+
+                </div>
+
+                <div class="body_div">
+                    <div>
+                        <img 
+                        id="img"class="img" src=".idea\Pictures\burger.jpg" />
+                    </div>
+                    <div>
+                        <p>A burger a day keeps the tummy awake</p>
+                    </div>
+                    
+
+                </div>
+
+                <div class="body_div">
+                    <div>
+                        <img class="img" id="img" src=".idea\Pictures\burger.jpg" />
+                    </div>
+                    <div>
+                        <p>A burger a day keeps the tummy awake</p>
+                    </div>
+                    
+
+                </div>
+
+                <div class="body_div">
+                    <div>
+                        <img class="img" id="img" src=".idea\Pictures\burger.jpg" />
+                    </div>
+                    <div>
+                        <p>A burger a day keeps the tummy awake</p>
+                    </div>
+                    
+
+                </div>
+
+                <div class="body_div">
+                    <div>
+                        <img class="img" id="img" src=".idea\Pictures\burger.jpg" />
+                    </div>
+                    <div>
+                        <p>A burger a day keeps the tummy awake</p>
+                    </div>
+                   
+
+                </div>
+                <div class="body_div">
+                    <div>
+                        <img class="img" id="img" src=".idea\Pictures\burger.jpg" />
+                    </div>
+                    <div>
+                        <p>A burger a day keeps the tummy awake</p>
+                    </div>
+                   
+
+                </div>
+                <div class="body_div">
+                    <div>
+                        <img 
+                        id="img"class="img" src=".idea\Pictures\burger.jpg" />
+                    </div>
+                    <div>
+                        <p>A burger a day keeps the tummy awake</p>
+                    </div>
+                   
+
+                </div>
+                <div class="body_div">
+                    <div>
+                        <img 
+                        id="img"class="img" src=".idea\Pictures\burger.jpg" />
+                    </div>
+                    <div>
+                        <p>A burger a day keeps the tummy awake</p>
+                    </div>
+                    
+
+                </div>
+                <div class="body_div">
+                    <div>
+                        <img 
+                        id="img"class="img" src=".idea\Pictures\burger.jpg" />
+                    </div>
+                    <div>
+                        <p>A burger a day keeps the tummy awake</p>
+                    </div>
+                   
+
+                </div>
+                
+            </div>
+            
+
+
+
+        </article>
+    </section>
+
+
+    <script> 
+        $(document).ready(function () {
+        var small={width: "240px",height: "205px"};
+        var large={width: "400px",height: "382px"};
+        var count=2; 
+        $("#img").css(small).on('click',function () { 
+            $(this).animate((count==2)?large:small);
+            count = 2-count;
+        });
+    });
+
+      </script>
+      
+</body>
+
+</html>
