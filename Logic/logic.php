@@ -29,7 +29,7 @@ if(isset($_POST['type'])){
             $conn= $dbConnect->getConnection();
             if(!empty($first_name)&&!empty($last_name)&&!empty($email)&&!empty($password)&&!empty($conf_Password)){
                 if ($conf_Password==$password) {
-                    if (checkEmail($pdo,$email)) {
+                    if (checkEmail($conn,$email)) {
                         echo "This email already exists";
                     }else {
                         $user= new User();

@@ -1,0 +1,261 @@
+<?php
+session_start();
+require "DBconnect.php";
+require "functions.php";
+require "Class/artist.php";
+$first_name=$_SESSION['first_name'];
+$last_name=$_SESSION['last_name'];
+$dbConnect= new DBconnect();
+$conn= $dbConnect->getConnection();
+$artist= new Artist($_SESSION['user_id'],$conn);
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>landing</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/landing.css" type="text/css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head> 
+<style>
+
+</style>
+
+<body>
+    <section>
+
+        <article>
+            <div class="profile">
+                <img src="
+                <?php 
+                $src=($artist->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$artist->getProfilePicture();
+                echo $src;
+                ?>
+                " alt="man">
+                <div class="profile-1">
+                    <div class="profile-2">
+                    <h1><?php echo $first_name." ".$last_name;?></h1>
+                    <button id="editProfile">Edit Profile</button> 
+                    <div id="myModal" class="modal">
+
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <br>
+                            <nav class="navbar">
+                                <div class="logo">
+                                    <img id="logo" src=".idea\Pictures\emoticon-square-smiling-face-with-closed-eyes.svg" alt="logo">
+                                </div>
+                
+                                <div class="navbar__right">
+                                    <p><?php echo $first_name." ".$last_name;?></p>
+                
+                                    <img src="
+                                    <?php 
+                                        $src=($artist->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$artist->getProfilePicture();
+                                        echo $src;
+                                    ?>
+                                    " alt="Avatar" class="avatar">
+                
+                
+                                </div>
+                            </nav>
+                            <br>
+                            
+                                <div class="profile1">
+                                    <img id="pic" src="
+                                    <?php 
+                                    $src=($artist->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$artist->getProfilePicture();
+                                    echo $src;
+                                     ?>
+                                     " alt="man">
+                                    <div class="profile-1">
+                                        <div class="profile-2-1">
+                                            <h1><?php echo $first_name." ".$last_name;?></h1>
+                                        </div>
+                                    </div>
+                
+                
+                                </div>
+                            <form  id="update_profile" method="POST">
+                                <div class="in-content">
+                
+                                    <div class="in-content-1">
+                                        <?php
+                                        
+                                        $full_name=$first_name." ".$last_name;
+                                        $email=$artist->getEmail();
+                                        $description=$artist->getDescription();
+                                        echo "<h3>First Name</h3>
+                                        <input type='text' id='fName' name='first_name' value='$first_name'>
+                                        <h3>Email</h3>
+                                        <input type='text' id='email' name='email' value='$email'>
+                                        <h3>Description</h3>
+                                        <textarea name='description' id='description'>$description</textarea>"
+                                        ?>
+                                       
+                                        
+                                    </div>
+                                    <div class="in-content-2">
+                                        
+                                        <?php
+                                        $talent=$artist->getTalent();
+                                        echo "
+                                        <h3>Last Name</h3>
+                                        <input type='text' id='lName' name='last_name' value='$last_name'>
+                                        <h3>Talent</h3>
+                                        <input type='text' id='talent' name='talent' value='$talent'>";
+                                        ?>
+                                        <h3>Change Photo</h3>
+                                        <input type="file" id="profile_photo" name="profile_photo">
+                                        
+                                        <button type="button" id="profile_photo_upload" >Upload Image</button><br><br>
+                        
+                                        <br>
+                                        <p class="error" id="profileUpload_error"></p>
+                                        <p class="success" id="profileUpload_success"></p>
+                                        <br>
+                                        <button id="update">Update</button>
+                                    </div>
+                                </div>
+                            </form>
+                
+                        </div>
+                    </div>
+                    </div>              
+                     <p><?php echo $artist->getDescription()?></p>
+                </div>
+                <br>
+                 
+            </div>
+           
+
+
+
+            <div class="body">
+            <?php
+            $eventResult=$artist->getEventsUploaded($conn);
+            $craftResult=$artist->getCraftsUploaded($conn);
+            $eventsCount=count($eventResult);
+            $craftsCount=count($craftResult);
+            
+            // echo $eventsCount;
+            // echo "<pre>";
+            // print_r($eventResult);
+            // echo "</pre>";
+            // echo "<pre>";
+            // print_r($craftResult);
+            // echo "</pre>";
+            // print_r($craftResult);
+            $counter= ($eventsCount>$craftsCount)? $eventsCount : $craftsCount;
+           
+            for ($i=0; $i <$counter ; $i++) { 
+                if(isset($eventResult[$i])){
+                    $event=$eventResult[$i];
+                    $eventId=$event['event_id'];
+                    $eventName=$event['event_name'];
+                    $eventDescription=$event['event_description'];
+                    $eventUploadPath=$event['event_upload_path'];
+                   
+                    // $extension=explode(".",$eventUploadPath);
+                    $fileType=is_image($eventUploadPath)?"Image":"Video";
+                    echo "               
+                     <div class='body_div'>
+                    <div>";
+                    if ($fileType=="Image") {
+                        echo "<img 
+                        id='img' class='img' src='$eventUploadPath' /> ";
+                    }else {
+                        echo"
+                        <video class='video' width='240px' height='205px' controls>
+                        <source src='$eventUploadPath' >
+                        Your browser does not support the video tag.
+                      </video>
+                      ";
+                    }
+                      echo "  
+                    </div>
+                    <div>
+                        <p class='title'>Event</p>
+                        <p class='event_name'>$eventName</p>
+                        <p class='description'>$eventDescription</p>
+                    </div>
+                    <div>
+                        <button id='editEvent$eventId'>Edit</button>
+                        
+                    </div>
+                </div>";
+                }
+                if(isset($craftResult[$i])){
+                    $craft=$craftResult[$i];
+                    $crafttId=$craft['art_id'];
+                    $crafttType=$craft['art_type'];
+                    $crafttCaption=$craft['art_caption'];
+                    $craftUploadPath=$craft['art_path'];
+
+                    $fileType=is_image($craftUploadPath)?"Image":"Video";
+                    echo "               
+                     <div class='body_div'>
+                    <div>";
+                    if ($fileType=="Image") {
+                        echo "<img 
+                        id='img' class='img' src='$craftUploadPath' /> ";
+                    }else {
+                        echo"
+                        <video class='video' width='240px' height='205px' controls>
+                        <source src='$craftUploadPath' >
+                        Your browser does not support the video tag.
+                      </video>
+                      ";
+                    }
+                      echo " 
+                    </div>
+                    <div>
+                        <p class='title'>Caft</p>
+                        <p class='craft_type'>$crafttType</p>
+                        <p class='description'>$crafttCaption</p>
+                    </div>
+                    <div>
+                        <button id='editCraft$craft'>Edit</button>
+                        
+                    </div>
+
+                </div>";
+                }
+            }
+            
+            ?>
+
+
+               
+                <div class="body_div">
+                    <div>
+                        <img 
+                        id="img" class="img" src=".idea\Pictures\burger.jpg" />
+                    </div>
+                    <div>
+                        <p class="title">Event</p>
+                        <p>A burger a day keeps the tummy awake</p>
+                    </div>
+                    <div>
+                        <button id="editCraft">Edit</button>
+                        
+                    </div>
+
+                </div>
+                
+            </div>
+            
+
+
+
+        </article>
+    </section>
+
+
+    <script src="Js/landing.js"></script>
+      
+</body>
+
+</html>

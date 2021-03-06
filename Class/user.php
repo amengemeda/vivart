@@ -49,6 +49,9 @@ class User
     public function getUserType(){
         return $this->user_type;
     }
+    public function getProfilePicture(){
+        return $this->profile_photo;
+    }
     public function setFirstName($first_name){
         $this->first_name=$first_name;
     }
@@ -67,7 +70,9 @@ class User
     public function setPassword($password){
         $this->password=password_hash($password,PASSWORD_DEFAULT);
     }
-    
+    public function setProfilePicture($profile_photo){
+        $this->profile_photo=$profile_photo;
+    }
     public function login($email, $password, $conn){
         try{
             $sql = 'SELECT password FROM user WHERE email = ?';
@@ -77,11 +82,13 @@ class User
                 return "This account does not exist";
             }
             if(password_verify($password,$result['password'])){               
-                $sql = 'SELECT user_id FROM user WHERE email = ?';
+                $sql = 'SELECT user_id,first_name,last_name FROM user WHERE email = ?';
                 $array = [$email];
                 $result = selectData($sql, $conn, $array);
                 session_start();
                 $_SESSION["user_id"] = $result['user_id'];
+                $_SESSION["first_name"] = $result['first_name'];
+                $_SESSION["last_name"] = $result['last_name'];
                 // return "<script>window.location.href = 'Landing.php'</script>";
                 return "Successful";
             }
@@ -112,6 +119,20 @@ class User
        move_uploaded_file($photo['tmp_name'],$upload_path);
        echo "Successful";
    }
+
+   public function getEventsUploaded($conn){
+       $sql="SELECT event_id,event_name,event_description,event_upload_path FROM event WHERE user_id=?";
+       $array=array($this->user_id);
+       $result=selectAllData($sql,$conn,$array);
+       return $result; 
+   }
+   public function getCraftsUploaded($conn){
+       $sql="SELECT art_id,art_type,art_caption,art_path FROM art WHERE user_id=?";
+       $array=array($this->user_id);
+       $result=selectAllData($sql,$conn,$array);
+       return $result; 
+    }
+
    public function logout(){
        session_unset();
        session_destroy();

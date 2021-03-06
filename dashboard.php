@@ -1,5 +1,13 @@
 <?php
 session_start();
+require "DBconnect.php";
+require "functions.php";
+require "Class/artist.php";
+$first_name=$_SESSION['first_name'];
+$last_name=$_SESSION['last_name'];
+$dbConnect= new DBconnect();
+$conn= $dbConnect->getConnection();
+$artist= new Artist($_SESSION['user_id'],$conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,9 +45,14 @@ session_start();
       </div>
 
       <div class="navbar__right">
-        <p>John Doe</p>
+        <p><?php echo $first_name." ".$last_name;?></p>
 
-        <img src=".idea\Pictures\profile.svg" alt="Avatar" class="avatar">
+        <img src="
+        <?php 
+            $src=($artist->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$artist->getProfilePicture();
+            echo $src;
+              ?>
+        " alt="Avatar" class="avatar">
 
         
       </div>
@@ -49,7 +62,7 @@ session_start();
 
 
       <div class="iframe">
-        <iframe src="landing.html" height="800" width="1110" name="frame"></iframe>
+        <iframe src="landing.php" height="800" width="1110" name="frame"></iframe>
       </div>
 
 
@@ -70,7 +83,7 @@ session_start();
       <div class="sidebar__menu">
         <div class="sidebar__link ">
           <i class="fa fa-home"></i>
-          <a id="myPage" href="landing.html" target="frame">My Page</a>
+          <a id="myPage" href="landing.php" target="frame">My Page</a>
         </div>
 
         <div class="sidebar__link">
