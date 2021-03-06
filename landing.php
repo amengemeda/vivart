@@ -17,6 +17,7 @@ $artist= new Artist($_SESSION['user_id'],$conn);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/landing.css" type="text/css" rel="stylesheet" />
+    <link href="css/editCraft.css" type="text/css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head> 
 <style>
@@ -183,6 +184,46 @@ $artist= new Artist($_SESSION['user_id'],$conn);
                     </div>
                     <div>
                         <button id='editEvent$eventId'>Edit</button>
+                         <div id='editModal' class='modal'>
+                        
+                            <div class='modal-content12'>
+                                <span class='closeEvent'>&times;</span>
+                                <br>
+                                <nav class='navbar12'>
+                                    <div class='logo'>
+                                        <img id='logo' src='.idea\Pictures\emoticon-square-smiling-face-with-closed-eyes.svg' alt='logo'>
+                                    </div>
+                        
+                                    <div class='navbar__right12'>
+                                        <p>John Doe</p>
+                        
+                                        <img src='.idea\Pictures\profile.svg' alt='Avatar' class='avatar1'>
+                        
+                        
+                                    </div>
+                                </nav>
+                                <br>
+                        
+                        
+                                <form id='eventEdit'>
+                                    <div class='in-content12'>
+                        
+                        
+                                        <div class='in-content-212'>
+                                            <h3>Change Name</h3>
+                                            <input type='text' id='name' name='Name'>
+                                            <h3>Change Photo</h3>
+                                            <input type='file' id='photo' name='photo'>
+                                            <h3>Change Caption</h3>
+                                            <input type='text' id='description' name='description'>
+                                            <br>
+                                            <button id='update'>Update</button>
+                                        </div>
+                                    </div>
+                                </form>
+                        
+                            </div>
+                        </div>
                         
                     </div>
                 </div>";
@@ -218,6 +259,44 @@ $artist= new Artist($_SESSION['user_id'],$conn);
                     </div>
                     <div>
                         <button id='editCraft$craft'>Edit</button>
+                        <div id='craftModal' class='modal'>
+                        
+                            <div class='modal-content1'>
+                                <span class='closeCraft'>&times;</span>
+                                <br>
+                                <nav class='navbar1'>
+                                    <div class='logo'>
+                                        <img id='logo' src='.idea\Pictures\emoticon-square-smiling-face-with-closed-eyes.svg' alt='logo'>
+                                    </div>
+                        
+                                    <div class='navbar__right1'>
+                                        <p>John Doe</p>
+                        
+                                        <img src='.idea\Pictures\profile.svg' alt='Avatar' class='avatar1'>
+                        
+                        
+                                    </div>
+                                </nav>
+                                <br>
+                        
+                        
+                                <form id='craftEdit'>
+                                    <div class='in-content1'>
+                        
+                        
+                                        <div class='in-content-21'>
+                                            <h3>Change Photo</h3>
+                                            <input type='file' id='photo' name='photo'>
+                                            <h3>Change Caption</h3>
+                                            <input type='text' id='description' name='description'>
+                                            <br>
+                                            <button id='update'>Update</button>
+                                        </div>
+                                    </div>
+                                </form>
+                        
+                            </div>
+                        </div>
                         
                     </div>
 

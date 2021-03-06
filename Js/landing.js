@@ -47,10 +47,48 @@ if (event.target == modal) {
 }
 
 
-//Redirect
-document.getElementById("editCraft").onclick = function () {
-location.href = "editCraft.html";
-};
+// For editing craft
+var modal1 = document.getElementById("craftModal");
+
+var btn1 = document.getElementById("editCraft");
+
+var span1 = document.getElementsByClassName("closeCraft")[0];
+
+btn1.onclick = function () {
+    modal1.style.display = "block";
+}
+
+span1.onclick = function () {
+    modal1.style.display = "none";
+}
+
+window.onclick = function (event) {
+    if (event.target == modal1) {
+        modal1.style.display = "none";
+    }
+}
+
+//For editing event
+var modal2 = document.getElementById("editModal");
+
+var btn2 = document.getElementById("editEvent");
+
+var span2 = document.getElementsByClassName("closeEvent")[0];
+
+btn2.onclick = function () {
+    modal2.style.display = "block";
+}
+
+span2.onclick = function () {
+    modal2.style.display = "none";
+}
+
+window.onclick = function (event) {
+    if (event.target == modal2) {
+        modal2.style.display = "none";
+    }
+}
+
 
 $(document).ready(function () {
 $("#profile_photo_upload").click(function (){
