@@ -99,6 +99,31 @@ $(document).ready(function () {
         } 
     });
 });
+
+$(document).ready(function(){
+    $("#addCraft").submit(function(event){
+        event.preventDefault();
+        clearMessageField();
+        let formdata = new FormData($(this)[0]);
+        formdata.append("type","addCraft");
+        $.ajax({
+            type: 'POST',
+            url: "Logic/logic2.php",
+            data: formdata,
+            processData: false, // jQuery does not process the sent data
+            contentType: false, // jQuery don't set the Content-Type request header
+            success: function(data){
+                if (data=="Successful") {
+                    $("#craftUpload_success").text("Craft uploaded Successfully");
+                } else {
+                   $("#craftUpload_error").text(data);
+                }
+            }
+        });
+    });
+});
+
+
 $(document).ready(function () {
     
     $("#logout").click(function () {

@@ -18,11 +18,19 @@ session_start();
 
     <article>
         <div class="body">
-        <form id="addPhoto" action="" method="POST">
+        <form id="addCraft" action="" method="POST">
         <h1>Craft</h1>
-        <h2>Add Photo</h2>
-        <input type="file" id="craft_photo" name="photo">
+        <h2>Add Craft</h2>
+        <input type="file" id="craft_photo" name="photo" accept="audio/* video/* image/*">
         <button type="button" id="craft_upload_file" >Choose File</button><br><br>
+        <h2>Select Craft Type</h2>
+        <select name="art_type" id="art_type">
+          <option value="Music" selected>Music</option>
+          <option value="Painting">Painting</option>
+          <option value="Drawing">Drawing</option>
+          <option value="Poem">Poem</option>
+        </select>
+        <br>
         <h2>Add Caption</h2>
         <textarea name="caption" id="caption" cols="30" rows="10"></textarea>
         <p class="error" id="craftUpload_error"></p>

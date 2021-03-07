@@ -63,6 +63,19 @@ function is_image($path)
 	return false;
 }
 
+function get_craft_type($a)
+{
+    if($a == "video"){
+        return "Video";
+    }else if($a == "audio"){
+        return "Audio";
+    }else if($a == "image"){
+        return "Image";
+    }else
+    {
+        return "Decline";
+    }
+}
 
 
 ?>
