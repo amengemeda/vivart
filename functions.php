@@ -12,7 +12,18 @@ function selectData($sql,$conn,$array){
         echo $e->getMessage();
     }
 }
-
+function selectAllData($sql,$conn,$array){
+    try {
+        $stmt=$conn->prepare($sql);
+        $stmt->execute($array);
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $result=$stmt->fetchAll();       
+        $stmt=null;
+        return $result;
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+}
 function insertData($sql,$conn,$array){
     try {
         $stmt=$conn->prepare($sql);
@@ -33,6 +44,23 @@ function checkEmail($conn,$email){
         return false;   
     }
 
+}
+function is_image($path)
+{
+	$a = getimagesize($path);
+    $image_type;
+    if(isset($a[2])){
+        $image_type = $a[2];
+    }else {
+        return false;
+    }
+	
+	
+	if(in_array($image_type , array(IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG , IMAGETYPE_BMP)))
+	{
+		return true;
+	}
+	return false;
 }
 
 

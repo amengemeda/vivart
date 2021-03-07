@@ -1,5 +1,5 @@
 /* The Modal (background) */
-.modal {
+#craftModal {
      /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -10,10 +10,11 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    display: none;
   }
   
   /* Modal Content/Box */
-  .modal-content {
+  .modal-content1 {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
@@ -23,29 +24,28 @@
   }
   
   /* The Close Button */
-  .close {
+  .closeCraft {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
   }
   
-  .close:hover,
-  .close:focus {
+  .closeCraft:hover,
+  .closeCraft:focus {
     color: #348DE6;
     text-decoration: none;
     cursor: pointer;
   }
-  .in-content{
+  .in-content1{
       display: flex;
       padding: 20px;
+      padding-left: 0;
       flex-wrap: wrap;
       justify-content: center;
   }
   
-  .in-content-2{
-    margin-left:10% ;
-  }
+
   h3{
       color: #707070;
       font-size: 14px;
@@ -53,16 +53,17 @@
   }
  
   #description{
-    width: 100%;
+    width: 93%;
     height: 20vh;
     outline: #348DE6;
     border: 1px solid #348DE6;
     color: #707070;
     font-size: 18px;
     margin-top: 3%;
+    margin-bottom: 5px;
   }
   #fName{
-    width: 100%;
+    width: 93%;
     height: 5vh;
     outline: #348DE6;
     border: 1px solid #348DE6;
@@ -104,7 +105,7 @@
     border: 1px solid #348DE6;
 }
 
-.navbar {
+.navbar1 {
     background: #ffffff;
     grid-area: nav;
     height: 60px;
@@ -115,25 +116,16 @@
     border-bottom: 1px solid lightgray;
     overflow: hidden;
    
-  }
+ }
   
-  .nav_icon {
-    display: none;
-  }
-  
-  .nav_icon > i {
-    font-size: 26px;
-    color: #a5aaad;
-  
-  }
-  
-  .navbar__right {
+  .navbar__right1 {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .navbar__right p {
+  .navbar__right1 p {
     color: #348DE6;
+    padding-right: 20px;
     font-size: 20px;
   }
   
@@ -145,11 +137,84 @@ width: 40px;
 color: white;
 }
 
-.avatar {
+.avatar1 {
     vertical-align: middle;
     width: 50px;
     height: 50px;
     border-radius: 50%;
   
    
+  }
+#editModal {
+     /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    display: none;
+  }
+  .closeEvent {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .closeEvent:hover,
+  .closeEvent:focus {
+    color: #348DE6;
+    text-decoration: none;
+    cursor: pointer;
+  }
+   #name{
+    width: 93%;
+    height: 5vh;
+    outline: #348DE6;
+    border: 1px solid #348DE6;
+    color: #707070;
+    font-size: 18px;
+    margin-top: 3%;
+}
+ .modal-content12 {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    margin-top: 1%;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+   .in-content12{
+      display: flex;
+      padding: 20px;
+      padding-left: 0;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+.navbar12 {
+    background: #ffffff;
+    grid-area: nav;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px 0 30px;
+    border-bottom: 1px solid lightgray;
+    overflow: hidden;
+   
+ }
+  
+  .navbar__right12 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .navbar__right12 p {
+    color: #348DE6;
+    padding-right: 20px;
+    font-size: 20px;
   }

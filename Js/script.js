@@ -70,7 +70,6 @@ $(document).ready(function () {
         let form=$("#addEvent")[0];
         let formData= new FormData(form);
         formData.append("type","addEvent");
-        console.log(formData.get("addEvent")); 
         let formEmpty= false;
         for(var value of formData.entries()){
             formEmpty= (value[1]=="" && value['name']!=null)? true:false;

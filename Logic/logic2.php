@@ -14,8 +14,34 @@ if(isset($_POST['type'])){
             $dbConnect= new DBconnect();
             $conn= $dbConnect->getConnection();
             if(!empty($event_name)&&!empty($photo['name'])&&!empty($description)){
-                $user= new User($_SESSION['user_id'],$conn);
+                $user= new Artist($_SESSION['user_id'],$conn);
                 $user->addEvent($conn,$event_name,$description,$photo);
+                
+            }else {
+                echo "All fields are required";
+            }
+            $dbConnect->closeConnection();
+            break;
+        case 'updateProfile':
+            $first_name=$_POST['first_name'];
+            $last_name=$_POST['last_name'];
+            $email=$_POST['email'];
+            $profile_photo=$_FILES['profile_photo'];
+            $description=$_POST['description'];
+            $talent=$_POST['talent'];
+            $dbConnect= new DBconnect();
+            $conn= $dbConnect->getConnection();
+            if(!empty($first_name)&&!empty($description)&&!empty($last_name)&&!empty($email)&&!empty($talent)){
+                if(empty($profile_photo['name'])){
+                    $profile_photo=null;
+                }
+                $user= new Artist();
+                $user->setFirstName($first_name);
+                $user->setLastName($last_name);
+                $user->setEmail($email);
+                $user->setTalent($talent);
+                $user->setDescription($description);
+                $user->updateProfile($conn,$profile_photo,$_SESSION['user_id']);
                 
             }else {
                 echo "All fields are required";
