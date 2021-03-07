@@ -67,6 +67,32 @@ class Artist extends User
 
     }
 
+
+    public function addCraft($conn, $craft_type, $craft_caption, $craft_file){
+        try{
+            $sql = "SELECT MAX(art_id) as last_Id FROM art";
+            $array = array();
+            $result = selectData($sql, $conn, $array);
+            $imageFileType = strtolower(pathinfo($craft_file['name'],PATHINFO_EXTENSION));
+            $array = explode( "/", $craft_file['type']);
+            $craft_folder = get_craft_type($array[0]);
+            if($craft_folder == "Decline"){
+                echo "Ensure your upload is an image/video/audio";
+            }else{
+                $craft_upload_path = $craft_folder."/craft".$this->user_id."_".$result['last_Id'].".".$imageFileType;
+                $sql = "INSERT INTO art (user_id,art_type,art_caption,art_path) VALUES(?,?,?,?)";
+                $array = array($this->user_id,$craft_type,$craft_caption,$craft_upload_path); 
+                insertData($sql,$conn,$array);
+                $upload_path="../".$craft_upload_path;
+                move_uploaded_file($craft_file['tmp_name'],$upload_path);
+                echo "Successful";
+            } 
+            
+        }catch(Exception $e){
+            throw $e;            
+        }
+    }
+
 }
 
 ?>

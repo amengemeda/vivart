@@ -253,12 +253,12 @@ $artist= new Artist($_SESSION['user_id'],$conn);
                       echo " 
                     </div>
                     <div>
-                        <p class='title'>Caft</p>
+                        <p class='title'>Craft</p>
                         <p class='craft_type'>$crafttType</p>
                         <p class='description'>$crafttCaption</p>
                     </div>
                     <div>
-                        <button id='editCraft$craft'>Edit</button>
+                        <button id='editCraft$crafttId'>Edit</button>
                         <div id='craftModal' class='modal'>
                         
                             <div class='modal-content1'>

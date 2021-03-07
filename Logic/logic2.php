@@ -22,6 +22,20 @@ if(isset($_POST['type'])){
             }
             $dbConnect->closeConnection();
             break;
+        case 'addCraft':
+            $art_type = $_POST['art_type'];
+            $craft_file = $_FILES['photo'];
+            $caption = $_POST['caption'];
+            $dbConnect = new DBconnect();
+            $conn = $dbConnect->getConnection();
+            if(!empty($art_type) && !empty($craft_file) && !empty($caption)){
+                $artist = new Artist($_SESSION['user_id'], $conn);
+                $artist->addCraft($conn, $art_type, $caption, $craft_file);
+            }else{
+                echo "All fields are required";
+            }
+            $dbConnect->closeConnection();
+            break;
         case 'updateProfile':
             $first_name=$_POST['first_name'];
             $last_name=$_POST['last_name'];
@@ -49,7 +63,7 @@ if(isset($_POST['type'])){
             $dbConnect->closeConnection();
             break;
         case 'logout':
-            $user= new User();
+            $user = new User();
             $user->logout();
             echo "logged out";
             break;
