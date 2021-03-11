@@ -24,7 +24,7 @@ session_start();
         <input type="file" id="craft_photo" name="photo" accept="audio/* video/* image/*">
         <button type="button" id="craft_upload_file" >Choose File</button><br><br>
         <h2>Enter Craft Type</h2>
-        <input type="text" name="art_type">
+        <input type="text" name="art_type" id="art_type">
         <br>
         <h2>Add Caption</h2>
         <textarea name="caption" id="caption" cols="30" rows="10"></textarea>
