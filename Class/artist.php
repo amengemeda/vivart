@@ -79,7 +79,7 @@ class Artist extends User
             if($craft_folder == "Decline"){
                 echo "Ensure your upload is an image/video/audio";
             }else{
-                $craft_upload_path = $craft_folder."/craft".$this->user_id."_".$result['last_Id'].".".$imageFileType;
+                $craft_upload_path = $craft_folder."/craft".$this->user_id.$result['last_Id'].".".$imageFileType;
                 $sql = "INSERT INTO art (user_id,art_type,art_caption,art_path) VALUES(?,?,?,?)";
                 $array = array($this->user_id,$craft_type,$craft_caption,$craft_upload_path); 
                 insertData($sql,$conn,$array);

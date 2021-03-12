@@ -333,6 +333,25 @@ p.success{
 img{
   background-size: cover ;
 }
-video{
+video,audio{
   margin: 0px;
+}
+.hidden{
+  display: none;
+}
+.body_div button.file_selector{
+  background-color:#348DE6 ;
+  color: #ffffff;
+  border: none;
+  height: 25px;
+  width: 70px;
+}
+
+.body_div button.file_selector:hover{
+cursor: pointer;
+background-color:#ffffff ;
+color: #348DE6;
+border: 1px solid #348DE6;
+height: 25px;
+width: 70px;
 }

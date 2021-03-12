@@ -158,16 +158,21 @@ $artist= new Artist($_SESSION['user_id'],$conn);
                     $eventName=$event['event_name'];
                     $eventDescription=$event['event_description'];
                     $eventUploadPath=$event['event_upload_path'];
-                   
+                    $filePathArray=explode("/",$eventUploadPath);
+                    $fileType=$filePathArray[0];
                     // $extension=explode(".",$eventUploadPath);
-                    $fileType=is_image($eventUploadPath)?"Image":"Video";
+                    // $fileType=is_image($eventUploadPath)?"Image":"Video";
                     echo "               
                      <div class='body_div'>
                     <div>";
                     if ($fileType=="Image") {
                         echo "<img 
                         id='img' class='img' src='$eventUploadPath' /> ";
-                    }else {
+                    }elseif ($fileType=="Audio") {
+                        echo "<audio class='Audio' width='240px' height='205px' controls>
+                        <source src='$eventUploadPath' type='audio/ogg'>
+                        </audio>";
+                    }elseif ($fileType=="Video") {
                         echo"
                         <video class='video' width='240px' height='205px' controls>
                         <source src='$eventUploadPath' >
@@ -183,7 +188,7 @@ $artist= new Artist($_SESSION['user_id'],$conn);
                         <p class='description'>$eventDescription</p>
                     </div>
                     <div>
-                        <button id='editEvent$eventId'>Edit</button>
+                        <button id='editEvent' onclick='editEvent($eventId)'>Edit</button>
                          <div id='editModal' class='modal'>
                         
                             <div class='modal-content12'>
@@ -211,13 +216,21 @@ $artist= new Artist($_SESSION['user_id'],$conn);
                         
                                         <div class='in-content-212'>
                                             <h3>Change Name</h3>
-                                            <input type='text' id='name' name='Name'>
+                                            <input type='text' id='event_name' name='event_name'>
                                             <h3>Change Photo</h3>
-                                            <input type='file' id='photo' name='photo'>
+                                            <input type='file' id='event_file' name='event_file'>
+                                            <button type='button' class='file_selector' onclick='changeEvent()'>Change</button>
                                             <h3>Change Caption</h3>
-                                            <input type='text' id='description' name='description'>
+                                            <input type='text' id='event_description' name='event_description'>
+                                            <input type='text' id='event_id' name='event_id'>
+                                            <br>
+                                            <p class='error' id='eventEdit_error'></p>
+                                            <p class='success' id='eventEdit_success'></p>
+                                            <br>
                                             <br>
                                             <button id='update'>Update</button>
+                                            <br>
+                                            <button type='button' id='event_delete' onclick='deleteEvent()'>Delete</button>
                                         </div>
                                     </div>
                                 </form>
@@ -230,19 +243,23 @@ $artist= new Artist($_SESSION['user_id'],$conn);
                 }
                 if(isset($craftResult[$i])){
                     $craft=$craftResult[$i];
-                    $crafttId=$craft['art_id'];
+                    $craftId=$craft['art_id'];
                     $crafttType=$craft['art_type'];
                     $crafttCaption=$craft['art_caption'];
                     $craftUploadPath=$craft['art_path'];
-
-                    $fileType=is_image($craftUploadPath)?"Image":"Video";
+                    $filePathArray=explode("/",$craftUploadPath);
+                    $fileType=$filePathArray[0];
                     echo "               
                      <div class='body_div'>
                     <div>";
                     if ($fileType=="Image") {
                         echo "<img 
                         id='img' class='img' src='$craftUploadPath' /> ";
-                    }else {
+                    }elseif ($fileType=="Audio") {
+                        echo "<audio class='Audio' width='240px' height='205px' controls>
+                        <source src='$craftUploadPath' type='audio/ogg'>
+                        </audio>";
+                    }elseif ($fileType=="Video"){
                         echo"
                         <video class='video' width='240px' height='205px' controls>
                         <source src='$craftUploadPath' >
@@ -258,7 +275,7 @@ $artist= new Artist($_SESSION['user_id'],$conn);
                         <p class='description'>$crafttCaption</p>
                     </div>
                     <div>
-                        <button id='editCraft$crafttId'>Edit</button>
+                        <button id='editCraft' onclick= editCraft($craftId)>Edit</button>
                         <div id='craftModal' class='modal'>
                         
                             <div class='modal-content1'>
@@ -285,12 +302,21 @@ $artist= new Artist($_SESSION['user_id'],$conn);
                         
                         
                                         <div class='in-content-21'>
+                                            <h3>Change Craft Type</h3>
+                                            <input type='text' id='craft_type' name='craft_type'>
                                             <h3>Change Photo</h3>
-                                            <input type='file' id='photo' name='photo'>
+                                            <input type='file' id='craft_file' name='craft_file'>
+                                            <button type='button' class='file_selector' onclick='changeCraft()'>Change</button>
                                             <h3>Change Caption</h3>
-                                            <input type='text' id='description' name='description'>
+                                            <input type='text' id='craft_description' name='craft_description'>
                                             <br>
+                                            <input type='text' id='craft_id' name='craft_id'>
+                                            <br>
+                                            <p class='error' id='craftEdit_error'></p>
+                                            <p class='success' id='craftEdit_success'></p>
                                             <button id='update'>Update</button>
+                                            <br>
+                                            <button type='button' id='craft_delete' onclick='craftDelete()'>Delete</button>
                                         </div>
                                     </div>
                                 </form>
@@ -318,7 +344,7 @@ $artist= new Artist($_SESSION['user_id'],$conn);
                         <p>A burger a day keeps the tummy awake</p>
                     </div>
                     <div>
-                        <button id="editCraft">Edit</button>
+                        <button class="editEvent" id="editCraft">Edit</button>
                         
                     </div>
 
