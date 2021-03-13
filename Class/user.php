@@ -106,18 +106,25 @@ class User
     insertData($sql,$conn,$array);
     echo "success";
 }
-   public function addEvent($conn,$event_name,$description,$photo){
+   public function addEvent($conn,$event_name,$description,$file){
        $sql1="SELECT MAX(event_id) as last_Id FROM event";
        $array= array();
        $result= selectData($sql1,$conn,$array);
-       $imageFileType = strtolower(pathinfo($photo['name'],PATHINFO_EXTENSION));
-       $event_upload_path="Image/event".$this->user_id.$result['last_Id'].".".$imageFileType;
-       $sql2="INSERT INTO event (user_id,event_name,event_description,event_upload_path) VALUES(?,?,?,?)";
-       $array2= array($this->user_id,$event_name,$description,$event_upload_path); 
-       insertData($sql2,$conn,$array2);
-      $upload_path="../".$event_upload_path;
-       move_uploaded_file($photo['tmp_name'],$upload_path);
-       echo "Successful";
+       $imageFileType = strtolower(pathinfo($file['name'],PATHINFO_EXTENSION));
+       $array = explode( "/", $file['type']);
+            $craft_folder = get_craft_type($array[0]);
+            if($craft_folder == "Decline"){
+                echo "Ensure your upload is an image/video/audio";
+            }else{
+                $event_upload_path="$craft_folder/event".$this->user_id.$result['last_Id'].".".$imageFileType;
+                $sql2="INSERT INTO event (user_id,event_name,event_description,event_upload_path) VALUES(?,?,?,?)";
+                $array2= array($this->user_id,$event_name,$description,$event_upload_path); 
+                insertData($sql2,$conn,$array2);
+                $upload_path="../".$event_upload_path;
+                move_uploaded_file($file['tmp_name'],$upload_path);
+                echo "Successful";
+            }
+       
    }
 
    public function getEventsUploaded($conn){

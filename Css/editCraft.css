@@ -52,7 +52,7 @@
       margin-top: 7%;
   }
  
-  #description{
+  #event_description,#craft_description{
     width: 93%;
     height: 20vh;
     outline: #348DE6;
@@ -171,7 +171,7 @@ color: white;
     text-decoration: none;
     cursor: pointer;
   }
-   #name{
+   #event_name,#craft_type{
     width: 93%;
     height: 5vh;
     outline: #348DE6;
@@ -218,3 +218,24 @@ color: white;
     padding-right: 20px;
     font-size: 20px;
   }
+  #event_id,#craft_id,#event_file,#craft_file{
+    display: none;
+  }
+  #craft_delete,#event_delete{
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+    background-color: #e63434;
+    height: 30px;
+    width: 80px;
+    border: none;
+    margin-top: 20px;
+    border-radius: 17px;
+}
+#craft_delete:hover,#event_delete:hover{
+    color: #348DE6;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 1px solid #348DE6;
+    
+}
