@@ -3,11 +3,11 @@ session_start();
 require "DBconnect.php";
 require "functions.php";
 require "Class/artist.php";
-$first_name=$_SESSION['first_name'];
-$last_name=$_SESSION['last_name'];
 $dbConnect= new DBconnect();
 $conn= $dbConnect->getConnection();
 $artist= new Artist($_SESSION['user_id'],$conn);
+$first_name = $artist->getFirstName();
+$last_name = $artist->getLastName();
 ?>
 <!DOCTYPE html>
 <html lang="en">
