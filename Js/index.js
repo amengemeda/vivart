@@ -12,7 +12,7 @@
     };
 
     document.getElementById("artist").onclick = function () {
-      location.href = "SignIn_&_Login.html";
+      location.href = "SignIn_&_Login.php";
     };
 
     document.getElementById("addTalent").onclick = function () {
