@@ -8,9 +8,8 @@
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
   <link href="css/index.css" type="text/css" rel="stylesheet" />
-  <link 
-  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
-  rel="stylesheet"  type='text/css'>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
+    type='text/css'>
   <title>Home</title>
 </head>
 
@@ -20,17 +19,29 @@
     <div class="brand-title"><img src=".idea\Pictures\emoticon-square-smiling-face-with-closed-eyes.svg" alt=""></div>
 
     <ul class="nav-links">
-     
-      
-      <form class="search_form" action="">
-        <div class="search">
-            <button class="button_search" type="submit"><i class="fa fa-search" name="search"></i></button>
-            <input class="input" type="search"  placeholder="Search...">
+
+
+
+      <li><button id="sign">Sign Up</button>
+        <div id="myModal" class="modal">
+
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>Select User Type:</h1>
+            <br>
+            <br>
+
+
+            <div class="in-content">
+
+              <button id="recruitor">Recruitor</button>
+              <button id="artist">Artist</button>
+            </div>
+
+
+          </div>
         </div>
-    </form>
-    
-      <div class="vl"></div>
-      <li><button id="sign">Sign Up</button></li>
+      </li>
       <div class="vl"></div>
       <li><button id="log">Login</button></li>
     </ul>
@@ -58,7 +69,7 @@
     <div class="m-b4">
       <p>EXPLORE :</p>
 
-      <button id="findEvents" >Find Events/Gigs</button>
+      <button id="findEvents">Find Events/Gigs</button>
       <button id="findArtists"> Find Artists</button>
 
     </div>
@@ -79,11 +90,11 @@
       </div>
       <br>
       <div class="Talents1">
-      <input type="button" name=" talent" id="talent" value="Graffiti">
-      <input type="button" name=" talent" id="talent" value="Singers">
-      <input type="button" name=" talent" id="talent" value="Singers">
+        <input type="button" name=" talent" id="talent" value="Graffiti">
+        <input type="button" name=" talent" id="talent" value="Singers">
+        <input type="button" name=" talent" id="talent" value="Singers">
+      </div>
     </div>
-  </div>
 
 
 
@@ -117,21 +128,23 @@
 
     </div>
     <div class="footer-center">
-      <div><p>EXPLORE</p></div>
+      <div>
+        <p>EXPLORE</p>
+      </div>
       <br>
 
       <div>
-        
 
-        <a id="loc"  href="#findEvents">Find Events/Gigs</a>
+
+        <a id="loc" href="#findEvents">Find Events/Gigs</a>
       </div>
-<br><br>
+      <br><br>
       <div>
-        
+
         <a id="loc" href="#findArtists">Find Artists </a>
       </div>
 
-     
+
 
     </div>
     <div class="bottomfooter">
@@ -142,30 +155,7 @@
 
   </footer>
 
-
-
-  <script>
- //Redirect
-document.getElementById("findEvents").onclick = function () {
-    location.href = "findEvent.html";
-};
-
-document.getElementById("findArtists").onclick = function () {
-    location.href = "findArtist.html";
-};
-
-document.getElementById("sign").onclick = function () {
-    location.href = "SignIn_&_Login.php";
-};
-
-document.getElementById("log").onclick = function () {
-    location.href = "SignIn_&_Login.php";
-};
-
-document.getElementById("addTalent").onclick = function () {
-    location.href = "SignIn_&_Login.php";
-};
-</script>
+  <script src="Js/index.js"></script>
 </body>
 
 </html>
