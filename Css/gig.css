@@ -1,0 +1,112 @@
+*{
+    font-family: 'Segoe UI', sans-serif;
+}
+html{
+    width: 100%;
+    background-color: white;
+}
+article{
+    padding: 30px;
+    display: flex;
+}
+article h1{
+    font-size: 40px;
+    color: #707070;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+}
+article h2{
+    font-size: 22px;
+    color: #707070;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+}
+#caption{
+    width: 80%;
+    height: 20vh;
+    outline: #404;
+    border: 1px solid #40e2a4;
+    color: #707070;
+    font-size: 18px;
+
+}
+#upload{
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+    background-color: #40e2a4;
+    height: 30px;
+    width: 80px;
+    border: none;
+}
+#upload:hover{
+    color: #40e2a4;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 1px solid #40e2a4;
+}
+.body{
+    width: 30%;
+    margin-right: 10%;
+}
+#svg{
+    fill: #40e2a4;
+    border: none;
+    display: flex;
+}
+#svg-1{
+    margin-top: 60px;
+    margin-right:20px ;
+}
+
+#center{
+    margin-top: 160px;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+#center-1{
+    margin-left: 40px;
+    margin-top: 100px;
+}
+#center-2{
+    margin-left: 10px;
+    margin-top: 100px;
+}
+#name{
+    width: 80%;
+    outline: #40e2a4;
+    border: 1px solid #40e2a4;
+    color: #707070;
+    font-size: 18px;
+
+}
+#event_upload_file:hover,#gig_upload_file:hover{
+    color: #40e2a4;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 1px solid#40e2a4;
+}
+#gig_photo,#eventPhoto{
+    display: none;
+}
+#art_type{
+    width: 80%;
+    height: 8%;
+    outline: #40e2a4;
+    border: 1px solid #40e2a4;
+    color: #707070;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+#gig_upload_file,#event_upload_file{
+    background-color: #40e2a4;
+    border: none;
+    outline: none;
+    color: white;
+    height: 4vh;
+    
+}
+
+

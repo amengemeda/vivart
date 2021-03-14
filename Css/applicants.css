@@ -1,0 +1,93 @@
+/*  styling scrollbars  */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #a5aaad;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #40e2a4;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a5aaad;
+  }
+.div_nav{
+    height: 50px;
+}
+
+
+
+.wrapper{
+  margin-top: 30px;
+  padding-left: 20px;
+  display: inline-block;
+}
+
+.profile{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #000;
+    height: 100px;
+    width: 500px;
+    margin: 10px;
+    border-color: #40e2a4;
+}
+.profile_img{
+    width: 30%;
+}
+
+.img{
+    border-radius: 100px;
+    height: 80%;
+    width: 90%;
+    padding: 10%;
+}
+.profile_content{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+}
+.profile_name{
+    color: gray;
+    font-weight: 700;
+    font-size: 20px;
+    justify-content: center;
+    text-align: left;
+    height: 30%;
+    margin-bottom: 2px;
+}
+.profile_info{
+    padding-right: 3px;
+    color: rgb(94, 91, 91);
+    font-size: 18px;
+    
+}
+.profile:hover{
+    cursor: pointer;
+    
+}
+#logo{
+    width: 40px;
+}
+.approval{
+    background-color: #40e2a4;
+    border: none;
+    color: white;
+    outline: none;
+    height: 30%;
+    margin-top: 50%;
+}
+.approval:hover{
+    background-color: white;
+    border: 1px solid #40e2a4;
+    color: #40e2a4;
+    outline: none;
+    cursor: pointer;
+}
+
