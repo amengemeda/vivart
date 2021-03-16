@@ -66,5 +66,7 @@
         modal.style.display = "none";
       }
     }
+   function findArtist(element) {
+    location.href="findArtist.php?search="+element.value;
+   }
   
-   
