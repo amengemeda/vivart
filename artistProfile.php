@@ -24,6 +24,8 @@ $profile_picture=$artist->getProfilePicture();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/landing.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head> 
 <style>
@@ -46,7 +48,9 @@ $profile_picture=$artist->getProfilePicture();
                      <p><?php echo $description;?></p>
                 </div>
                 <br>
-                 
+                  <div id="back" class="back">
+                <i id="back" title="Go Back" class="fa fa-arrow-left"></i>
+            </div>
             </div>
            
 
@@ -201,18 +205,7 @@ $profile_picture=$artist->getProfilePicture();
     </section>
 
 
-    <script> 
-        $(document).ready(function () {
-        var small={width: "240px",height: "205px"};
-        var large={width: "400px",height: "382px"};
-        var count=2; 
-        $("#img").css(small).on('click',function () { 
-            $(this).animate((count==2)?large:small);
-            count = 2-count;
-        });
-    });
-
-      </script>
+    <script src="js/artistProfile.js"></script>
       
 </body>
 
