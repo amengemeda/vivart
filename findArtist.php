@@ -34,38 +34,16 @@ require "DBconnect.php";
             $connection= new DBConnect();
             $conn= $connection->getConnection();
             if (isset($_GET["search"])) {
-                if ($_GET["search"]=="all") {
-                    $result=getArtists($conn,'all'); 
-                    foreach ($result as $row) {
-                        $full_name= $row['first_name']." ".$row['last_name'];
-                        $profile_photo_path=$row['profile_photo'];
-                        $description=$row['description'];
-                        echo "
-                            <div class='profile'>
-                                <div class='profile_img'>
-                                    <img class='img' src='$profile_photo_path' alt='Profile_photo'>
-                                </div>
-                                <div class='profile_content'>
-                                    <span class='profile_name'>
-                                        <p>$full_name</p>
-                                    </span>
-                                    <span class='profile_info'>
-                                        <p>$description</p>
-                                    </span>
-                                </div>
-                
-                            </div>
-                        ";
-                    }
-                }else {
+              
                     $search=$_GET["search"];
                     $result=getArtists($conn,$search); 
                     foreach ($result as $row) {
                         $full_name= $row['first_name']." ".$row['last_name'];
                         $profile_photo_path=$row['profile_photo'];
                         $description=$row['description'];
+                        $user_id=$row['user_id'];
                         echo "
-                            <div class='profile'>
+                            <div class='profile' onclick='checkProfile($user_id)'>
                                 <div class='profile_img'>
                                     <img class='img' src='$profile_photo_path' alt='Profile_photo'>
                                 </div>
@@ -82,7 +60,6 @@ require "DBconnect.php";
                         ";
                     }
  
-                }
             }
             $connection->closeConnection();
             ?>

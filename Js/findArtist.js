@@ -6,6 +6,9 @@ document.getElementById("button_search").onclick=function() {
       location.href="findArtist.php?search=all";
     }
   }
+  function checkProfile(userId) {
+    window.location.href="artistProfile.php?profile_id="+userId;
+  }
   // $(document).ready(function() {
   //   $("#search_form").submit(function (event) {
   //     event.preventDefault();

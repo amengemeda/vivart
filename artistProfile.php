@@ -1,3 +1,21 @@
+<?php
+require "functions.php";
+require "DBconnect.php";
+require "Class/artist.php";
+$user_id;
+if (isset($_GET['profile_id'])) {
+    $user_id=$_GET['profile_id'];
+}else {
+    echo "<script>alert('Select an artist first');</script>";
+    header("Location: findArtist.php?search=all");
+}
+$connection= new DBConnect();
+$conn= $connection->getConnection();
+$artist= new Artist($user_id,$conn);
+$description= $artist->getDescription();
+$full_name= $artist->getFirstName()." ".$artist->getLastName();
+$profile_picture=$artist->getProfilePicture();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,15 +35,15 @@
 
         <article>
             <div class="profile">
-                <img src=".idea\Pictures\man.jpeg" alt="man">
+                <img src="<?php echo $profile_picture;?>" alt="man">
                 <div class="profile-1">
                     <div class="profile-2">
-                    <h1>John Doe</h1>
+                    <h1><?php echo $full_name;?></h1>
                     
                     </div>
 
                                  
-                     <p>A young enthusiastic kenyan-born musician with the biggest passion for photos</p>
+                     <p><?php echo $description;?></p>
                 </div>
                 <br>
                  
@@ -35,6 +53,45 @@
 
 
             <div class="body">
+                <?php
+              
+                
+                    $craftResult=getCraftsUploaded($conn,$user_id);
+                  foreach ($craftResult as $row) {
+                    $craftId=$row['art_id'];
+                    $crafttType=$row['art_type'];
+                    $crafttCaption=$row['art_caption'];
+                    $craftUploadPath=$row['art_path'];
+                    $filePathArray=explode("/",$craftUploadPath);
+                    $fileType=$filePathArray[0];
+                    echo "               
+                    <div class='body_div'>
+                    <div>";
+                   if ($fileType=="Image") {
+                       echo "<img 
+                       id='img' class='img' src='$craftUploadPath' /> ";
+                   }elseif ($fileType=="Audio") {
+                       echo "<audio class='Audio' width='240px' height='205px' controls>
+                       <source src='$craftUploadPath' type='audio/ogg'>
+                       </audio>";
+                   }elseif ($fileType=="Video"){
+                       echo"
+                       <video class='video' width='240px' height='205px' controls>
+                       <source src='$craftUploadPath' >
+                       Your browser does not support the video tag.
+                     </video>
+                     ";
+                   }
+                   echo " 
+                   </div>
+                   <div>
+                       <p class='description'>$crafttCaption</p>
+                   </div>
+                   <div>";
+                  }
+                
+                $connection->closeConnection();
+                ?>
                 <div class="body_div">
                     <div>
                         <img 
