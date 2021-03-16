@@ -1,3 +1,7 @@
+document.getElementById("logo").onclick = function () {
+      location.href = "index.html";
+    };
+    
 document.getElementById("button_search").onclick=function() {
     let search= document.querySelector("input[name = 'search']").value;
     if (search!="") {

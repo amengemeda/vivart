@@ -15,7 +15,7 @@ require "DBconnect.php";
             <nav  class="nav">
                 <div class="logo">
                     
-                   <img id="logo"src=".idea\Pictures\emoticon-square-smiling-face-with-closed-eyes.svg" alt="LOGO"> 
+                   <img id="logo" title="Go Back" src=".idea\Pictures\emoticon-square-smiling-face-with-closed-eyes.svg" alt="LOGO"> 
                 </div>
                 
                 <form class="search_form" id="search_form" method="get">
