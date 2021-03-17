@@ -355,3 +355,13 @@ border: 1px solid #348DE6;
 height: 25px;
 width: 70px;
 }
+
+.back{
+  color: #348DE6;
+  font-size: 30px;
+  margin-left:32% ;
+}
+.back:hover{
+  color: #6ca6e0;
+  cursor: pointer;
+} 

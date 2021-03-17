@@ -57,7 +57,7 @@
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
-                    <img                     <img id="emoji" src=".idea\Pictures\round-account-button-with-user-inside.svg" alt="Avatar">
+                       <img id="emoji" src=".idea\Pictures\round-account-button-with-user-inside.svg" alt="Avatar">
 
                     <br>
                     <h1>Hello, Friend!</h1>

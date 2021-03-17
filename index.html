@@ -70,29 +70,40 @@
       <p>EXPLORE :</p>
 
       <button id="findEvents">Find Events/Gigs</button>
-      <button id="findArtists"> Find Artists</button>
+      <button id="findArtists" onclick="findArtists()"> Find Artists</button>
 
     </div>
     <div class="m-b5">
       <p>OUR TALENTS</p>
       <div class="Talents">
-        <input type="button" name=" talent" id="talent" value="Musicians">
-        <input type="button" name=" talent" id="talent" value="Photographers">
-        <input type="button" name=" talent" id="talent" value="Painters">
-        <input type="button" name=" talent" id="talent" value="Song-writing">
+        <button type="button" class="talent" value="Musician" onclick="findArtist(this)">Musicians</button>
+        <button type="button" class="talent" value="Photographer" onclick="findArtist(this)">Photographers</button>
+        <button type="button" class="talent" value="Painter" onclick="findArtist(this)">Painters</button>
+        <button type="button" class="talent" value="Song-writer" onclick="findArtist(this)">Song-writing</button>
+        <!-- <input type="button" name=" talent" id="talent" value="">
+        <input type="button" name=" talent" id="talent" value="">
+        <input type="button" name=" talent" id="talent" value="">
+        <input type="button" name=" talent" id="talent" value=""> -->
       </div>
       <br>
       <div class="Talents">
-        <input type="button" name=" talent" id="talent" value="Designers">
-        <input type="button" name=" talent" id="talent" value="Writers">
-        <input type="button" name=" talent" id="talent" value="Acting">
-        <input type="button" name=" talent" id="talent" value="Poets">
+        <button type="button" class="talent" value="Designer" onclick="findArtist(this)">Designers</button>
+        <button type="button" class="talent" value="Writers" onclick="findArtist(this)">Writers</button>
+        <button type="button" class="talent" value="Acting" onclick="findArtist(this)">Acting</button>
+        <button type="button" class="talent" value="Poet" onclick="findArtist(this)">Poets</button>
+        <!-- <input type="button" name=" talent" id="talent" value="">
+        <input type="button" name=" talent" id="talent" value="">
+        <input type="button" name=" talent" id="talent" value=""> -->
       </div>
       <br>
       <div class="Talents1">
-        <input type="button" name=" talent" id="talent" value="Graffiti">
-        <input type="button" name=" talent" id="talent" value="Singers">
-        <input type="button" name=" talent" id="talent" value="Singers">
+        <button type="button" class="talent" value="Graffiti" onclick="findArtist(this)">Graffiti</button>
+        <button type="button" class="talent" value="Singer" onclick="findArtist(this)">Singers</button>
+        <button type="button" class="talent" value="Singers" onclick="findArtist(this)">Singers</button>
+
+        <!-- <input type="button" name=" talent" id="talent" value="">
+        <input type="button" name=" talent" id="talent" value="">
+        <input type="button" name=" talent" id="talent" value="Singers"> -->
       </div>
     </div>
 

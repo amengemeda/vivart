@@ -4,7 +4,7 @@
     };
 
     document.getElementById("findArtists").onclick = function () {
-      location.href = "findArtist.html";
+      location.href = "findArtist.php?search=all";
     };
 
     document.getElementById("recruitor").onclick = function () {
@@ -12,7 +12,7 @@
     };
 
     document.getElementById("artist").onclick = function () {
-      location.href = "SignIn_&_Login.html";
+      location.href = "SignIn_&_Login.php";
     };
 
     document.getElementById("addTalent").onclick = function () {
@@ -45,24 +45,28 @@
       }
     }
 
-    var modal = document.getElementById("myModal");
+  var modal = document.getElementById("myModal");
 
-      var btn1 = document.getElementById("log");
+    var btn1 = document.getElementById("log");
 
-      var span = document.getElementsByClassName("close")[0];
+    var span = document.getElementsByClassName("close")[0];
 
-      btn1.onclick = function () {
-        modal.style.display = "block";
+    btn1.onclick = function () {
+      modal.style.display = "block";
 
-      }
+    }
 
 
-      span.onclick = function () {
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      if (event.target == modal) {
         modal.style.display = "none";
       }
-
-      window.onclick = function (event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
+    }
+   function findArtist(element) {
+    location.href="findArtist.php?search="+element.value;
+   }
+  

@@ -96,6 +96,9 @@ main {
   width: 40px;
   color: white;
 }
+#logo:hover{
+  cursor: pointer;
+}
 .avatar {
   vertical-align: middle;
   width: 50px;

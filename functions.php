@@ -73,6 +73,28 @@ function get_event_type($a)
         return "Decline";
     }
 }
+function getArtists($conn,$search)
+{
+    if ($search=="all") {
+        $sql="SELECT user_id,first_name,last_name, description,profile_photo FROM user WHERE user_type=?";
+        $array=array("Artist");
+        $result=selectAllData($sql,$conn,$array);
+        return $result; 
+    }else {
+        $sql="SELECT user.user_id,user.first_name,user.last_name, user.description,user.profile_photo FROM user NATURAL JOIN artist WHERE user.user_type=? AND artist.talent LIKE ?";
+        $query="%$search%";
+        $array=array("Artist",$query);
+        $result=selectAllData($sql,$conn,$array);
+        return $result; 
+    }
+}
+ function getCraftsUploaded($conn,$user_id){
+    $sql="SELECT art_id,art_type,art_caption,art_path FROM art WHERE user_id=?";
+    $array=array($user_id);
+    $result=selectAllData($sql,$conn,$array);
+    return $result; 
+ }
+
 
 
 ?>

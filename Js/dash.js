@@ -17,6 +17,14 @@ function closeSidebar() {
     sidebarOpen = false;
   }
 }
+
+document.getElementById("logo").onclick = function () {
+      location.href = "index.html";
+    };
+document.getElementClassName("logo").onclick = function () {
+      location.href = "index.html";
+    };
+
 $(document).ready(function () {
   $("#event_upload_file").click(function (){
   console.log("called");

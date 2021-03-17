@@ -32,7 +32,7 @@ $last_name = $artist->getLastName();
         <i class="fa fa-bars" aria-hidden="true"></i>
       </div>
       <div class="logo">
-        <img id="logo" src=".idea\Pictures\emoticon-square-smiling-face-with-closed-eyes.svg" alt="logo">
+        <img id="logo" title="Go Back" src=".idea\Pictures\emoticon-square-smiling-face-with-closed-eyes.svg" alt="logo">
       </div>
       <div class="navbar__left">
         <form class="search_form" action="">

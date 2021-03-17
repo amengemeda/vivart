@@ -29,6 +29,9 @@
 .logo{
     margin-left: 50px;
 }
+.logo:hover{
+    cursor:pointer;
+}
 .search{
     border: 1px solid #348DE6;
     border-radius: 20px;

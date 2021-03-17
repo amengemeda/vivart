@@ -193,6 +193,9 @@ main {
   font-size: 22px;
   color: #40e2a4;
 }
+.logo:hover{
+  cursor: pointer;
+}
 .sidebar__title {
   display: flex;
   justify-content: space-between;
