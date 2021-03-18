@@ -17,13 +17,18 @@ function closeSidebar() {
     sidebarOpen = false;
   }
 }
+if (document.getElementById("logo")!=null) {
+  document.getElementById("logo").onclick = function () {
+    location.href = "index.html";
+  };
+}
+if (document.getElementsByClassName("logo")[0]!=null) {
+  document.getElementsByClassName("logo")[0].onclick = function () {
+    location.href = "index.html";
+  };
+}
+    
 
-document.getElementById("logo").onclick = function () {
-      location.href = "index.html";
-    };
-document.getElementClassName("logo").onclick = function () {
-      location.href = "index.html";
-    };
 
 $(document).ready(function () {
   $("#event_upload_file").click(function (){
