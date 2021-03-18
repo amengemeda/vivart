@@ -45,8 +45,8 @@
                 </div>
                 <span>or use your account</span>
                 <label>
-                    <input type="recruitor_email" placeholder="Email" />
-                    <input type="recruitor_password" placeholder="Password" />
+                    <input type="Email" name="recruitor_email" placeholder="Email" />
+                    <input type="password" name="recruitor_password" placeholder="Password" />
                 </label>
                 <p class="error" id="log_error"></p>
                 <p class="success" id="log_success"></p>

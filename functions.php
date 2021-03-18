@@ -88,6 +88,9 @@ function getArtists($conn,$search)
         return $result; 
     }
 }
+
+
+
  function getCraftsUploaded($conn,$user_id){
     $sql="SELECT art_id,art_type,art_caption,art_path FROM art WHERE user_id=?";
     $array=array($user_id);

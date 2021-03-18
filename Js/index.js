@@ -7,8 +7,12 @@
       location.href = "findArtist.php?search=all";
     };
 
+    document.getElementById("Recruitor").onclick = function () {
+      location.href = "r_SignIn_&_Login.php";
+    };
+
     document.getElementById("recruitor").onclick = function () {
-      location.href = "recruitorRegister_Login.html";
+      location.href = "r_SignIn_&_Login.php";
     };
 
     document.getElementById("artist").onclick = function () {
@@ -16,7 +20,7 @@
     };
 
     document.getElementById("addTalent").onclick = function () {
-      location.href = "SignIn_&_Login.html";
+      location.href = "SignIn_&_Login.php";
     };
 
 
@@ -66,5 +70,7 @@
         modal.style.display = "none";
       }
     }
+   function findArtist(element) {
+    location.href="findArtist.php?search="+element.value;
+   }
   
-   

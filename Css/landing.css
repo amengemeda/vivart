@@ -357,9 +357,10 @@ width: 70px;
 }
 
 .back{
+  position: absolute;
   color: #348DE6;
   font-size: 30px;
-  margin-left:32% ;
+  right:10% ;
 }
 .back:hover{
   color: #6ca6e0;
