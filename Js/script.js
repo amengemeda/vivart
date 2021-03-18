@@ -69,7 +69,7 @@ $(document).ready(function () {
         clearMessageField();
         var email = $("input[name = 'recruitor_email']").val();
         var password = $("input[name = 'recruitor_password']").val();
-        var type = "login";
+        var type = "r_login";
         $.post("Logic/logic.php", {
             email: email,
             password: password,
@@ -77,7 +77,7 @@ $(document).ready(function () {
         },
         function (data, status) {
             if (data=="Successful") {
-                window.location.href="dashboard.php";
+                window.location.href="r_dashboard.php";
                 $(".success").text(data);
             } else {
                 $(".error").text(data);
@@ -92,7 +92,8 @@ $(document).ready(function () {
         clearMessageField();
         let form=$("#rFormRegister")[0];
         let formData= new FormData(form);
-        formData.append("type","register");
+        formData.append("type","r_register");
+        console.log("called");
         let formEmpty= false;
         for(var value of formData.entries()){
             formEmpty= (value[1]=="")? true:false;
@@ -107,9 +108,9 @@ $(document).ready(function () {
                 type: 'POST',
                 success: function(data){
                     if (data=="success") {
-                        $(".success").text("Account Created Successfully");
+                        $("#r_reg_success").text("Account Created Successfully");
                     } else {
-                        $(".error").text(data);
+                        $("#r_reg_error").text(data);
                     }
                 },
                 error: function (e) {

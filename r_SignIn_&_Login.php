@@ -14,7 +14,7 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form id="rFormRegister" action="#">
+            <form id="rFormRegister" action="">
                 <h1 id="title">Create Account</h1>
                 <div class="social-container">
                     <a href=".idea/Pictures/facebook-f-brands.svg" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -29,7 +29,8 @@
                     <input name="password" type="password" placeholder="Password" />
                     <input name="conf_password" placeholder="Confirm Password" type="password" />
                 </label>
-
+                <p class="error" id="r_reg_error"></p>
+                <p class="success" id="r_reg_success"></p>
                 <button type="submit">Sign Up</button>
                 <p id="Message" style='color:red; margin-left: 39px;'></p>
             </form>
