@@ -84,7 +84,7 @@ class Craft
         }
         
     }
-    public function deleteEvent($conn)
+    public function deleteCraft($conn)
     {
         try{
             $sql="DELETE FROM art WHERE art_id=?";

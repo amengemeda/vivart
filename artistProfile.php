@@ -43,59 +43,60 @@ $profile_picture=$artist->getProfilePicture();
                     <h1><?php echo $full_name;?></h1>
                     
                     </div>
-
-                                 
+                              
                      <p><?php echo $description;?></p>
                 </div>
                 <br>
                   <div id="back" class="back">
-                <i id="back" title="Go Back" class="fa fa-arrow-left"></i>
-            </div>
+                <i id="back_arrow" title="Go Back" class="fa fa-arrow-left"></i>  
+                </div>
             </div>
            
 
 
 
             <div class="body">
-                <?php
-              
-                
-                    $craftResult=getCraftsUploaded($conn,$user_id);
-                  foreach ($craftResult as $row) {
-                    $craftId=$row['art_id'];
-                    $crafttType=$row['art_type'];
-                    $crafttCaption=$row['art_caption'];
-                    $craftUploadPath=$row['art_path'];
-                    $filePathArray=explode("/",$craftUploadPath);
-                    $fileType=$filePathArray[0];
-                    echo "               
-                    <div class='body_div'>
+            <?php
+
+                $craftResult=getCraftsUploaded($conn,$user_id);
+                foreach ($craftResult as $row) {
+                $craftId=$row['art_id'];
+                $crafttType=$row['art_type'];
+                $crafttCaption=$row['art_caption'];
+                $craftUploadPath=$row['art_path'];
+                $filePathArray=explode("/",$craftUploadPath);
+                $fileType=$filePathArray[0];
+                echo "               
+                <div class='body_div'>
                     <div>";
-                   if ($fileType=="Image") {
-                       echo "<img 
-                       id='img' class='img' src='$craftUploadPath' /> ";
-                   }elseif ($fileType=="Audio") {
-                       echo "<audio class='Audio' width='240px' height='205px' controls>
-                       <source src='$craftUploadPath' type='audio/ogg'>
-                       </audio>";
-                   }elseif ($fileType=="Video"){
-                       echo"
-                       <video class='video' width='240px' height='205px' controls>
-                       <source src='$craftUploadPath' >
-                       Your browser does not support the video tag.
-                     </video>
-                     ";
-                   }
-                   echo " 
-                   </div>
-                   <div>
-                       <p class='description'>$crafttCaption</p>
-                   </div>
-                   <div>";
-                  }
-                
+                        if ($fileType=="Image") {
+                        echo "<img 
+                        id='img' class='img' width='240px' height='205px' src='$craftUploadPath' /> ";
+                        }elseif ($fileType=="Audio") {
+                        echo "
+                        <audio class='Audio' width='240px' height='205px' controls>
+                            <source src='$craftUploadPath' type='audio/ogg'>
+                        </audio>";
+                        }elseif ($fileType=="Video"){
+                        echo"
+                        <video class='video' width='240px' height='205px' controls>
+                            <source src='$craftUploadPath' >
+                            Your browser does not support the video tag.
+                        </video>
+                        ";
+                        }
+                echo " 
+                    </div>
+                    <div>
+                    <p class='description'>$crafttCaption</p>
+                    </div>
+                </div>";
+                }
+
                 $connection->closeConnection();
                 ?>
+          
+<!-- 
                 <div class="body_div">
                     <div>
                         <img 
@@ -106,95 +107,7 @@ $profile_picture=$artist->getProfilePicture();
                     </div>
                     
 
-                </div>
-
-                <div class="body_div">
-                    <div>
-                        <img 
-                        id="img"class="img" src=".idea\Pictures\burger.jpg" />
-                    </div>
-                    <div>
-                        <p>A burger a day keeps the tummy awake</p>
-                    </div>
-                    
-
-                </div>
-
-                <div class="body_div">
-                    <div>
-                        <img class="img" id="img" src=".idea\Pictures\burger.jpg" />
-                    </div>
-                    <div>
-                        <p>A burger a day keeps the tummy awake</p>
-                    </div>
-                    
-
-                </div>
-
-                <div class="body_div">
-                    <div>
-                        <img class="img" id="img" src=".idea\Pictures\burger.jpg" />
-                    </div>
-                    <div>
-                        <p>A burger a day keeps the tummy awake</p>
-                    </div>
-                    
-
-                </div>
-
-                <div class="body_div">
-                    <div>
-                        <img class="img" id="img" src=".idea\Pictures\burger.jpg" />
-                    </div>
-                    <div>
-                        <p>A burger a day keeps the tummy awake</p>
-                    </div>
-                   
-
-                </div>
-                <div class="body_div">
-                    <div>
-                        <img class="img" id="img" src=".idea\Pictures\burger.jpg" />
-                    </div>
-                    <div>
-                        <p>A burger a day keeps the tummy awake</p>
-                    </div>
-                   
-
-                </div>
-                <div class="body_div">
-                    <div>
-                        <img 
-                        id="img"class="img" src=".idea\Pictures\burger.jpg" />
-                    </div>
-                    <div>
-                        <p>A burger a day keeps the tummy awake</p>
-                    </div>
-                   
-
-                </div>
-                <div class="body_div">
-                    <div>
-                        <img 
-                        id="img"class="img" src=".idea\Pictures\burger.jpg" />
-                    </div>
-                    <div>
-                        <p>A burger a day keeps the tummy awake</p>
-                    </div>
-                    
-
-                </div>
-                <div class="body_div">
-                    <div>
-                        <img 
-                        id="img"class="img" src=".idea\Pictures\burger.jpg" />
-                    </div>
-                    <div>
-                        <p>A burger a day keeps the tummy awake</p>
-                    </div>
-                   
-
-                </div>
+                </div> -->
                 
             </div>
             

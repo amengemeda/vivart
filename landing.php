@@ -140,15 +140,6 @@ $last_name = $artist->getLastName();
             $craftResult=$artist->getCraftsUploaded($conn);
             $eventsCount=count($eventResult);
             $craftsCount=count($craftResult);
-            
-            // echo $eventsCount;
-            // echo "<pre>";
-            // print_r($eventResult);
-            // echo "</pre>";
-            // echo "<pre>";
-            // print_r($craftResult);
-            // echo "</pre>";
-            // print_r($craftResult);
             $counter= ($eventsCount>$craftsCount)? $eventsCount : $craftsCount;
            
             for ($i=0; $i <$counter ; $i++) { 
@@ -160,8 +151,6 @@ $last_name = $artist->getLastName();
                     $eventUploadPath=$event['event_upload_path'];
                     $filePathArray=explode("/",$eventUploadPath);
                     $fileType=$filePathArray[0];
-                    // $extension=explode(".",$eventUploadPath);
-                    // $fileType=is_image($eventUploadPath)?"Image":"Video";
                     echo "               
                      <div class='body_div'>
                     <div>";
@@ -316,7 +305,7 @@ $last_name = $artist->getLastName();
                                             <p class='success' id='craftEdit_success'></p>
                                             <button id='update'>Update</button>
                                             <br>
-                                            <button type='button' id='craft_delete' onclick='craftDelete()'>Delete</button>
+                                            <button type='button' id='craft_delete' onclick='deleteCraft()'>Delete</button>
                                         </div>
                                     </div>
                                 </form>

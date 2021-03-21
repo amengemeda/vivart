@@ -71,10 +71,12 @@ function editCraft (craftId) {
     let data="craft_id="+craftId+"&type=getCraftData";
     xmlhttp.send(data);
 }
-
-span1.onclick = function () {
-    modal1.style.display = "none";
+if (span1!=null) {
+    span1.onclick = function () {
+        modal1.style.display = "none";
+    }
 }
+
 
 window.onclick = function (event) {
     if (event.target == modal1) {
@@ -107,11 +109,13 @@ var span2 = document.getElementsByClassName("closeEvent")[0];
     var data="event_id="+eventId+"&type=getEventData";
     xmlhttp.send(data);
 }
-
-span2.onclick = function () {
-    modal2.style.display = "none";
-    clearMessageField();
+if (span2!=null) {
+    span2.onclick = function () {
+        modal2.style.display = "none";
+        clearMessageField();
+    }
 }
+
 
 window.onclick = function (event) {
     if (event.target == modal2) {
@@ -137,16 +141,16 @@ $("#profile_photo_upload").click(function (){
 });  
 });
 
-function craftDelete() {
+function deleteCraft() {
     if (confirm("Do you really want to delete this craft?")) {
         let craftId=document.querySelector("#craft_id").value;
         let xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange= function() {
             if (this.readyState==4 && this.status==200) {
                 if (this.responseText=="Successful") {
-                    $("#eventEdit_success").text("Craft Deleted Successfully");
+                    $("#craftEdit_success").text("Craft Deleted Successfully");
                 } else {
-                    $("#eventEdit_error").text(this.responseText);
+                    $("#craftEdit_error").text(this.responseText);
                 }
             }
         };

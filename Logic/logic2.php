@@ -123,7 +123,6 @@ if(isset($_POST['type'])){
             $dbConnect->closeConnection();
             break;
         case 'deleteCraft':
-             echo " asdCalled";
             $craft_id=$_POST['craft_id'];
             $dbConnect= new DBconnect();
             $conn= $dbConnect->getConnection();
