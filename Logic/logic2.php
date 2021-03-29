@@ -138,6 +138,75 @@ if(isset($_POST['type'])){
             $event->deleteEvent($conn);
             $dbConnect->closeConnection();
             break;
+        case 'search':
+            $dbConnect = new DBconnect();
+            $conn = $dbConnect->getConnection();
+            $search = $_POST['search'];
+            $results = getGigsEvents($conn, $search);
+            if($search != ""){                
+                if($results == null){
+                    echo "No results found";
+                }else{
+                    foreach ($results as $result) {
+                    if(isset($result["gig_name"])){
+                        echo "Is a gig";
+                    }else{
+                        $event_name = $result["event_name"];
+                        $event_description = $result["event_description"];
+                        $event_upload_path = $result["event_upload_path"];
+                        echo "
+                        
+                        <div class='body_div'>
+                            <div>
+                                <img id='img' class='img' src='$event_upload_path'/>
+                            </div>
+                            <div>
+                                <h1>$event_name</h1>
+                            </div>
+                            <div>
+                                <p>$event_description</p>
+                            </div>
+                            <div>
+                                <button>View</button>
+                            </div>
+
+                        </div>";
+                        
+                        }
+                    }
+                }
+            }else{
+                foreach ($results as $result) {
+                    if(isset($result["gig_name"])){
+                        echo "Is a gig";
+                    }else{
+                        $event_name = $result["event_name"];
+                        $event_description = $result["event_description"];
+                        $event_upload_path = $result["event_upload_path"];
+                        echo "
+                        
+                        <div class='body_div'>
+                            <div>
+                                <img id='img' class='img' src='$event_upload_path'/>
+                            </div>
+                            <div>
+                                <h1>$event_name</h1>
+                            </div>
+                            <div>
+                                <p>$event_description</p>
+                            </div>
+                            <div>
+                                <button>View</button>
+                            </div>
+
+                        </div>";
+                        
+                    }
+                }
+            }
+                
+    
+            break;
         default:
             echo "Not executed";
             break;

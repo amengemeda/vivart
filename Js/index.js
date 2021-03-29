@@ -1,6 +1,6 @@
 //Redirect
     document.getElementById("findEvents").onclick = function () {
-      location.href = "findEvent.html";
+      location.href = "findEvent.php?search=all";
     };
 
     document.getElementById("findArtists").onclick = function () {

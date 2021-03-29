@@ -98,6 +98,44 @@ function getArtists($conn,$search)
     return $result; 
  }
 
+function getEvents($conn,$search)
+{
+    if ($search=="all") {
+        $sql="SELECT * FROM event";
+        $array=array();
+        $result=selectAllData($sql,$conn,$array);
+        return $result; 
+    }else {
+        $sql="SELECT event_name, event_description, event_upload_path FROM event WHERE event_name LIKE ? OR event_description LIKE ?";
+        $query="%$search%";
+        $array=array($query, $query);
+        $result=selectAllData($sql,$conn,$array);
+        return $result; 
+    }
+}
+
+function getGigs($conn,$search)
+{
+    if ($search=="all") {
+        $sql="SELECT * FROM gig";
+        $array=array();
+        $result=selectAllData($sql,$conn,$array);
+        return $result; 
+    }else {
+        $sql="SELECT gig_name, gig_description, gig_status FROM gig WHERE gig_name LIKE ?  OR gig_description LIKE ?";
+        $query="%$search%";
+        $array=array($query, $query);
+        $result=selectAllData($sql,$conn,$array);
+        return $result; 
+    }
+}
+
+function getGigsEvents($conn, $search){
+    $result = getEvents($conn, $search);
+    $result1 = getGigs($conn, $search);
+    $allResults = array_merge($result, $result1);
+    return $allResults;
+}
 
 
 ?>

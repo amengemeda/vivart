@@ -39,7 +39,12 @@ require "DBconnect.php";
                     $result=getArtists($conn,$search); 
                     foreach ($result as $row) {
                         $full_name= $row['first_name']." ".$row['last_name'];
-                        $profile_photo_path=$row['profile_photo'];
+                        if($row['profile_photo'] == null){
+                            $profile_photo_path = "Image/profile_default.png";
+                        }else{
+                            $profile_photo_path=$row['profile_photo'];
+                        }
+                        
                         $description=$row['description'];
                         $user_id=$row['user_id'];
                         echo "
