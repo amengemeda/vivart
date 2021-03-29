@@ -47,20 +47,20 @@ function checkEmail($conn,$email){
 }
 
 
-function get_craft_type($a)
-{
-    if($a == "video"){
-        return "Video";
-    }else if($a == "audio"){
-        return "Audio";
-    }else if($a == "image"){
-        return "Image";
-    }else
-    {
-        return "Decline";
-    }
-}
-function get_event_type($a)
+// function get_craft_type($a)
+// {
+//     if($a == "video"){
+//         return "Video";
+//     }else if($a == "audio"){
+//         return "Audio";
+//     }else if($a == "image"){
+//         return "Image";
+//     }else
+//     {
+//         return "Decline";
+//     }
+// }
+function get_content_type($a)
 {
     if($a == "video"){
         return "Video";

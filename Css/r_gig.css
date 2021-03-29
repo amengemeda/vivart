@@ -88,10 +88,10 @@ article h2{
     background-color: #ffffff;
     border: 1px solid#40e2a4;
 }
-#gig_photo,#eventPhoto{
+#gig_file, #eventPhoto{
     display: none;
 }
-#art_type{
+#gig_name{
     width: 80%;
     height: 8%;
     outline: #40e2a4;
@@ -108,5 +108,14 @@ article h2{
     height: 4vh;
     
 }
-
+p.error{
+color: red;
+text-align: center;
+margin: 0px;
+}
+p.success{
+color: rgb(40, 189, 23);
+text-align: center;
+margin: 0px;
+}
 

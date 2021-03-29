@@ -1,6 +1,6 @@
 <?php
 require ("user.php");
-class Artist extends User  
+class Recruiter extends User  
 {
     //protected $talent;
     public function __construct($user_id=false,$conn=false){
@@ -70,18 +70,18 @@ class Artist extends User
 
     public function addGig($conn, $gig_name, $gig_description, $gig_file){
         try{
-            $sql = "SELECT MAX(gig_id) as last_Id FROM art";
+            $sql = "SELECT MAX(gig_id) as last_Id FROM gig";
             $array = array();
             $result = selectData($sql, $conn, $array);
             $imageFileType = strtolower(pathinfo($gig_file['name'],PATHINFO_EXTENSION));
             $array = explode( "/", $gig_file['type']);
-            $gig_folder = get_craft_type($array[0]);
+            $gig_folder = get_content_type($array[0]);
             if($gig_folder == "Decline"){
                 echo "Ensure your upload is an image/video/audio";
             }else{
-                $gig_upload_path = $gig_folder."/craft".$this->user_id.$result['last_Id'].".".$imageFileType;
-                $sql = "INSERT INTO art (user_id,gig_name,gig_descrition,gig_upload_path) VALUES(?,?,?,?)";
-                $array = array($this->user_id,$craft_type,$craft_caption,$gig_upload_path); 
+                $gig_upload_path = $gig_folder."/gig".$this->user_id.$result['last_Id'].".".$imageFileType;
+                $sql = "INSERT INTO gig (user_id,gig_name,gig_descrition,gig_upload_path) VALUES(?,?,?,?)";
+                $array = array($this->user_id,$gig_name,$gig_description,$gig_upload_path); 
                 insertData($sql,$conn,$array);
                 $upload_path="../".$gig_upload_path;
                 move_uploaded_file($gig_file['tmp_name'],$upload_path);
