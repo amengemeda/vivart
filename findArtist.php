@@ -7,7 +7,7 @@ require "DBconnect.php";
     <head>
         <link rel="stylesheet" href="./css/findArtist.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <!--navbar-->
@@ -21,7 +21,7 @@ require "DBconnect.php";
                 <form class="search_form" id="search_form" method="get">
                     <div class="search">
                         <button class="button_search" id="button_search" type="button"><i class="fa fa-search" name="search"></i></button>
-                        <input class="input" type="text"  placeholder="Search..." name="search">
+                        <input id="search_text" class="input" type="text"  placeholder="Search..." name="search">
                     </div>
                 </form>
             </nav>
@@ -30,6 +30,7 @@ require "DBconnect.php";
         <!--body-->
 
         <div class="wrapper">
+        <div id="search_results" class="body">
             <?php
             $connection= new DBConnect();
             $conn= $connection->getConnection();
@@ -66,74 +67,10 @@ require "DBconnect.php";
                     }
  
             }
+
             $connection->closeConnection();
             ?>
-            <div class="profile">
-                <div class="profile_img">
-                        <img class="img" src=".idea\Pictures\man.jpeg" alt="">
-                </div>
-                <div class="profile_content">
-                    <span class="profile_name">
-                        <p>John Doe</p>
-                    </span>
-                    <span class="profile_info">
-                        <p>A young and enthusiastic kenyan-born musician with the biggest passion for photos</p>
-                    </span>
-                </div>
 
-            </div>
-
-
-
-            <div class="profile">
-                <div class="profile_img">
-                        <img class="img" src=".idea\Pictures\man.jpeg" alt="">
-                </div>
-                <div class="profile_content">
-                    <span class="profile_name">
-                        <p>John Doe</p>
-                    </span>
-                    <span class="profile_info">
-                        <p>A young and enthusiastic kenyan-born musician with the biggest passion for photos</p>
-                    </span>
-                </div>
-
-            </div>
-
-
-
-            <div class="profile">
-                <div class="profile_img">
-                        <img class="img" src=".idea\Pictures\man.jpeg" alt="">
-                </div>
-                <div class="profile_content">
-                    <span class="profile_name">
-                        <p>John Doe</p>
-                    </span>
-                    <span class="profile_info">
-                        <p>A young and enthusiastic kenyan-born musician with the biggest passion for photos</p>
-                    </span>
-                </div>
-
-            </div>
-
-
-
-
-            <div class="profile">
-                <div class="profile_img">
-                        <img class="img" src=".idea\Pictures\man.jpeg" alt="">
-                </div>
-                <div class="profile_content">
-                    <span class="profile_name">
-                        <p>John Doe</p>
-                    </span>
-                    <span class="profile_info">
-                        <p>A young and enthusiastic kenyan-born musician with the biggest passion for photos</p>
-                    </span>
-                </div>
-
-            </div>
         </div>
         <script src="Js/findArtist.js"></script>
     </body>

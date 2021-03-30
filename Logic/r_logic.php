@@ -30,8 +30,8 @@ if(isset($_POST['type'])){
             $dbConnect = new DBconnect();
             $conn = $dbConnect->getConnection();
             if(!empty($gig_name) && !empty($gig_file) && !empty($description)){
-                $artist = new Recruiter($_SESSION['user_id'], $conn);
-                $artist->addGig($conn, $gig_name, $description, $gig_file);
+                $recruiter = new Recruiter($_SESSION['user_id'], $conn);
+                $recruiter->addGig($conn, $gig_name, $description, $gig_file);
             }else{
                 echo "All fields are required";
             }

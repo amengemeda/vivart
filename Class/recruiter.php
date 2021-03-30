@@ -17,12 +17,6 @@ class Recruiter extends User
         }
       
     }
-    // public function getTalent(){
-    //     return $this->talent;
-    // }
-    // public function setTalent($talent){
-    //      $this->talent=$talent;
-    // }
     public function updateProfile($conn,$profile_photo,$id){
         try {
             $sql="UPDATE user SET first_name=?,last_name=?,email=?,description=? WHERE user_id=?";
@@ -80,7 +74,7 @@ class Recruiter extends User
                 echo "Ensure your upload is an image/video/audio";
             }else{
                 $gig_upload_path = $gig_folder."/gig".$this->user_id.$result['last_Id'].".".$imageFileType;
-                $sql = "INSERT INTO gig (user_id,gig_name,gig_descrition,gig_upload_path) VALUES(?,?,?,?)";
+                $sql = "INSERT INTO gig (user_id,gig_name,gig_description,gig_upload_path) VALUES(?,?,?,?)";
                 $array = array($this->user_id,$gig_name,$gig_description,$gig_upload_path); 
                 insertData($sql,$conn,$array);
                 $upload_path="../".$gig_upload_path;

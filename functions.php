@@ -81,9 +81,9 @@ function getArtists($conn,$search)
         $result=selectAllData($sql,$conn,$array);
         return $result; 
     }else {
-        $sql="SELECT user.user_id,user.first_name,user.last_name, user.description,user.profile_photo FROM user NATURAL JOIN artist WHERE user.user_type=? AND artist.talent LIKE ?";
+        $sql="SELECT user.user_id,user.first_name,user.last_name, user.description,user.profile_photo FROM user NATURAL JOIN artist WHERE user.user_type=? AND artist.talent LIKE ? OR user.description LIKE ?";
         $query="%$search%";
-        $array=array("Artist",$query);
+        $array=array("Artist",$query,$query);
         $result=selectAllData($sql,$conn,$array);
         return $result; 
     }
