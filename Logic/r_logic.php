@@ -2,20 +2,20 @@
 session_start();
 require "../DBconnect.php";
 require "../functions.php";
-require "../Class/artist.php";
+require "../Class/recruiter.php";
 require "../Class/event.php";
 require "../Class/craft.php";
 if(isset($_POST['type'])){
     $type=$_POST['type'];
     switch ($type) {
-        case 'addEvent':
+        case 'r_addEvent':
             $event_name=$_POST['event_name'];
-            $photo=$_FILES['photo'];
+            $photo=$_FILES['event_file'];
             $description=$_POST['description'];
             $dbConnect= new DBconnect();
             $conn= $dbConnect->getConnection();
             if(!empty($event_name)&&!empty($photo['name'])&&!empty($description)){
-                $user= new Artist($_SESSION['user_id'],$conn);
+                $user= new Recruiter($_SESSION['user_id'],$conn);
                 $user->addEvent($conn,$event_name,$description,$photo);
                 
             }else {
@@ -23,15 +23,15 @@ if(isset($_POST['type'])){
             }
             $dbConnect->closeConnection();
             break;
-        case 'addCraft':
-            $art_type = $_POST['art_type'];
-            $craft_file = $_FILES['photo'];
-            $caption = $_POST['caption'];
+        case 'r_addGig':
+            $gig_name = $_POST['gig_name'];
+            $gig_file = $_FILES['gig_file'];
+            $description = $_POST['description'];
             $dbConnect = new DBconnect();
             $conn = $dbConnect->getConnection();
-            if(!empty($art_type) && !empty($craft_file) && !empty($caption)){
-                $artist = new Artist($_SESSION['user_id'], $conn);
-                $artist->addCraft($conn, $art_type, $caption, $craft_file);
+            if(!empty($gig_name) && !empty($gig_file) && !empty($description)){
+                $recruiter = new Recruiter($_SESSION['user_id'], $conn);
+                $recruiter->addGig($conn, $gig_name, $description, $gig_file);
             }else{
                 echo "All fields are required";
             }
@@ -137,112 +137,6 @@ if(isset($_POST['type'])){
             $event= new Event($conn,$event_id);
             $event->deleteEvent($conn);
             $dbConnect->closeConnection();
-            break;
-        case 'search':
-            $dbConnect = new DBconnect();
-            $conn = $dbConnect->getConnection();
-            $search = $_POST['search'];
-            $results = getGigsEvents($conn, $search);
-            if($search != ""){                
-                if($results == null){
-                    echo "No results found";
-                }else{
-                    foreach ($results as $result) {
-                    if(isset($result["gig_name"])){
-                        echo "Is a gig";
-                    }else{
-                        $event_name = $result["event_name"];
-                        $event_description = $result["event_description"];
-                        $event_upload_path = $result["event_upload_path"];
-                        echo "
-                        
-                        <div class='body_div'>
-                            <div>
-                                <img id='img' class='img' src='$event_upload_path'/>
-                            </div>
-                            <div>
-                                <h1>$event_name</h1>
-                            </div>
-                            <div>
-                                <p>$event_description</p>
-                            </div>
-                            <div>
-                                <button>View</button>
-                            </div>
-
-                        </div>";
-                        
-                        }
-                    }
-                }
-            }else{
-                foreach ($results as $result) {
-                    if(isset($result["gig_name"])){
-                        echo "Is a gig";
-                    }else{
-                        $event_name = $result["event_name"];
-                        $event_description = $result["event_description"];
-                        $event_upload_path = $result["event_upload_path"];
-                        echo "
-                        
-                        <div class='body_div'>
-                            <div>
-                                <img id='img' class='img' src='$event_upload_path'/>
-                            </div>
-                            <div>
-                                <h1>$event_name</h1>
-                            </div>
-                            <div>
-                                <p>$event_description</p>
-                            </div>
-                            <div>
-                                <button>View</button>
-                            </div>
-
-                        </div>";
-                        
-                    }
-                }
-            }
-            break;
-        case 'artist_search':
-            $dbConnect = new DBconnect();
-            $conn = $dbConnect->getConnection();
-            $search = $_POST['search'];
-            $results = getArtists($conn, $search);
-            if($search != ""){                
-                if($results == null){
-                    echo "No results found";
-                }else{
-                    foreach ($results as $result) {
-                        $full_name= $result['first_name']." ".$result['last_name'];
-                        if($result['profile_photo'] == null){
-                            $profile_photo_path = "Image/profile_default.png";
-                        }else{
-                            $profile_photo_path=$result['profile_photo'];
-                        }
-                        $description=$result['description'];
-                        $user_id=$result['user_id'];
-                        echo "
-                        <div class='profile' onclick='checkProfile($user_id)'>
-                        <div class='profile_img'>
-                            <img class='img' src='$profile_photo_path' alt='Profile_photo'>
-                        </div>
-                        <div class='profile_content'>
-                            <span class='profile_name'>
-                                <p>$full_name</p>
-                            </span>
-                            <span class='profile_info'>
-                                <p>$description</p>
-                            </span>
-                        </div>
-        
-                    </div>";
-
-                        
-                        }
-                    }
-                }
             break;
         default:
             echo "Not executed";

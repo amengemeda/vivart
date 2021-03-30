@@ -112,7 +112,7 @@ class User
        $result= selectData($sql1,$conn,$array);
        $imageFileType = strtolower(pathinfo($file['name'],PATHINFO_EXTENSION));
        $array = explode( "/", $file['type']);
-            $craft_folder = get_craft_type($array[0]);
+            $craft_folder = get_content_type($array[0]);
             if($craft_folder == "Decline"){
                 echo "Ensure your upload is an image/video/audio";
             }else{

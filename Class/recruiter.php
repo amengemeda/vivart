@@ -1,8 +1,8 @@
 <?php
 require ("user.php");
-class Artist extends User  
+class Recruiter extends User  
 {
-    protected $talent;
+    //protected $talent;
     public function __construct($user_id=false,$conn=false){
         Parent::__construct($user_id,$conn);
         if ($conn!=false && $user_id!=false) {
@@ -17,12 +17,6 @@ class Artist extends User
         }
       
     }
-    public function getTalent(){
-        return $this->talent;
-    }
-    public function setTalent($talent){
-         $this->talent=$talent;
-    }
     public function updateProfile($conn,$profile_photo,$id){
         try {
             $sql="UPDATE user SET first_name=?,last_name=?,email=?,description=? WHERE user_id=?";
@@ -31,15 +25,15 @@ class Artist extends User
             $sql5= "SELECT talent FROM artist WHERE user_id=?";
             $array5=array($id);
             $result5=selectData($sql5,$conn,$array5);
-            if(!empty($result5['talent'])){
-                $sql4="UPDATE artist SET talent=? WHERE user_id=?";
-                $array4= array($this->talent,$id);
-                insertData($sql4,$conn,$array4);
-            }else {
-                $sql6="INSERT INTO artist (user_id,talent) VALUES(?,?)";
-                $array6= array($id,$this->talent);
-                insertData($sql6,$conn,$array6);
-            }
+            // if(!empty($result5['talent'])){
+            //     $sql4="UPDATE artist SET talent=? WHERE user_id=?";
+            //     $array4= array($this->talent,$id);
+            //     insertData($sql4,$conn,$array4);
+            // }else {
+            //     $sql6="INSERT INTO artist (user_id,talent) VALUES(?,?)";
+            //     $array6= array($id,$this->talent);
+            //     insertData($sql6,$conn,$array6);
+            // }
            
             $sql2="SELECT profile_photo FROM user WHERE user_id=?";
             $array2=array($id);
@@ -68,23 +62,23 @@ class Artist extends User
     }
 
 
-    public function addCraft($conn, $craft_type, $craft_caption, $craft_file){
+    public function addGig($conn, $gig_name, $gig_description, $gig_file){
         try{
-            $sql = "SELECT MAX(art_id) as last_Id FROM art";
+            $sql = "SELECT MAX(gig_id) as last_Id FROM gig";
             $array = array();
             $result = selectData($sql, $conn, $array);
-            $imageFileType = strtolower(pathinfo($craft_file['name'],PATHINFO_EXTENSION));
-            $array = explode( "/", $craft_file['type']);
-            $craft_folder = get_content_type($array[0]);
-            if($craft_folder == "Decline"){
+            $imageFileType = strtolower(pathinfo($gig_file['name'],PATHINFO_EXTENSION));
+            $array = explode( "/", $gig_file['type']);
+            $gig_folder = get_content_type($array[0]);
+            if($gig_folder == "Decline"){
                 echo "Ensure your upload is an image/video/audio";
             }else{
-                $craft_upload_path = $craft_folder."/craft".$this->user_id.$result['last_Id'].".".$imageFileType;
-                $sql = "INSERT INTO art (user_id,art_type,art_caption,art_path) VALUES(?,?,?,?)";
-                $array = array($this->user_id,$craft_type,$craft_caption,$craft_upload_path); 
+                $gig_upload_path = $gig_folder."/gig".$this->user_id.$result['last_Id'].".".$imageFileType;
+                $sql = "INSERT INTO gig (user_id,gig_name,gig_description,gig_upload_path) VALUES(?,?,?,?)";
+                $array = array($this->user_id,$gig_name,$gig_description,$gig_upload_path); 
                 insertData($sql,$conn,$array);
-                $upload_path="../".$craft_upload_path;
-                move_uploaded_file($craft_file['tmp_name'],$upload_path);
+                $upload_path="../".$gig_upload_path;
+                move_uploaded_file($gig_file['tmp_name'],$upload_path);
                 echo "Successful";
             } 
             

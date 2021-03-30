@@ -47,20 +47,20 @@ function checkEmail($conn,$email){
 }
 
 
-function get_craft_type($a)
-{
-    if($a == "video"){
-        return "Video";
-    }else if($a == "audio"){
-        return "Audio";
-    }else if($a == "image"){
-        return "Image";
-    }else
-    {
-        return "Decline";
-    }
-}
-function get_event_type($a)
+// function get_craft_type($a)
+// {
+//     if($a == "video"){
+//         return "Video";
+//     }else if($a == "audio"){
+//         return "Audio";
+//     }else if($a == "image"){
+//         return "Image";
+//     }else
+//     {
+//         return "Decline";
+//     }
+// }
+function get_content_type($a)
 {
     if($a == "video"){
         return "Video";
@@ -81,9 +81,9 @@ function getArtists($conn,$search)
         $result=selectAllData($sql,$conn,$array);
         return $result; 
     }else {
-        $sql="SELECT user.user_id,user.first_name,user.last_name, user.description,user.profile_photo FROM user NATURAL JOIN artist WHERE user.user_type=? AND artist.talent LIKE ?";
+        $sql="SELECT user.user_id,user.first_name,user.last_name, user.description,user.profile_photo FROM user NATURAL JOIN artist WHERE user.user_type=? AND artist.talent LIKE ? OR user.description LIKE ?";
         $query="%$search%";
-        $array=array("Artist",$query);
+        $array=array("Artist",$query,$query);
         $result=selectAllData($sql,$conn,$array);
         return $result; 
     }
@@ -98,6 +98,44 @@ function getArtists($conn,$search)
     return $result; 
  }
 
+function getEvents($conn,$search)
+{
+    if ($search=="all") {
+        $sql="SELECT * FROM event";
+        $array=array();
+        $result=selectAllData($sql,$conn,$array);
+        return $result; 
+    }else {
+        $sql="SELECT event_name, event_description, event_upload_path FROM event WHERE event_name LIKE ? OR event_description LIKE ?";
+        $query="%$search%";
+        $array=array($query, $query);
+        $result=selectAllData($sql,$conn,$array);
+        return $result; 
+    }
+}
+
+function getGigs($conn,$search)
+{
+    if ($search=="all") {
+        $sql="SELECT * FROM gig";
+        $array=array();
+        $result=selectAllData($sql,$conn,$array);
+        return $result; 
+    }else {
+        $sql="SELECT gig_name, gig_description, gig_status FROM gig WHERE gig_name LIKE ?  OR gig_description LIKE ?";
+        $query="%$search%";
+        $array=array($query, $query);
+        $result=selectAllData($sql,$conn,$array);
+        return $result; 
+    }
+}
+
+function getGigsEvents($conn, $search){
+    $result = getEvents($conn, $search);
+    $result1 = getGigs($conn, $search);
+    $allResults = array_merge($result, $result1);
+    return $allResults;
+}
 
 
 ?>

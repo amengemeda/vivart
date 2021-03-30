@@ -4,7 +4,7 @@
     <title>Upload Event</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="Css/gig.css" type="text/css" rel="stylesheet" />
+    <link href="Css/r_gig.css" type="text/css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
@@ -16,9 +16,9 @@
 
     <article>
         <div class="body">
-        <form id="addEvent" action="" method="POST">
+        <form id="r_addEvent" action="" method="POST">
         <h1>Event</h1> <h2>Add Photo/Video</h2>
-        <input type="file" id="eventPhoto" name="photo">
+        <input type="file" id="eventPhoto" name="event_file">
         <button type="button" id="event_upload_file" >Choose File</button><br><br>
         <h2>Add Name</h2>
         <input type="text" id="name" name="event_name"><br>
@@ -70,6 +70,6 @@
 
 
 </body>
-<script src="Js/script.js"></script>
+<script src="Js/r_script.js"></script>
 <script src="Js/dash.js"></script>
 </html>

@@ -38,6 +38,10 @@ $(document).ready(function () {
   $("#craft_upload_file").click(function (){
     console.log("called");
         $("#craft_photo").click();
+    });      
+  $("#gig_upload_file").click(function (){
+    console.log("called");
+        $("#gig_file").click();
     });            
   });
   function chooseEventFile() {
