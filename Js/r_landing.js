@@ -106,25 +106,25 @@ $("#profile_photo_upload").click(function (){
 });  
 });
 
-function craftDelete() {
-    if (confirm("Do you really want to delete this craft?")) {
-        let craftId=document.querySelector("#craft_id").value;
-        let xmlhttp= new XMLHttpRequest();
-        xmlhttp.onreadystatechange= function() {
-            if (this.readyState==4 && this.status==200) {
-                if (this.responseText=="Successful") {
-                    $("#eventEdit_success").text("Craft Deleted Successfully");
-                } else {
-                    $("#eventEdit_error").text(this.responseText);
-                }
-            }
-        };
-        xmlhttp.open("POST","Logic/logic2.php",true);
-        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        var data="craft_id="+craftId+"&type=deleteCraft";
-        xmlhttp.send(data);
-    }
-}
+// function craftDelete() {
+//     if (confirm("Do you really want to delete this craft?")) {
+//         let craftId=document.querySelector("#craft_id").value;
+//         let xmlhttp= new XMLHttpRequest();
+//         xmlhttp.onreadystatechange= function() {
+//             if (this.readyState==4 && this.status==200) {
+//                 if (this.responseText=="Successful") {
+//                     $("#eventEdit_success").text("Craft Deleted Successfully");
+//                 } else {
+//                     $("#eventEdit_error").text(this.responseText);
+//                 }
+//             }
+//         };
+//         xmlhttp.open("POST","Logic/logic2.php",true);
+//         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//         var data="craft_id="+craftId+"&type=deleteCraft";
+//         xmlhttp.send(data);
+//     }
+// }
 function deleteEvent() {
     if (confirm("Do you really want to delete this event?")) {
         let eventId=document.querySelector("#event_id").value;
@@ -150,16 +150,15 @@ $(document).ready(function () {
     $("#update_profile").submit(function (event) {
         event.preventDefault();
         clearMessageField();
-        let form=$("#update_profile")[0];
-        let formData= new FormData(form);
+        let formData= new FormData($(this)[0]);
         formData.append("type","updateProfile");
         let formEmpty= false;
         for(var value of formData.entries()){
-            formEmpty= (value[1]=="" && value['name']!=null)? true:false;
+            formEmpty= (value[1]=="")? true:false;
         }
         if(!formEmpty){
             $.ajax({
-                url: 'Logic/logic2.php',
+                url: 'Logic/r_logic.php',
                 enctype: 'multipart/form-data',
                 data: formData,
                 processData: false,

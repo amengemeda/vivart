@@ -322,3 +322,13 @@ color: white;
   background-color: white;
   cursor: pointer;
 }
+p.error{
+  color: red;
+  text-align: center;
+  margin: 0px;
+}
+p.success{
+  color: rgb(40, 189, 23);
+  text-align: center;
+  margin: 0px;
+}

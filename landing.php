@@ -8,6 +8,11 @@ $conn= $dbConnect->getConnection();
 $artist= new Artist($_SESSION['user_id'],$conn);
 $first_name = $artist->getFirstName();
 $last_name = $artist->getLastName();
+$full_name= $first_name." ".$last_name;
+$description=$artist->getDescription();
+$email=$artist->getEmail();
+$talent=$artist->getTalent();
+$src=($artist->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$artist->getProfilePicture();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,15 +34,15 @@ $last_name = $artist->getLastName();
 
         <article>
             <div class="profile">
-                <img src="
-                <?php 
-                $src=($artist->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$artist->getProfilePicture();
-                echo $src;
-                ?>
-                " alt="man">
+                <img  src="
+                    <?php 
+                        echo $src;
+                    ?>
+                    " 
+                    alt="man">
                 <div class="profile-1">
                     <div class="profile-2">
-                    <h1><?php echo $first_name." ".$last_name;?></h1>
+                    <h1><?php echo $full_name;?></h1>
                     <button id="editProfile">Edit Profile</button> 
                     <div id="myModal" class="modal">
 
@@ -50,14 +55,15 @@ $last_name = $artist->getLastName();
                                 </div>
                 
                                 <div class="navbar__right">
-                                    <p><?php echo $first_name." ".$last_name;?></p>
+                                    <p><?php echo $full_name;?></p>
                 
-                                    <img src="
-                                    <?php 
-                                        $src=($artist->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$artist->getProfilePicture();
-                                        echo $src;
-                                    ?>
-                                    " alt="Avatar" class="avatar">
+                                    <img 
+                                    src="
+                                        <?php 
+                                            echo $src;
+                                        ?>
+                                        " 
+                                    alt="Avatar" class="avatar">
                 
                 
                                 </div>
@@ -65,15 +71,16 @@ $last_name = $artist->getLastName();
                             <br>
                             
                                 <div class="profile1">
-                                    <img id="pic" src="
-                                    <?php 
-                                    $src=($artist->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$artist->getProfilePicture();
-                                    echo $src;
-                                     ?>
-                                     " alt="man">
+                                    <img id="pic" 
+                                    src="
+                                        <?php 
+                                            echo $src;
+                                        ?>
+                                        " 
+                                    alt="man">
                                     <div class="profile-1">
                                         <div class="profile-2-1">
-                                            <h1><?php echo $first_name." ".$last_name;?></h1>
+                                            <h1><?php echo $full_name;?></h1>
                                         </div>
                                     </div>
                 
@@ -84,10 +91,6 @@ $last_name = $artist->getLastName();
                 
                                     <div class="in-content-1">
                                         <?php
-                                        
-                                        $full_name=$first_name." ".$last_name;
-                                        $email=$artist->getEmail();
-                                        $description=$artist->getDescription();
                                         echo "<h3>First Name</h3>
                                         <input type='text' id='fName' name='first_name' value='$first_name'>
                                         <h3>Email</h3>
@@ -101,7 +104,6 @@ $last_name = $artist->getLastName();
                                     <div class="in-content-2">
                                         
                                         <?php
-                                        $talent=$artist->getTalent();
                                         echo "
                                         <h3>Last Name</h3>
                                         <input type='text' id='lName' name='last_name' value='$last_name'>
@@ -125,7 +127,7 @@ $last_name = $artist->getLastName();
                         </div>
                     </div>
                     </div>              
-                     <p><?php echo $artist->getDescription()?></p>
+                     <p><?php echo $description?></p>
                 </div>
                 <br>
                  

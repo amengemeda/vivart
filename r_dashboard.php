@@ -50,7 +50,7 @@ session_start();
 
 
             <div class="iframe">
-                <iframe src="r_landing.html" height="800" width="1110" name="frame"></iframe>
+                <iframe src="r_landing.php" height="800" width="1110" name="frame"></iframe>
             </div>
 
 
