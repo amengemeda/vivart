@@ -73,7 +73,7 @@ session_start();
                 <div class="sidebar__link">
 
                 <i class="fa fa-home"></i>
-                <a href="r_landing.html" target="frame">Home</a>
+                <a href="r_landing.php" target="frame">Home</a>
                 </div>
                 <div class="sidebar__link">
                 
