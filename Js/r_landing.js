@@ -53,6 +53,25 @@ var btn1 = document.getElementById("editGig");
 
 var span1 = document.getElementsByClassName("closeGig")[0];
 
+function editGig(gigId) {
+    modal2.style.display = "block";
+    let xmlhttp= new XMLHttpRequest();
+    xmlhttp.onreadystatechange= function() {
+        if (this.readyState==4 && this.status==200) {
+            // console.log(this.responseText);
+            let gigObject=JSON.parse(this.responseText);
+            document.querySelector("#gig_name").value=gigObject.gig_name;
+            document.querySelector("#gig_description").value=gigObject.gig_description;
+            document.querySelector("#gig_id").value=gigId;
+        }
+    };
+    xmlhttp.open("POST","Logic/r_logic.php",true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var data="gig_id="+gigId+"&type=getGigData";
+    xmlhttp.send(data);
+}
+
+
 btn1.onclick = function () {
 modal1.style.display = "block";
 
@@ -71,7 +90,26 @@ window.onclick = function (event) {
 var modal2 = document.getElementById("editModal");
 
 var btn1 = document.getElementById("editEvent");
+
 var span2 = document.getElementsByClassName("closeEvent")[0];
+
+function editEvent(eventId) {
+    modal2.style.display = "block";
+    let xmlhttp= new XMLHttpRequest();
+    xmlhttp.onreadystatechange= function() {
+        if (this.readyState==4 && this.status==200) {
+            // console.log(this.responseText);
+            let eventObject=JSON.parse(this.responseText);
+            document.querySelector("#event_name").value=eventObject.event_name;
+            document.querySelector("#event_description").value=eventObject.event_description;
+            document.querySelector("#event_id").value=eventId;
+        }
+    };
+    xmlhttp.open("POST","Logic/r_logic.php",true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var data="event_id="+eventId+"&type=getEventData";
+    xmlhttp.send(data);
+}
 
 btn1.onclick = function () {
 modal2.style.display = "block";
@@ -194,7 +232,7 @@ $(document).ready(function(){
         }
         if (!formEmpty) {
             $.ajax({
-                url:'Logic/logic2.php',
+                url:'Logic/r_logic.php',
                 enctype:'multipart/form-data',
                 data: formData,
                 processData: false,

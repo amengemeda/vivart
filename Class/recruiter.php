@@ -73,6 +73,14 @@ class Recruiter extends User
         }
     }
 
+    public function getGigsUploaded($conn){
+       $sql="SELECT gig_id,gig_name,gig_description,gig_upload_path FROM gig WHERE user_id=?";
+       $array=array($this->user_id);
+       $result=selectAllData($sql,$conn,$array);
+       return $result; 
+   }
+
+
 }
 
 ?>

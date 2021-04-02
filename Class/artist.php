@@ -93,6 +93,15 @@ class Artist extends User
         }
     }
 
-}
+    public function getCraftsUploaded($conn){
+       $sql="SELECT art_id,art_type,art_caption,art_path FROM art WHERE user_id=?";
+       $array=array($this->user_id);
+       $result=selectAllData($sql,$conn,$array);
+       return $result; 
+    }
+
+} 
+    
+
 
 ?>
