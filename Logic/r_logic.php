@@ -80,18 +80,18 @@ if(isset($_POST['type'])){
              echo (json_encode($eventArray));
              $dbConnect->closeConnection();
              break;
-        case 'getCraftData':
-            $craft_id=$_POST['craft_id'];
+        case 'getGigData':
+            $gig_id=$_POST['gig_id'];
             $dbConnect= new DBconnect();
             $conn= $dbConnect->getConnection();
-            $craft= new Craft($conn,$craft_id);
-            $craftArray = array
+            $gig= new Gig($conn,$gig_id);
+            $gigArray = array
             (
-            'craft_type' => $craft->getCraftType(),
-            'craft_description' => $craft->getCraftDescription(),
-            'craft_upload_path' => $craft->getCraftUploadPath()
+            'gig_type' => $gig->getGigType(),
+            'gig_description' => $gig->getGigDescription(),
+            'gig_upload_path' => $gig->getGigUploadPath()
              ); 
-             echo (json_encode($craftArray));
+             echo (json_encode($gigArray));
              $dbConnect->closeConnection();
             break;
         case 'updateEvent':

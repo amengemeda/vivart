@@ -149,59 +149,65 @@ if(isset($_POST['type'])){
                 }else{
                     foreach ($results as $result) {
                     if(isset($result["gig_name"])){
-                        echo "Is a gig";
+                        $name = $result["gig_name"];
+                        $description = $result["gig_description"];
+                        $upload_path = $result["gig_upload_path"];
+                        $button = "Apply";
                     }else{
-                        $event_name = $result["event_name"];
-                        $event_description = $result["event_description"];
-                        $event_upload_path = $result["event_upload_path"];
-                        echo "
+                        $name = $result["event_name"];
+                        $description = $result["event_description"];
+                        $upload_path = $result["event_upload_path"];
+                        $button = "View"; 
                         
+                        }
+                    echo"
                         <div class='body_div'>
                             <div>
-                                <img id='img' class='img' src='$event_upload_path'/>
+                                <img id='img' class='img' src='$upload_path'/>
                             </div>
                             <div>
-                                <h1>$event_name</h1>
+                                <h1>$name</h1>
                             </div>
                             <div>
-                                <p>$event_description</p>
+                                <p>$description</p>
                             </div>
                             <div>
-                                <button>View</button>
+                                <button>$button</button>
                             </div>
 
                         </div>";
-                        
-                        }
                     }
                 }
             }else{
                 foreach ($results as $result) {
                     if(isset($result["gig_name"])){
-                        echo "Is a gig";
+                        $name = $result["gig_name"];
+                        $description = $result["gig_description"];
+                        $upload_path = $result["gig_upload_path"];
+                        $button = "Apply";
                     }else{
-                        $event_name = $result["event_name"];
-                        $event_description = $result["event_description"];
-                        $event_upload_path = $result["event_upload_path"];
-                        echo "
+                        $name = $result["event_name"];
+                        $description = $result["event_description"];
+                        $upload_path = $result["event_upload_path"];
+                        $button = "View"; 
                         
+                    }
+                    echo"
                         <div class='body_div'>
                             <div>
-                                <img id='img' class='img' src='$event_upload_path'/>
+                                <img id='img' class='img' src='$upload_path'/>
                             </div>
                             <div>
-                                <h1>$event_name</h1>
+                                <h1>$name</h1>
                             </div>
                             <div>
-                                <p>$event_description</p>
+                                <p>$description</p>
                             </div>
                             <div>
-                                <button>View</button>
+                                <button>$button</button>
                             </div>
 
                         </div>";
-                        
-                    }
                 }
             }
             break;

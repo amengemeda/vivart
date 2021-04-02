@@ -81,9 +81,24 @@ img{
             foreach ($allGigs as $gig) {
                 $gig_name = $gig["gig_name"];
                 $description = $gig["gig_description"];
-                // $src = $gig["event_upload_path"];
+                $src = $gig["gig_upload_path"];
+                $filePathArray = explode("/",$src);
+                $fileType = $filePathArray[0];
+                if($fileType == "Image"){
+                    $display = "<img 
+                        id='img'class='img' src='$src'/>";
+                }else if($fileType == "Video"){
+                   $display = "<video class='video' width='240px' height='205px' controls>
+                        <source src='$src' >
+                        Your browser does not support the video tag.
+                      </video>";
+                }
              ?>
                 <div class="body_div">
+                    <div>
+                        <?php echo $display; ?>
+                        
+                    </div>
                     <div><h1><?php echo $gig_name?></h1> </div>
                     <div>
                         <p><?php echo $description?></p>

@@ -122,7 +122,7 @@ function getGigs($conn,$search)
         $result=selectAllData($sql,$conn,$array);
         return $result; 
     }else {
-        $sql="SELECT gig_name, gig_description, gig_status FROM gig WHERE gig_name LIKE ?  OR gig_description LIKE ?";
+        $sql="SELECT gig_name, gig_description, gig_upload_path, gig_status FROM gig WHERE gig_name LIKE ?  OR gig_description LIKE ?";
         $query="%$search%";
         $array=array($query, $query);
         $result=selectAllData($sql,$conn,$array);

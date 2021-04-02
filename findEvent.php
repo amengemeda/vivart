@@ -44,25 +44,29 @@ require "DBconnect.php";
                     $results = getGigsEvents($conn,$search);
                     foreach ($results as $result) {
                         if(isset($result["gig_name"])){
-                            echo "Is a gig";
+                            $name = $result["gig_name"];
+                            $description = $result["gig_description"];
+                            $upload_path = $result["gig_upload_path"];
+                            $button = "Apply";
                         }else{
-                            $event_name = $result["event_name"];
-                            $event_description = $result["event_description"];
-                            $event_upload_path = $result["event_upload_path"];
-                            //print_r($result); ?>
+                            $name = $result["event_name"];
+                            $description = $result["event_description"];
+                            $upload_path = $result["event_upload_path"];
+                            $button = "View";
+                            } ?>
                             
                             <div class="body_div">
                                 <div>
-                                    <img id="img" class="img" src=<?php echo $event_upload_path;?> />
+                                    <img id="img" class="img" src=<?php echo $upload_path;?> />
                                 </div>
                                 <div>
-                                    <h1><?php echo $event_name;?></h1>
+                                    <h1><?php echo $name;?></h1>
                                 </div>
                                 <div>
-                                    <p><?php echo $event_description;?></p>
+                                    <p><?php echo $description;?></p>
                                 </div>
                                 <div>
-                                    <button>View</button>
+                                    <button><?php echo $button;?></button>
                                 </div>
 
                             </div>
@@ -70,25 +74,12 @@ require "DBconnect.php";
 
 
                             <?php
-                        }
+                       
                     }
                 }
                     
         ?>
-        
-            <div class="body_div">
-                <div>
-                    <img id="img" class="img" src=".idea\Pictures\events_medium.jpg" />
-                </div>
-                <div>
-                    <h1>Concert</h1>
-                </div>
-                <div>
-                    <p>Come one,come all,calling all the artists to come and showcase</p>
-                </div>
-                <div>
-                    <button>Apply</button>
-                </div>
+    
 
             </div>
             <div class="body_div">
