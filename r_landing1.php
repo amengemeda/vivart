@@ -1,3 +1,16 @@
+<?php
+session_start();
+require "DBconnect.php";
+require "functions.php";
+require "Class/recruiter.php";
+$dbConnect= new DBconnect();
+$conn= $dbConnect->getConnection();
+$recruiter= new Recruiter($_SESSION['user_id'],$conn);
+$first_name = $recruiter->getFirstName();
+$last_name = $recruiter->getLastName();
+$full_name= $first_name." ".$last_name;
+$src=($recruiter->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$recruiter->getProfilePicture();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,12 +31,17 @@
 
         <article>
             <div class="profile">
-            <img id="img" class="img" src=".idea\Pictures\man.jpeg" />
+            <img id="img" class="img" 
+            src="
+                <?php 
+                    echo $src;
+                ?>
+                "
+            />
                 <div class="profile-1">
                     <div class="profile-2">
                         <h1>
-                            
-                            John Doe
+                        <?php echo $first_name." ".$last_name;?>
                         </h1>
                         <button id="editProfile">Edit Profile</button>
                         <div id="myModal" class="modal">
@@ -38,10 +56,15 @@
 
                                     <div class="navbar__right">
                                         <p>
-                                            John Doe
+                                        <?php echo $first_name." ".$last_name;?>
                                         </p>
 
-                                    <img src=".idea\Pictures\user (1).svg " alt="Avatar" class="avatar">
+                                    <img src="
+                                    <?php 
+                                        $src=($recruiter->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$recruiter->getProfilePicture();
+                                        echo $src;
+                                    ?>
+                                     " alt="Avatar" class="avatar">
 
 
                                     </div>
@@ -49,11 +72,16 @@
                                 <br>
 
                                 <div class="profile1">
-                                    <img id="pic" src=".idea\Pictures\man.jpeg" alt="man">
+                                    <img id="pic" src="
+                                    <?php 
+                                        $src=($recruiter->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$recruiter->getProfilePicture();
+                                        echo $src;
+                                    ?>
+                                    " alt="man">
                                     <div class="profile-1">
                                         <div class="profile-2-1">
                                             <h1>
-                                                John Doe
+                                            <?php echo $first_name." ".$last_name;?>
                                             </h1>
                                         </div>
                                     </div>
@@ -64,27 +92,31 @@
                                     <div class="in-content">
 
                                         <div class="in-content-1">
-                                            <h3>First Name</h3>
+                                        <?php
+                                        
+                                        $full_name=$first_name." ".$last_name;
+                                        $email=$recruiter->getEmail();
+                                        $description=$recruiter->getDescription();
+                                        echo "<h3>First Name</h3>
                                         <input type='text' id='fName' name='first_name' value='$first_name'>
                                         <h3>Email</h3>
                                         <input type='text' id='email' name='email' value='$email'>
                                         <h3>Description</h3>
-                                        <textarea name='description' id='description'>$description</textarea>
-                                        
-
-
+                                        <textarea name='description' id='description'>$description</textarea>";
+                                        ?>
                                         </div>
                                         <div class="in-content-2">
-
-                                            
+                                        <?php
+                                        $talent=$recruiter->getTalent();
+                                        echo "
                                         <h3>Last Name</h3>
                                         <input type='text' id='lName' name='last_name' value='$last_name'>
                                         <h3>Talent</h3>
-                                        <input type='text' id='talent' name='talent' value='$talent'>";
-                                        
-                                            <h3>Change Photo</h3>
-                                            <input type="file" id="profile_photo" name="profile_photo">
-                                            <button type="button" id="profile_photo_upload">Upload Image</button><br><br>
+                                        <input type='text' id='talent' name='talent' value=''>";
+                                        ?>                                            
+                                        <h3>Change Photo</h3>
+                                        <input type="file" id="profile_photo" name="profile_photo">
+                                        <button type="button" id="profile_photo_upload">Upload Image</button><br><br>
 
                                             <br>
                                             <p class="error" id="profileUpload_error"></p>

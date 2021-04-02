@@ -13,17 +13,17 @@ document.getElementById("button_search").onclick=function() {
   function checkProfile(userId) {
     window.location.href="artistProfile.php?profile_id="+userId;
   }
-  // $(document).ready(function() {
-  //   $("#search_form").submit(function (event) {
-  //     event.preventDefault();
-  //     console.log("called");
-  //     var search = $("input[name = 'search']").val();
-  //     if (search!="") {
-  //       location.href="findArtist.php?search="+search;
-  //       console.log("called");
-  //     }else{
-  //       location.href="findArtist.php?search=all";
-  //       console.log("twice");
-  //     }
-  //   });
-  // });
+  $(document).ready(function(){
+		$("#search_text").keyup(function(event){
+      console.log("called");
+		var search = $(this).val();
+		var type = "artist_search";
+    	$.post("Logic/logic2.php", {
+    		search: search,
+    		type: type
+    	}, function (data){
+    		$("#search_results").html(data);
+    		
+    	});		
+	});
+});

@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/r_dashboard.css" />
     <title>DASHBOARD</title>
 </head>
@@ -45,7 +50,7 @@
 
 
             <div class="iframe">
-                <iframe src="r_landing.html" height="800" width="1110" name="frame"></iframe>
+                <iframe src="r_landing.php" height="800" width="1110" name="frame"></iframe>
             </div>
 
 
@@ -68,7 +73,7 @@
                 <div class="sidebar__link">
 
                 <i class="fa fa-home"></i>
-                <a href="r_landing.html" target="frame">Home</a>
+                <a href="r_landing.php" target="frame">Home</a>
                 </div>
                 <div class="sidebar__link">
                 
@@ -77,11 +82,11 @@
                 </div>
                 <div class="sidebar__link">
                     <i class="fa fa-plus"></i>
-                    <a href="gig.html" target="frame">Upload Gig</a>
+                    <a href="gig.php" target="frame">Upload Gig</a>
                 </div>
                 <div class="sidebar__link">
                     <i class="fa fa-plus"></i>
-                    <a href="r_uEvents.html" target="frame">Upload Event</a>
+                    <a href="r_uEvents.php" target="frame">Upload Event</a>
                 </div>
 
 
@@ -94,7 +99,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="js/script.js"></script>
+    <script src="js/r_script.js"></script>
     <script src="js/dash.js"></script>
 </body>
 

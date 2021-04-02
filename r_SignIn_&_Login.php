@@ -79,7 +79,7 @@
     </div>
 
     <script src="js/style.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/r_script.js"></script>
     <script src="https://kit.fontawesome.com/d728f4e8e5.js" crossorigin="anonymous"></script>
 </body>
 

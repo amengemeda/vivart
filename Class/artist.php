@@ -75,7 +75,7 @@ class Artist extends User
             $result = selectData($sql, $conn, $array);
             $imageFileType = strtolower(pathinfo($craft_file['name'],PATHINFO_EXTENSION));
             $array = explode( "/", $craft_file['type']);
-            $craft_folder = get_craft_type($array[0]);
+            $craft_folder = get_content_type($array[0]);
             if($craft_folder == "Decline"){
                 echo "Ensure your upload is an image/video/audio";
             }else{

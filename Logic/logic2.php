@@ -204,8 +204,45 @@ if(isset($_POST['type'])){
                     }
                 }
             }
-                
-    
+            break;
+        case 'artist_search':
+            $dbConnect = new DBconnect();
+            $conn = $dbConnect->getConnection();
+            $search = $_POST['search'];
+            $results = getArtists($conn, $search);
+            if($search != ""){                
+                if($results == null){
+                    echo "No results found";
+                }else{
+                    foreach ($results as $result) {
+                        $full_name= $result['first_name']." ".$result['last_name'];
+                        if($result['profile_photo'] == null){
+                            $profile_photo_path = "Image/profile_default.png";
+                        }else{
+                            $profile_photo_path=$result['profile_photo'];
+                        }
+                        $description=$result['description'];
+                        $user_id=$result['user_id'];
+                        echo "
+                        <div class='profile' onclick='checkProfile($user_id)'>
+                        <div class='profile_img'>
+                            <img class='img' src='$profile_photo_path' alt='Profile_photo'>
+                        </div>
+                        <div class='profile_content'>
+                            <span class='profile_name'>
+                                <p>$full_name</p>
+                            </span>
+                            <span class='profile_info'>
+                                <p>$description</p>
+                            </span>
+                        </div>
+        
+                    </div>";
+
+                        
+                        }
+                    }
+                }
             break;
         default:
             echo "Not executed";

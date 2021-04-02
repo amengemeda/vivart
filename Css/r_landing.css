@@ -58,7 +58,7 @@ body {
 
 .body_div {
     float: left;
-    width: 32.33%;
+    width: 31.33%;
     padding: 5px;
     padding-left: 2px;
     padding-top:1px ;
@@ -321,4 +321,14 @@ color: white;
   color: #40e2a4;
   background-color: white;
   cursor: pointer;
+}
+p.error{
+  color: red;
+  text-align: center;
+  margin: 0px;
+}
+p.success{
+  color: rgb(40, 189, 23);
+  text-align: center;
+  margin: 0px;
 }
