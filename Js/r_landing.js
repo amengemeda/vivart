@@ -47,47 +47,91 @@ if (event.target == modal) {
 
 
 // For editing gig
-var modal1 = document.getElementById("gigModal");
+if(document.getElementById("gigModal")){
+    var modal1 = document.getElementById("gigModal");
 
-var btn1 = document.getElementById("editGig");
+    //var btn1 = document.getElementById("editGig");
 
-var span1 = document.getElementsByClassName("closeGig")[0];
+    var span1 = document.getElementsByClassName("closeGig")[0];
 
-btn1.onclick = function () {
-modal1.style.display = "block";
-
-}
-span1.onclick = function () {
+    span1.onclick = function () {
     modal1.style.display = "none";
-}
+    location.reload();
+    }
 
-window.onclick = function (event) {
-    if (event.target == modal1) {
-        modal1.style.display = "none";
+    window.onclick = function (event) {
+        if (event.target == modal1) {
+            modal1.style.display = "none";
+        }
     }
 }
+
+
+function editGig(gigId) {
+    //console.log(gigId);
+    modal1.style.display = "block";
+    let xmlhttp= new XMLHttpRequest();
+    xmlhttp.onreadystatechange= function() {
+        if (this.readyState==4 && this.status==200) {
+            //console.log(this.responseText);
+            let gigObject=JSON.parse(this.responseText);
+            document.querySelector("#gig_name").value=gigObject.gig_name;
+            document.querySelector("#gig_description").value=gigObject.gig_description;
+            document.querySelector("#gig_id").value=gigId;
+        }
+    };
+    xmlhttp.open("POST","Logic/r_logic.php",true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var data="gig_id="+gigId+"&type=getGigData";
+    xmlhttp.send(data);
+}
+
 
 //For editing event
-var modal2 = document.getElementById("editModal");
+if(document.getElementById("editModal")){
+    var modal2 = document.getElementById("editModal");
 
-var btn1 = document.getElementById("editEvent");
-var span2 = document.getElementsByClassName("closeEvent")[0];
+    //var btn1 = document.getElementById("editEvent");
 
-btn1.onclick = function () {
-modal2.style.display = "block";
+    var span2 = document.getElementsByClassName("closeEvent")[0];
 
-}
-span2.onclick = function () {
-    modal2.style.display = "none";
-    clearMessageField();
-}
-
-window.onclick = function (event) {
-    if (event.target == modal2) {
+    span2.onclick = function () {
         modal2.style.display = "none";
+        clearMessageField();
+        location.reload();
     }
-    clearMessageField();
+
+    window.onclick = function (event) {
+        if (event.target == modal2) {
+            modal2.style.display = "none";
+        }
+        clearMessageField();
+    }
+
 }
+
+
+function editEvent(eventId) {
+    //console.log(eventId);
+    modal2.style.display = "block";
+    let xmlhttp= new XMLHttpRequest();
+    xmlhttp.onreadystatechange= function() {
+        if (this.readyState==4 && this.status==200) {
+            // console.log(this.responseText);
+            let eventObject=JSON.parse(this.responseText);
+            document.querySelector("#event_name").value=eventObject.event_name;
+            document.querySelector("#event_description").value=eventObject.event_description;
+            document.querySelector("#event_id").value=eventId;
+        }
+    };
+    xmlhttp.open("POST","Logic/r_logic.php",true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var data="event_id="+eventId+"&type=getEventData";
+    xmlhttp.send(data);
+}
+
+
+
 
 //For Craft changing button
 function changeCraft(){
@@ -106,25 +150,26 @@ $("#profile_photo_upload").click(function (){
 });  
 });
 
-function craftDelete() {
-    if (confirm("Do you really want to delete this craft?")) {
-        let craftId=document.querySelector("#craft_id").value;
+function gigDelete() {
+    if (confirm("Do you really want to delete this gig?")) {
+        let gigId=document.querySelector("#gig_id").value;
         let xmlhttp= new XMLHttpRequest();
         xmlhttp.onreadystatechange= function() {
             if (this.readyState==4 && this.status==200) {
                 if (this.responseText=="Successful") {
-                    $("#eventEdit_success").text("Craft Deleted Successfully");
+                    $("#gigEdit_success").text("Gig Deleted Successfully");
                 } else {
-                    $("#eventEdit_error").text(this.responseText);
+                    $("#gigEdit_error").text(this.responseText);
                 }
             }
         };
-        xmlhttp.open("POST","Logic/logic2.php",true);
+        xmlhttp.open("POST","Logic/r_logic.php",true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        var data="craft_id="+craftId+"&type=deleteCraft";
+        var data="gig_id="+gigId+"&type=deleteGig";
         xmlhttp.send(data);
     }
 }
+
 function deleteEvent() {
     if (confirm("Do you really want to delete this event?")) {
         let eventId=document.querySelector("#event_id").value;
@@ -138,7 +183,7 @@ function deleteEvent() {
                 }
             }
         };
-        xmlhttp.open("POST","Logic/logic2.php",true);
+        xmlhttp.open("POST","Logic/r_logic.php",true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         var data="event_id="+eventId+"&type=deleteEvent";
         xmlhttp.send(data);
@@ -150,16 +195,15 @@ $(document).ready(function () {
     $("#update_profile").submit(function (event) {
         event.preventDefault();
         clearMessageField();
-        let form=$("#update_profile")[0];
-        let formData= new FormData(form);
+        let formData= new FormData($(this)[0]);
         formData.append("type","updateProfile");
         let formEmpty= false;
         for(var value of formData.entries()){
-            formEmpty= (value[1]=="" && value['name']!=null)? true:false;
+            formEmpty= (value[1]=="")? true:false;
         }
         if(!formEmpty){
             $.ajax({
-                url: 'Logic/logic2.php',
+                url: 'Logic/r_logic.php',
                 enctype: 'multipart/form-data',
                 data: formData,
                 processData: false,
@@ -195,7 +239,7 @@ $(document).ready(function(){
         }
         if (!formEmpty) {
             $.ajax({
-                url:'Logic/logic2.php',
+                url:'Logic/r_logic.php',
                 enctype:'multipart/form-data',
                 data: formData,
                 processData: false,
@@ -219,18 +263,19 @@ $(document).ready(function(){
     });
 });
 $(document).ready(function(){
-    $('#craftEdit').submit(function(event){
+    $('#gigEdit').submit(function(event){
         event.preventDefault();
         clearMessageField();
+        console.log("called");
         let formData= new FormData($(this)[0]);
-        formData.append("type","updateCraft");
+        formData.append("type","updateGig");        
         let formEmpty= false;
         for(var value of formData.entries()){
             formEmpty= (value[1]=="")? true:false;
         }
         if (!formEmpty) {
             $.ajax({
-                url:'Logic/logic2.php',
+                url:'Logic/r_logic.php',
                 enctype:'multipart/form-data',
                 data: formData,
                 processData: false,
@@ -238,9 +283,9 @@ $(document).ready(function(){
                 type: 'POST',
                 success: function(data){
                     if (data=="Successful") {
-                        $("#craftEdit_success").text("Craft Updated Successfully");
+                        $("#gigEdit_success").text("Gig Updated Successfully");
                     } else {
-                        $("#craftEdit_error").text(data);
+                        $("#gigEdit_error").text(data);
                     }
                 },
                 error: function (e) {
