@@ -283,7 +283,7 @@ $src=($recruiter->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$recruiter
                                     </div>
 
                                     <div class='navbar__right1'>
-                                        <p>John Doe</p>
+                                        <p>$full_name</p>
 
                                         <img src='.idea\Pictures\profile.svg' alt='Avatar' class='avatar1'>
 
@@ -297,14 +297,14 @@ $src=($recruiter->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$recruiter
 
 
                                         <div class='in-content-21'>
-                                            <h3>Change Gig Type</h3>
-                                            <input type='text' id='gig_type' name='gig_type'>
+                                            <h3>Change Gig Name</h3>
+                                            <input type='text' id='gig_name' name='gig_name'>
                                             <h3>Change Media File</h3>
                                             <input type='file' id='gig_file' name='gig_file'>
                                             <button type='button' class='file_selector'>Change</button>
                                             <h3>Change Caption</h3>
                                             <textarea type='text' id='gig_description'
-                                                name='craft_description'></textarea>
+                                                name='gig_description'></textarea>
                                             <br>
                                             <input type='text' id='gig_id' name='gig_id'>
                                             <br>
@@ -314,7 +314,7 @@ $src=($recruiter->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$recruiter
                                                 <button id='updateGig'>Update</button>
                                                 <br>
                                                 <button type='button' id='gig_delete'
-                                                    onclick='craftDelete()'>Delete</button>
+                                                    onclick='gigDelete()'>Delete</button>
                                             </div>
                                         </div>
                                     </div>
