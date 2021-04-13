@@ -37,7 +37,7 @@ $profile_picture=$artist->getProfilePicture();
 
         <article>
             <div class="profile">
-                <img src="<?php echo $profile_picture;?>" alt="man">
+                <img id="img_artistProfile" src="<?php echo $profile_picture;?>" alt="man">
                 <div class="profile-1">
                     <div class="profile-2">
                     <h1><?php echo $full_name;?></h1>
