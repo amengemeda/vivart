@@ -160,7 +160,16 @@ $src=($recruiter->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$recruiter
                     <div>";
                     if ($fileType=="Image") {
                         echo "<img 
-                        id='img' class='img' src='$eventUploadPath' /> ";
+                        id='img' class='img' onclick='zoomImage(this)' src='$eventUploadPath' /> 
+                        <div id='imageModal' class='imageModal'>
+                        
+                            <span class='closeImage'>&times;</span>
+        
+                            <img class='image_modal-content' id='img01'>
+                    
+                        </div>
+                        ";
+                        
                     }elseif ($fileType=="Audio") {
                         echo "<audio class='Audio' width='240px' height='205px' controls>
                         <source src='$eventUploadPath' type='audio/ogg'>
@@ -246,7 +255,15 @@ $src=($recruiter->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$recruiter
                     <div>";
                     if ($fileType=="Image") {
                         echo "<img 
-                        id='img' class='img' src='$gigUploadPath' /> ";
+                        id='img' class='img' onclick='zoomImage(this)' src='$gigUploadPath' /> 
+                        <div id='imageModal' class='imageModal'>
+                        
+                            <span class='closeImage'>&times;</span>
+        
+                            <img class='image_modal-content' id='img01'>
+                    
+                        </div>
+                        ";
                     }elseif ($fileType=="Audio") {
                         echo "<audio class='Audio' width='240px' height='205px' controls>
                         <source src='$gigUploadPath' type='audio/ogg'>

@@ -34,7 +34,7 @@ $src=($artist->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$artist->getP
 
         <article>
             <div class="profile">
-                <img  src="
+                <img  class="p-i"src="
                     <?php 
                         echo $src;
                     ?>
@@ -158,7 +158,15 @@ $src=($artist->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$artist->getP
                     <div>";
                     if ($fileType=="Image") {
                         echo "<img 
-                        id='img' class='img' src='$eventUploadPath' /> ";
+                        id='img' class='img' onclick='zoomImage(this)' src='$eventUploadPath' /> 
+                        <div id='imageModal' class='imageModal'>
+                        
+                            <span class='closeImage'>&times;</span>
+        
+                            <img class='image_modal-content' id='img01'>
+                    
+                        </div>
+                        ";
                     }elseif ($fileType=="Audio") {
                         echo "<audio class='Audio' width='240px' height='205px' controls>
                         <source src='$eventUploadPath' type='audio/ogg'>
@@ -245,7 +253,15 @@ $src=($artist->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$artist->getP
                     <div>";
                     if ($fileType=="Image") {
                         echo "<img 
-                        id='img' class='img' src='$craftUploadPath' /> ";
+                        id='img' class='img' onclick='zoomImage(this)' src='$craftUploadPath' /> 
+                        <div id='imageModal' class='imageModal'>
+                        
+                            <span class='closeImage'>&times;</span>
+        
+                            <img class='image_modal-content' id='img01'>
+                    
+                        </div>
+                        ";
                     }elseif ($fileType=="Audio") {
                         echo "<audio class='Audio' width='240px' height='205px' controls>
                         <source src='$craftUploadPath' type='audio/ogg'>
