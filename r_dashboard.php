@@ -1,6 +1,13 @@
 <?php
 session_start();
-
+require "DBconnect.php";
+require "functions.php";
+require "Class/recruiter.php";
+$dbConnect= new DBconnect();
+$conn= $dbConnect->getConnection();
+$recruiter= new Recruiter($_SESSION['user_id'],$conn);
+$first_name = $recruiter->getFirstName();
+$last_name = $recruiter->getLastName();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +45,7 @@ session_start();
             </div>
 
             <div class="navbar__right">
-                <p>John Doe</p>
+                <p><?php echo $first_name." ".$last_name;?></p>
 
                 <img src=".idea\Pictures\profile.svg" alt="Avatar" class="avatar">
 

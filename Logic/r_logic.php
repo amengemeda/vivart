@@ -5,6 +5,7 @@ require "../functions.php";
 require "../Class/recruiter.php";
 require "../Class/event.php";
 require "../Class/craft.php";
+require "../Class/gig.php";
 if(isset($_POST['type'])){
     $type=$_POST['type'];
     switch ($type) {
@@ -87,7 +88,7 @@ if(isset($_POST['type'])){
             $gig= new Gig($conn,$gig_id);
             $gigArray = array
             (
-            'gig_type' => $gig->getGigType(),
+            'gig_name' => $gig->getGigName(),
             'gig_description' => $gig->getGigDescription(),
             'gig_upload_path' => $gig->getGigUploadPath()
              ); 
@@ -107,25 +108,25 @@ if(isset($_POST['type'])){
             $event->updateEvent($conn,$event_file);
             $dbConnect->closeConnection();
             break;
-        case 'updateCraft':
-            $craft_id=$_POST['craft_id'];
-            $craft_type=$_POST['craft_type'];
-            $craft_description=$_POST['craft_description'];
-            $craft_file=$_FILES['craft_file'];
+        case 'updateGig':
+            $gig_id=$_POST['gig_id'];
+            $gig_name=$_POST['gig_name'];
+            $gig_description=$_POST['gig_description'];
+            $gig_file=$_FILES['gig_file'];
             $dbConnect= new DBconnect();
             $conn= $dbConnect->getConnection();
-            $craft= new Craft($conn,$craft_id);
-            $craft->setCraftType($craft_type);
-            $craft->setCraftDescription($craft_description);
-            $craft->updateCraft($conn,$craft_file);
+            $gig= new Gig($conn,$gig_id);
+            $gig->setGigName($gig_name);
+            $gig->setGigDescription($gig_description);
+            $gig->updateGig($conn,$gig_file);
             $dbConnect->closeConnection();
             break;
-        case 'deleteCraft':
-            $craft_id=$_POST['craft_id'];
+        case 'deleteGig':
+            $gig_id=$_POST['gig_id'];
             $dbConnect= new DBconnect();
             $conn= $dbConnect->getConnection();
-            $craft= new Craft($conn,$craft_id);
-            $craft->deleteCraft($conn);
+            $gig= new Gig($conn,$gig_id);
+            $gig->deleteGig($conn);
             $dbConnect->closeConnection();
             break;
         case 'deleteEvent':
