@@ -24,16 +24,12 @@ $src=($recruiter->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$recruiter
     <link href="css/editGig.css" type="text/css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
-<style>
-
-</style>
-
 <body>
     <section>
 
         <article>
             <div class="profile">
-                <img id="img" class="img" 
+                <img id="p-img" class="p-img" 
                 src="
                     <?php 
                         echo $src;
@@ -164,7 +160,16 @@ $src=($recruiter->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$recruiter
                     <div>";
                     if ($fileType=="Image") {
                         echo "<img 
-                        id='img' class='img' src='$eventUploadPath' /> ";
+                        id='img' class='img' onclick='zoomImage(this)' src='$eventUploadPath' /> 
+                        <div id='imageModal' class='imageModal'>
+                        
+                            <span class='closeImage'>&times;</span>
+        
+                            <img class='image_modal-content' id='img01'>
+                    
+                        </div>
+                        ";
+                        
                     }elseif ($fileType=="Audio") {
                         echo "<audio class='Audio' width='240px' height='205px' controls>
                         <source src='$eventUploadPath' type='audio/ogg'>
@@ -250,7 +255,15 @@ $src=($recruiter->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$recruiter
                     <div>";
                     if ($fileType=="Image") {
                         echo "<img 
-                        id='img' class='img' src='$gigUploadPath' /> ";
+                        id='img' class='img' onclick='zoomImage(this)' src='$gigUploadPath' /> 
+                        <div id='imageModal' class='imageModal'>
+                        
+                            <span class='closeImage'>&times;</span>
+        
+                            <img class='image_modal-content' id='img01'>
+                    
+                        </div>
+                        ";
                     }elseif ($fileType=="Audio") {
                         echo "<audio class='Audio' width='240px' height='205px' controls>
                         <source src='$gigUploadPath' type='audio/ogg'>
@@ -283,7 +296,7 @@ $src=($recruiter->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$recruiter
                                     </div>
 
                                     <div class='navbar__right1'>
-                                        <p>$full_name</p>
+                                        <p id='f-n'>$full_name</p>
 
                                         <img src='.idea\Pictures\profile.svg' alt='Avatar' class='avatar1'>
 
