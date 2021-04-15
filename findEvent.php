@@ -52,7 +52,7 @@ require "DBconnect.php";
                             $name = $result["event_name"];
                             $description = $result["event_description"];
                             $upload_path = $result["event_upload_path"];
-                            $button = "View";
+                            $button = "none";
                             } ?>
                             
                             <div class="body_div">
@@ -65,9 +65,14 @@ require "DBconnect.php";
                                 <div>
                                     <p><?php echo $description;?></p>
                                 </div>
+                                <?php
+                                if ($button!="none") {?>
                                 <div>
                                     <button><?php echo $button;?></button>
                                 </div>
+                                
+                                <?php } ?>
+                               
 
                             </div>
 
