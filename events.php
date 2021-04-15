@@ -72,9 +72,9 @@ img{
                     <div>
                         <p><?php echo $description?></p>
                     </div>
-                    <div>
+                    <!-- <div>
                        <button>View</button>
-                    </div>
+                    </div> -->
 
                 </div>
             <?php }
