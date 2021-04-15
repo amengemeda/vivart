@@ -65,7 +65,7 @@ class Event
             }else {
                 $imageFileType = strtolower(pathinfo($event_file['name'],PATHINFO_EXTENSION));
                 $array = explode( "/", $event_file['type']);
-                $event_folder = get_event_type($array[0]);
+                $event_folder = get_content_type($array[0]);
                 if($event_folder == "Decline"){
                     echo "Ensure your upload is an image/video/audio";
                 }else{
