@@ -25,9 +25,12 @@ function zoomImage (element) {
 
 var span = document.getElementsByClassName("closeImage")[0];
 
-span.onclick = function () {
-    imageModal.style.display = "none";
+if (span!=null) {
+    span.onclick = function () {
+        imageModal.style.display = "none";
+    } 
 }
+
 
 window.onclick = function (event) {
     imageModal.style.display = "none";
