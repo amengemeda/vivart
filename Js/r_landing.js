@@ -87,7 +87,7 @@ if(document.getElementById("gigModal")){
 
 
 function editGig(gigId) {
-    //console.log(gigId);
+    console.log(gigId);
     modal1.style.display = "block";
     let xmlhttp= new XMLHttpRequest();
     xmlhttp.onreadystatechange= function() {
@@ -152,9 +152,9 @@ function editEvent(eventId) {
 
 
 
-//For Craft changing button
-function changeCraft(){
-    document.getElementById("craft_file").click();
+//For Gig changing button
+function changeGig(){
+    document.getElementById("gig_file").click();
     
 }
 //For event file changing button

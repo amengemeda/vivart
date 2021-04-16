@@ -65,7 +65,7 @@ class Gig
             }else {
                 $imageFileType = strtolower(pathinfo($gig_file['name'],PATHINFO_EXTENSION));
                 $array = explode( "/", $gig_file['type']);
-                $gig_folder = get_gig_type($array[0]);
+                $gig_folder = get_content_type($array[0]);
                 if($gig_folder == "Decline"){
                     echo "Ensure your upload is an image/video/audio";
                 }else{
