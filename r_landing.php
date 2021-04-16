@@ -314,7 +314,7 @@ $src=($recruiter->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$recruiter
                                             <input type='text' id='gig_name' name='gig_name'>
                                             <h3>Change Media File</h3>
                                             <input type='file' id='gig_file' name='gig_file'>
-                                            <button type='button' class='file_selector'>Change</button>
+                                            <button type='button' class='file_selector' onclick='changeGig()'>Change</button>
                                             <h3>Change Caption</h3>
                                             <textarea type='text' id='gig_description'
                                                 name='gig_description'></textarea>

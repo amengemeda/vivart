@@ -99,6 +99,20 @@ class Artist extends User
        $result=selectAllData($sql,$conn,$array);
        return $result; 
     }
+    public function applyForGig($gig_id,$conn){
+        $sql="SELECT * FROM gig_application WHERE user_id=? AND gig_id=?";
+        $array=array($this->user_id,$gig_id);
+        $result=selectData($sql,$conn,$array);
+        if ($result==null) {
+            $sql="INSERT INTO gig_application (user_id,gig_id) VALUES (?,?)";
+            $array=array($this->user_id,$gig_id);
+            insertData($sql,$conn,$array);
+            echo "You have successfully applied for this gig. Keep the track of your application in the applications page";
+        }else {
+            echo "You have already applied for this gig.";
+        }
+        
+    }
 
 } 
     

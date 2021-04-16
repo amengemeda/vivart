@@ -109,6 +109,14 @@ if(isset($_POST['type'])){
             $event->updateEvent($conn,$event_file);
             $dbConnect->closeConnection();
             break;
+        case 'applyForGig':
+            $gigId=$_POST['gig_id'];
+            $dbConnect= new DBconnect();
+            $conn= $dbConnect->getConnection();
+            $artist= new Artist($_SESSION['user_id'],$conn);
+            $artist->applyForGig($gigId,$conn);
+            $dbConnect->closeConnection();
+            break;
         case 'updateCraft':
             $craft_id=$_POST['craft_id'];
             $craft_type=$_POST['craft_type'];
