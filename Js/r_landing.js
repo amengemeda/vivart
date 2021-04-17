@@ -230,6 +230,7 @@ $(document).ready(function () {
                 type: 'POST',
                 success: function(data){
                     if (data=="Successful") {
+                        setTimeout(function(){ location.reload(); }, 1400);
                         $("#profileUpload_success").text("Profile Updated Successfully");
                     } else {
                         $("#profileUpload_error").text(data);
