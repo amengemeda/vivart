@@ -35,12 +35,7 @@ $last_name = $artist->getLastName();
         <img id="logo" title="Go Back" src=".idea\Pictures\emoticon-square-smiling-face-with-closed-eyes.svg" alt="logo">
       </div>
       <div class="navbar__left">
-        <form class="search_form" action="">
-          <div class="search">
-              <button class="button_search" type="submit"><i class="fa fa-search" name="search"></i></button>
-              <input class="input" type="search"  placeholder="Search...">
-          </div>
-      </form>
+       
 
       </div>
 
@@ -98,7 +93,10 @@ $last_name = $artist->getLastName();
           <i class="fa fa-plus"></i>
           <a href="uEvents.php" target="frame">Upload Event</a>
         </div>
-
+         <div class="sidebar__link">
+          <i class="fa fa-edit"></i>
+          <a href="applications.html" target="frame">Applications</a>
+        </div>
 
 
       </div>
