@@ -27,6 +27,8 @@
   margin-top: 30px;
   padding-left: 20px;
   display: inline-block;
+  width: 99%;
+  overflow-x: hidden;
 }
 
 .profile{
@@ -90,4 +92,65 @@
     outline: none;
     cursor: pointer;
 }
-
+.eventDiv{
+    margin-left: 3%;
+}
+.eventName{
+    color: #0584aa;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 22px;
+}
+.eventName{
+    cursor: pointer;
+}
+.artistDropdown-content {
+  display: none;
+  background: transparent;
+  min-width: 230px;
+  overflow: auto;
+  margin-left: 2%;
+  z-index: 1;
+}
+.display 
+{
+    display: block;
+    margin-bottom: 5%;
+}
+.fa-angle-right{
+    padding-left:20px ;
+}
+.fa-angle-right.down {
+    -moz-transform:rotate(70deg);
+    -webkit-transform:rotate(70deg);
+    transform:rotate(70deg);
+    margin-left: 20px;
+    margin-bottom: 5px;
+    display: table-cell;
+}
+.search{
+    border: 1px solid #40e2a4;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    width: 98%;
+    margin-bottom: 2%;
+}
+.button_search{
+    border: none;
+    font-size: 22px;
+    box-shadow: none;
+    background-color: transparent;
+    color: #40e2a4;
+    outline: none;
+    padding-bottom: 5px;
+}
+.inputSearch{
+    width: 100%;
+    border: none;
+    background: transparent;
+    height: 20px;
+    outline: none;
+}

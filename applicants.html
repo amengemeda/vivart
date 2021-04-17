@@ -1,93 +1,113 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="./css/applicants.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    </head>
-    <body>
-    
+<head>
+    <link rel="stylesheet" href="./css/applicants.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-        <!--body-->
+</head>
 
-        <div class="wrapper">
-            <div class="profile">
-                <div class="profile_img">
-                        <img class="img" src=".idea\Pictures\man.jpeg" alt="">
-                </div>
-                <div class="profile_content">
-                    <span class="profile_name">
-                        <p>John Doe</p>
-                    </span>
-                    <span class="profile_info">
-                        <p>A young and enthusiastic kenyan-born musician with the biggest passion for photos</p>
-                    </span>
-                </div>
-                <form id="approveForm" action="">
-                <button class="approval">Approve</button>
-                </form>
+<body>
+
+
+    <!--body-->
+
+    <div class="wrapper">
+        <form class="search_form" id="search_form" method="get">
+            <div class="search">
+                <button class="button_search" id="button_search" type="button"><i class="fa fa-search"
+                        name="search"></i></button>
+                <input id="search_text" class="inputSearch" type="text" placeholder="Search..." name="search">
             </div>
+        </form>
+        <div class="eventDiv">
+            <button onclick="dropdown()" class="eventName">2021 Met Gala<i class="fa fa-angle-right" id="fa-angle-right"></i></button>
 
 
-
-            <div class="profile">
-                <div class="profile_img">
+            <div id="artistDropdown" class="artistDropdown-content">
+                <div class="profile">
+                    <div class="profile_img">
                         <img class="img" src=".idea\Pictures\man.jpeg" alt="">
+                    </div>
+                    <div class="profile_content">
+                        <span class="profile_name">
+                            <p>John Doe</p>
+                        </span>
+                        <span class="profile_info">
+                            <p>A young and enthusiastic kenyan-born musician with the biggest passion for photos</p>
+                        </span>
+                    </div>
+                    <form id="approveForm" action="">
+                        <button class="approval">Approve</button>
+                    </form>
                 </div>
-                <div class="profile_content">
-                    <span class="profile_name">
-                        <p>John Doe</p>
-                    </span>
-                    <span class="profile_info">
-                        <p>A young and enthusiastic kenyan-born musician with the biggest passion for photos</p>
-                    </span>
-                </div>
-                <form id="approveForm" action="">
-                    <button class="approval">Approve</button>
-                </form>
-            </div>
-
-
-
-            <div class="profile">
-                <div class="profile_img">
-                    
-                        <img class="img" src=".idea\Pictures\man.jpeg" alt="">
-                        
-                </div>
-                <div class="profile_content">
-                    <span class="profile_name">
-                        <p>John Doe</p>
-                    </span>
-                    <span class="profile_info">
-                        <p>A young and enthusiastic kenyan-born musician with the biggest passion for photos</p>
-                    </span>
-                    
-                </div>
-                <form id="approveForm" action="">
-                    <button class="approval">Approve</button>
-                </form>
-            </div>
-
-
-
-
-            <div class="profile">
-                <div class="profile_img">
-                        <img class="img" src=".idea\Pictures\man.jpeg" alt="">
-                </div>
-                <div class="profile_content">
-                    <span class="profile_name">
-                        <p>John Doe</p>
-                    </span>
-                    <span class="profile_info">
-                        <p>A young and enthusiastic kenyan-born musician with the biggest passion for photos</p>
-                    </span>
-                </div>
-                <form id="approveForm" action="">
-                    <button class="approval">Approve</button>
-                </form>
             </div>
         </div>
-    </body>
+
+
+        <!-- <div class="profile">
+            <div class="profile_img">
+                <img class="img" src=".idea\Pictures\man.jpeg" alt="">
+            </div>
+            <div class="profile_content">
+                <span class="profile_name">
+                    <p>John Doe</p>
+                </span>
+                <span class="profile_info">
+                    <p>A young and enthusiastic kenyan-born musician with the biggest passion for photos</p>
+                </span>
+            </div>
+            <form id="approveForm" action="">
+                <button class="approval">Approve</button>
+            </form>
+        </div>
+
+
+
+        <div class="profile">
+            <div class="profile_img">
+
+                <img class="img" src=".idea\Pictures\man.jpeg" alt="">
+
+            </div>
+            <div class="profile_content">
+                <span class="profile_name">
+                    <p>John Doe</p>
+                </span>
+                <span class="profile_info">
+                    <p>A young and enthusiastic kenyan-born musician with the biggest passion for photos</p>
+                </span>
+
+            </div>
+            <form id="approveForm" action="">
+                <button class="approval">Approve</button>
+            </form>
+        </div>
+
+
+
+
+        <div class="profile">
+            <div class="profile_img">
+                <img class="img" src=".idea\Pictures\man.jpeg" alt="">
+            </div>
+            <div class="profile_content">
+                <span class="profile_name">
+                    <p>John Doe</p>
+                </span>
+                <span class="profile_info">
+                    <p>A young and enthusiastic kenyan-born musician with the biggest passion for photos</p>
+                </span>
+            </div>
+            <form id="approveForm" action="">
+                <button class="approval">Approve</button>
+            </form>
+        </div> -->
+    </div>
+    <script src="Js/applicants.js"></script>
+</body>
+
 </html>
