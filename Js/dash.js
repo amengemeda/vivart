@@ -50,3 +50,26 @@ $(document).ready(function () {
   function chooseCraftFile() {
       
   }
+  
+  function applyforGig(gigId) {
+    console.log("Gig id: "+gigId);
+    let formData= new FormData();
+    formData.append("gig_id",gigId);
+    formData.append("type","applyForGig");
+    if (confirm("Do you want to apply for this gig? This will send your information to the recruiter.")) {
+      $.ajax({
+        url: 'Logic/logic2.php',
+        data: formData,
+        processData: false,
+        contentType: false,
+        type: 'POST',
+        success: function(data){
+            alert(data);
+        },
+        error: function (e) {
+            alert(e.responseText);
+            console.log("ERROR : ", e);
+        }
+      });        
+    }
+  }

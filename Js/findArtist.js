@@ -15,12 +15,15 @@ document.getElementById("button_search").onclick=function() {
   }
   $(document).ready(function(){
 		$("#search_text").keyup(function(event){
-      console.log("called");
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('search');
+    console.log("Param: "+myParam);
 		var search = $(this).val();
 		var type = "artist_search";
     	$.post("Logic/logic2.php", {
     		search: search,
-    		type: type
+    		type: type,
+        param:myParam
     	}, function (data){
     		$("#search_results").html(data);
     		
