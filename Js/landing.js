@@ -2,21 +2,9 @@ function clearMessageField() {
     $(".error").text("");
     $(".success").text("");
 }
-$(document).ready(function () {
-    var small={width: "240px",height: "205px"};
-    var large={width: "400px",height: "375px"};
-    var count=2; 
-    
-    $(".video").css(small).on('click',function () { 
-        $(this).animate((count==2)?large:small);
-        count = 2-count;
-        console.log("called");
-    });
-});
 
 var imageModal = document.getElementById("imageModal");
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
 // var img = document.getElementById("img");
 var modalImg = document.getElementById("img01");
 
@@ -40,6 +28,34 @@ if(span!=null){
 window.onclick = function (event) {
     imageModal.style.display = "none";
 }
+
+
+var videoModal = document.getElementById("videoModal");
+var modalVid = document.getElementById("vid");
+
+function zoomVideo () {
+    videoModal.style.display = "block";
+     
+        modalVid.console.log("called");
+   
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("closeImage")[0];
+
+// When the user clicks on <span> (x), close the modal
+if(span!=null){
+    span.onclick = function () {
+        videoModal.style.display = "none";
+    }
+}
+
+
+
+window.onclick = function (event) {
+    videoModal.style.display = "none";
+}
+
 
 
 // Get the modal
