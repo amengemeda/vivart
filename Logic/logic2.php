@@ -223,6 +223,10 @@ if(isset($_POST['type'])){
             $dbConnect = new DBconnect();
             $conn = $dbConnect->getConnection();
             $search = $_POST['search'];
+            $param= $_POST['param'];
+            if ($search=="") {
+                $search=$param;
+            }
             $results = getArtists($conn, $search);
             if($search != ""){                
                 if($results == null){

@@ -60,6 +60,7 @@ class Craft
                 $sql="UPDATE art SET art_type=?, art_caption=? WHERE art_id=?";
                 $array=array($this->craft_type,$this->craft_description,$this->craft_id);
                 insertData($sql,$conn,$array);
+                echo "Successful";
             }else {
                 $imageFileType = strtolower(pathinfo($craft_file['name'],PATHINFO_EXTENSION));
                 $array = explode( "/", $craft_file['type']);

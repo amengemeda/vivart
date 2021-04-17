@@ -230,7 +230,8 @@ $src=($artist->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$artist->getP
                                             <input type='file' id='event_file' name='event_file'>
                                             <button type='button' class='file_selector' onclick='changeEvent()'>Change</button>
                                             <h3>Change Caption</h3>
-                                            <input type='text' id='event_description' name='event_description'>
+                                            <textarea type='text' id='event_description'
+                                                name='event_description'></textarea>
                                             <input type='text' id='event_id' name='event_id'>
                                             <br>
                                             <p class='error' id='eventEdit_error'></p>
@@ -336,7 +337,8 @@ $src=($artist->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$artist->getP
                                             <input type='file' id='craft_file' name='craft_file'>
                                             <button type='button' class='file_selector' onclick='changeCraft()'>Change</button>
                                             <h3>Change Caption</h3>
-                                            <input type='text' id='craft_description' name='craft_description'>
+                                            <textarea type='text' id='craft_description'
+                                                name='craft_description'></textarea>
                                             <br>
                                             <input type='text' id='craft_id' name='craft_id'>
                                             <br>
