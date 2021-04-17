@@ -181,6 +181,7 @@ function deleteCraft() {
         xmlhttp.onreadystatechange= function() {
             if (this.readyState==4 && this.status==200) {
                 if (this.responseText=="Successful") {
+                    setTimeout(function(){ location.reload(); }, 1400);
                     $("#craftEdit_success").text("Craft Deleted Successfully");
                 } else {
                     $("#craftEdit_error").text(this.responseText);
@@ -200,6 +201,7 @@ function deleteEvent() {
         xmlhttp.onreadystatechange= function() {
             if (this.readyState==4 && this.status==200) {
                 if (this.responseText=="Successful") {
+                    setTimeout(function(){ location.reload(); }, 1400);
                     $("#eventEdit_success").text("Event Deleted Successfully");
                 } else {
                     $("#eventEdit_error").text(this.responseText);
@@ -235,7 +237,9 @@ $(document).ready(function () {
                 type: 'POST',
                 success: function(data){
                     if (data=="Successful") {
+                        setTimeout(function(){ location.reload(); }, 1400);
                         $("#profileUpload_success").text("Profile Updated Successfully");
+                        
                     } else {
                         $("#profileUpload_error").text(data);
                     }
@@ -271,6 +275,7 @@ $(document).ready(function(){
                 type: 'POST',
                 success: function(data){
                     if (data=="Successful") {
+                        setTimeout(function(){ location.reload(); }, 1400);
                         $("#eventEdit_success").text("Event Updated Successfully");
                     } else {
                         $("#eventEdit_error").text(data);
@@ -306,6 +311,7 @@ $(document).ready(function(){
                 type: 'POST',
                 success: function(data){
                     if (data=="Successful") {
+                        setTimeout(function(){ location.reload(); }, 1400);
                         $("#craftEdit_success").text("Craft Updated Successfully");
                     } else {
                         $("#craftEdit_error").text(data);

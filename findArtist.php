@@ -37,34 +37,39 @@ require "DBconnect.php";
             if (isset($_GET["search"])) {
               
                     $search=$_GET["search"];
-                    $result=getArtists($conn,$search); 
-                    foreach ($result as $row) {
-                        $full_name= $row['first_name']." ".$row['last_name'];
-                        if($row['profile_photo'] == null){
-                            $profile_photo_path = "Image/profile_default.png";
-                        }else{
-                            $profile_photo_path=$row['profile_photo'];
+                    $result=getArtists($conn,$search);
+                    if ($result!=null) {
+                        foreach ($result as $row) {
+                            $full_name= $row['first_name']." ".$row['last_name'];
+                            if($row['profile_photo'] == null){
+                                $profile_photo_path = "Image/profile_default.png";
+                            }else{
+                                $profile_photo_path=$row['profile_photo'];
+                            }
+                            
+                            $description=$row['description'];
+                            $user_id=$row['user_id'];
+                            echo "
+                                <div class='profile' onclick='checkProfile($user_id)'>
+                                    <div class='profile_img'>
+                                        <img class='img' src='$profile_photo_path' alt='Profile_photo'>
+                                    </div>
+                                    <div class='profile_content'>
+                                        <span class='profile_name'>
+                                            <p>$full_name</p>
+                                        </span>
+                                        <span class='profile_info'>
+                                            <p>$description</p>
+                                        </span>
+                                    </div>
+                    
+                                </div>
+                            ";
                         }
-                        
-                        $description=$row['description'];
-                        $user_id=$row['user_id'];
-                        echo "
-                            <div class='profile' onclick='checkProfile($user_id)'>
-                                <div class='profile_img'>
-                                    <img class='img' src='$profile_photo_path' alt='Profile_photo'>
-                                </div>
-                                <div class='profile_content'>
-                                    <span class='profile_name'>
-                                        <p>$full_name</p>
-                                    </span>
-                                    <span class='profile_info'>
-                                        <p>$description</p>
-                                    </span>
-                                </div>
-                
-                            </div>
-                        ";
-                    }
+                    }else {
+                        echo "<p> No results found</p>";
+                    } 
+                    
  
             }
 
