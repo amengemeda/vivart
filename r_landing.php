@@ -198,7 +198,7 @@ $src=($recruiter->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$recruiter
                                 <br>
                                 <nav class='navbar12'>
                                     <div class='logo'>
-                                        <img id='logo' src='.idea\Pictures\emoticon-square-smiling-face-with-closed-eyes.svg' alt='logo'>
+                                        <h1>vivart</h1>
                                     </div>
                         
                                     <div class='navbar__right12'>
@@ -222,7 +222,8 @@ $src=($recruiter->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$recruiter
                                             <input type='file' id='event_file' name='event_file'>
                                             <button type='button' class='file_selector' onclick='changeEvent()'>Change</button>
                                             <h3>Change Caption</h3>
-                                            <input type='text' id='event_description' name='event_description'>
+                                            <textarea type='text' id='event_description'
+                                                name='event_description'></textarea>                                 
                                             <input type='text' id='event_id' name='event_id'>
                                             <br>
                                             <p class='error' id='eventEdit_error'></p>

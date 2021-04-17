@@ -75,7 +75,7 @@ if(document.getElementById("gigModal")){
 
     span1.onclick = function () {
     modal1.style.display = "none";
-    location.reload();
+    //location.reload();
     }
 
     window.onclick = function (event) {
@@ -117,7 +117,7 @@ if(document.getElementById("editModal")){
     span2.onclick = function () {
         modal2.style.display = "none";
         clearMessageField();
-        location.reload();
+        //location.reload();
     }
 
     window.onclick = function (event) {
@@ -176,6 +176,7 @@ function gigDelete() {
         xmlhttp.onreadystatechange= function() {
             if (this.readyState==4 && this.status==200) {
                 if (this.responseText=="Successful") {
+                    setTimeout(function(){ location.reload(); }, 1400);
                     $("#gigEdit_success").text("Gig Deleted Successfully");
                 } else {
                     $("#gigEdit_error").text(this.responseText);
@@ -196,6 +197,7 @@ function deleteEvent() {
         xmlhttp.onreadystatechange= function() {
             if (this.readyState==4 && this.status==200) {
                 if (this.responseText=="Successful") {
+                    setTimeout(function(){ location.reload(); }, 1400);
                     $("#eventEdit_success").text("Event Deleted Successfully");
                 } else {
                     $("#eventEdit_error").text(this.responseText);
@@ -267,6 +269,7 @@ $(document).ready(function(){
                 type: 'POST',
                 success: function(data){
                     if (data=="Successful") {
+                        setTimeout(function(){ location.reload(); }, 1400);
                         $("#eventEdit_success").text("Event Updated Successfully");
                     } else {
                         $("#eventEdit_error").text(data);
@@ -303,6 +306,7 @@ $(document).ready(function(){
                 type: 'POST',
                 success: function(data){
                     if (data=="Successful") {
+                        setTimeout(function(){ location.reload(); }, 1400);
                         $("#gigEdit_success").text("Gig Updated Successfully");
                     } else {
                         $("#gigEdit_error").text(data);
