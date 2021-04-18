@@ -35,12 +35,7 @@ $last_name = $recruiter->getLastName();
                 
             </div>
             <div class="navbar__left">
-                <form class="search_form" action="">
-                    <div class="search">
-                        <button class="button_search" type="submit"><i class="fa fa-search" name="search"></i></button>
-                        <input class="input" type="search" placeholder="Search...">
-                    </div>
-                </form>
+               
 
             </div>
 
