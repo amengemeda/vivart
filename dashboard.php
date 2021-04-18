@@ -95,7 +95,7 @@ $last_name = $artist->getLastName();
         </div>
          <div class="sidebar__link">
           <i class="fa fa-edit"></i>
-          <a href="applications.html" target="frame">Applications</a>
+          <a href="applications.php" target="frame">Applications</a>
         </div>
 
 

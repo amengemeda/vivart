@@ -81,6 +81,26 @@ if(isset($_POST['type'])){
              echo (json_encode($eventArray));
              $dbConnect->closeConnection();
              break;
+        case 'approveGigApplication':
+            $applicantId=$_POST['applicantId'];
+            $gigId=$_POST['gigId'];
+            $dbConnect= new DBconnect();
+            $conn= $dbConnect->getConnection();
+            $recruiter= new Recruiter($_SESSION["user_id"],$conn);
+            $result= $recruiter->approveGigApplication($conn,$applicantId,$gigId);
+            echo $result;
+            $dbConnect->closeConnection();
+            break;
+        case 'declineGigApplication':
+            $applicantId=$_POST['applicantId'];
+            $gigId=$_POST['gigId'];
+            $dbConnect= new DBconnect();
+            $conn= $dbConnect->getConnection();
+            $recruiter= new Recruiter($_SESSION["user_id"],$conn);
+            $result= $recruiter->declineGigApplication($conn,$applicantId,$gigId);
+            echo $result;
+            $dbConnect->closeConnection();
+            break;
         case 'getGigData':
             $gig_id=$_POST['gig_id'];
             $dbConnect= new DBconnect();

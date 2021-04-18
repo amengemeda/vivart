@@ -80,7 +80,7 @@ $last_name = $recruiter->getLastName();
                 <div class="sidebar__link">
                 
                 <i class="fa fa-street-view"></i>
-                    <a href="applicants.html" target="frame">Applicants</a>
+                    <a href="applicants.php" target="frame">Applicants</a>
                 </div>
                 <div class="sidebar__link">
                     <i class="fa fa-plus"></i>
