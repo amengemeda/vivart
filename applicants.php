@@ -54,9 +54,9 @@ $gigsUploaded= $recruiter->getGigsUploaded($conn);
                 $applicantPrfilePicture= $applicant["profile_photo"];
                 $applicantDescription= $applicant["description"];
             ?>
-            <div id="<?php echo 'artistDropdown'.$gigId;?>" class="artistDropdown-content" onclick="artistProfile(<?php echo $applicantId;?>)">
+            <div id="<?php echo 'artistDropdown'.$gigId;?>" class="artistDropdown-content" >
                 <div class="profile">
-                    <div class="profile_img">
+                    <div class="profile_img" onclick="artistProfile(<?php echo $applicantId;?>)" title="click to see the profile">
                         <img class="img" src="<?php echo $applicantPrfilePicture;?>" alt="">
                     </div>
                     <div class="profile_content">

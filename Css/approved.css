@@ -53,6 +53,13 @@ tr:hover {
 }
 td{
     color: #6e6e6e;
+    text-align: center;
+    transition: all ease 1s;
     
 }
-
+td.name:hover{
+   background-color: rgb(13, 136, 218); 
+   color: white;
+   cursor: pointer;
+   font-size: 18px;
+}

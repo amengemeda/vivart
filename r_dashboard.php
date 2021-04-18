@@ -84,7 +84,7 @@ $last_name = $recruiter->getLastName();
                 </div>
                 <div class="sidebar__link">
                     <i class="fa fa-thumbs-up"></i>
-                    <a href="approved.html" target="frame">Approved</a>
+                    <a href="approved.php" target="frame">Approved</a>
                 </div>
                 <div class="sidebar__link">
                     <i class="fa fa-plus"></i>

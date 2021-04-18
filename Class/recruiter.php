@@ -98,6 +98,12 @@ class Recruiter extends User
     }
    
    }
+   public function getApprovedArtists($conn,$gigId){
+    $sql="SELECT user.user_id, user.first_name, user.last_name, user.email FROM gig_application NATURAL JOIN user WHERE gig_application.gig_id=? AND gig_application.status=?";
+    $array=array($gigId,"Accepted");
+    $result=selectAllData($sql,$conn,$array);
+    return $result;
+   }
 
 
 }
