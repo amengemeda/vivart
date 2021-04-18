@@ -83,6 +83,10 @@ $last_name = $recruiter->getLastName();
                     <a href="applicants.php" target="frame">Applicants</a>
                 </div>
                 <div class="sidebar__link">
+                    <i class="fa fa-thumbs-up"></i>
+                    <a href="approved.html" target="frame">Approved</a>
+                </div>
+                <div class="sidebar__link">
                     <i class="fa fa-plus"></i>
                     <a href="gig.php" target="frame">Upload Gig</a>
                 </div>
