@@ -1,3 +1,13 @@
+<?php
+session_start();
+require "DBconnect.php";
+require "functions.php";
+require "Class/artist.php";
+$dbConnect= new DBconnect();
+$conn= $dbConnect->getConnection();
+$artist= new Artist($_SESSION['user_id'],$conn);
+$gigsApplied= $artist->getGigsApplied($conn);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,11 +32,32 @@
     <table class="applicationsTable">
         <tr>
             <th>Event</th>
-            <th>Status</th>
+            <th>Description</th>
+            <th>Status</th>            
             <th>Remarks</th>
         </tr>
+        <?php
+            foreach ($gigsApplied as $gig) {
+                if($gig['status'] == "Accepted"){
+                    echo "<tr><td>".$gig['gig_name']."</td><td>".$gig['gig_description']."</td>
+                        <td class='accepted'><input type='text' class='greenAccepted' value='Accepted'></td>
+                        <td>Congrats! your application is accepted. The recruiter will
+                            communicate you through your email address!</td></tr>";
+                }else if($gig['status'] == "Pending"){
+                    echo "<tr><td>".$gig['gig_name']."</td><td>".$gig['gig_description']."</td>
+                        <td class='pending'> <input type='text' value='Pending' class='greyPending'></td>
+                        <td>Not yet available</td></tr>";
+                }else{
+                    echo "<tr><td>".$gig['gig_name']."</td><td>".$gig['gig_description']."</td>
+                        <td class='rejected'> <input type='text' value='Rejected' class='redRejected'></td>
+                        <td>Unfortunately your application isn't accepted! But don't worry the platform has
+                            other gig applications, so don't limit yourself</td></tr>";
+                }
+               
+            }
+        ?>
 
-        <tr>
+       <!--  <tr>
             <td>Music Event Extravaganza</td>
             <td class="accepted"><input type="text" class="greenAccepted" value="Accepted"></td>
             <td>Congrats! your application is accepted. The recruiter will
@@ -43,7 +74,7 @@
             <td>Unfortunately your application isn't accepted! But don't worry the platform has
                 other gig applications, so don't limit yourself</td>
         </tr>
-
+ -->
     </table>
 </body>
 
