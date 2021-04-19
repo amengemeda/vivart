@@ -22,6 +22,7 @@ $gigsApplied= $artist->getGigsApplied($conn);
 </head>
 
 <body>
+    <?php if($gigsApplied){ ?>
     <table class="applicationsTable">
         <tr>
             <th>Event</th>
