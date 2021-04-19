@@ -26,13 +26,6 @@ $gigsUploaded= $recruiter->getGigsUploaded($conn);
     <!--body-->
 
     <div class="wrapper">
-        <form class="search_form" id="search_form" method="get">
-            <div class="search">
-                <button class="button_search" id="button_search" type="button"><i class="fa fa-search"
-                        name="search"></i></button>
-                <input id="search_text" class="inputSearch" type="text" placeholder="Search..." name="search">
-            </div>
-        </form>
         <?php
         $counter=0;
         foreach ($gigsUploaded as $gig) {
