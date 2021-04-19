@@ -34,9 +34,11 @@ var videoModal = document.getElementById("videoModal");
 var modalVid = document.getElementById("vid");
 
 function zoomVideo () {
-    videoModal.style.display = "block";
-     
+    if (videoModal!=null) {
+        videoModal.style.display = "block";    
         modalVid.console.log("called");
+    }
+   
    
 }
 
@@ -44,7 +46,7 @@ function zoomVideo () {
 var span = document.getElementsByClassName("closeImage")[0];
 
 // When the user clicks on <span> (x), close the modal
-if(span!=null){
+if(span!=null && videoModal!=null){
     span.onclick = function () {
         videoModal.style.display = "none";
     }
@@ -53,7 +55,10 @@ if(span!=null){
 
 
 window.onclick = function (event) {
-    videoModal.style.display = "none";
+    if (videoModal!=null) {
+        videoModal.style.display = "none";
+    }
+
 }
 
 
