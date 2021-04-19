@@ -29,6 +29,7 @@ $gigsApplied= $artist->getGigsApplied($conn);
             <input id="search_text" class="inputSearch" type="text" placeholder="Search..." name="search">
         </div>
     </form>
+    <?php if($gigsApplied){ ?>
     <table class="applicationsTable">
         <tr>
             <th>Event</th>
@@ -55,6 +56,10 @@ $gigsApplied= $artist->getGigsApplied($conn);
                 }
                
             }
+            echo "</table>";
+        }else{
+            echo "<center><h4>You have not applied to any gigs yet</h4></center>";
+        }
         ?>
 
        <!--  <tr>
@@ -75,7 +80,7 @@ $gigsApplied= $artist->getGigsApplied($conn);
                 other gig applications, so don't limit yourself</td>
         </tr>
  -->
-    </table>
+    
 </body>
 
 </html>
