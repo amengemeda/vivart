@@ -173,10 +173,20 @@ $src=($artist->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$artist->getP
                         </audio>";
                     }elseif ($fileType=="Video") {
                         echo"
-                        <video class='video' width='240px' height='205px' controls>
+                        <video class='video' width='240px' onclick='zoomVideo(this)' height='205px' controls>
                         <source src='$eventUploadPath' >
                         Your browser does not support the video tag.
                       </video>
+                      <div id='videoModal' class='videoModal'>
+                        
+                            <span class='closeImage'>&times;</span>
+                            <video class='video_modal-content' id='vid' controls>
+                            <source src='$eventUploadPath' >
+                            Your browser does not support the video tag.
+                            
+                      </video>
+                            
+                        </div>
                       ";
                     }
                       echo "  
@@ -269,10 +279,21 @@ $src=($artist->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$artist->getP
                         </audio>";
                     }elseif ($fileType=="Video"){
                         echo"
-                        <video class='video' width='240px' height='205px' controls>
+                        <video class='video' width='240px' onclick='zoomVideo(this)' height='205px' controls>
                         <source src='$craftUploadPath' >
                         Your browser does not support the video tag.
                       </video>
+                      <div id='videoModal' class='videoModal'>
+                        
+                            <span class='closeImage'>&times;</span>
+                           
+                      <video class='video_modal-content' id='vid' controls>
+                            <source src='$craftUploadPath' >
+                            Your browser does not support the video tag.
+                    </video>
+                            
+                    
+                        </div>
                       ";
                     }
                       echo " 

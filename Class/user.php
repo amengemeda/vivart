@@ -73,10 +73,10 @@ class User
     public function setProfilePicture($profile_photo){
         $this->profile_photo=$profile_photo;
     }
-    public function login($email, $password, $conn){
+    public function login($email,$userType, $password, $conn){
         try{
-            $sql = 'SELECT password FROM user WHERE email = ?';
-            $array = [$email];
+            $sql = 'SELECT password FROM user WHERE email = ? AND user_type =?';
+            $array = [$email,$userType];
             $result = selectData($sql, $conn, $array);
             if($result == null){
                 return "This account does not exist";

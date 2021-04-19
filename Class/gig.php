@@ -89,9 +89,12 @@ class Gig
     public function deleteGig($conn)
     {
         try {
-            $sql="DELETE FROM gig WHERE gig_id=?";
-            $array=array($this->gig_id);
-            insertData($sql,$conn,$array);// Deleting actually - _ -
+            $sql1="DELETE FROM gig_application WHERE gig_id=?";
+            $array1=array($this->gig_id);
+            insertData($sql1,$conn,$array1);// Deleting actually - _ -
+            $sql2="DELETE FROM gig WHERE gig_id=?";
+            $array2=array($this->gig_id);
+            insertData($sql2,$conn,$array2);// Deleting actually - _ -         
             $gig_file_path="../".$this->gig_upload_path;
             unlink($gig_file_path);
             echo "Successful";

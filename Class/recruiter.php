@@ -79,6 +79,31 @@ class Recruiter extends User
        $result=selectAllData($sql,$conn,$array);
        return $result; 
    }
+   public function approveGigApplication($conn,$applicantId,$gigId){
+    $sql="UPDATE gig_application SET status=? WHERE user_id=? AND gig_id=?";
+    $array=array("Accepted",$applicantId,$gigId);
+    if (insertData($sql,$conn,$array)) {
+        return "success";
+    }else {
+        return "error";
+    }
+   }
+   public function declineGigApplication($conn,$applicantId,$gigId){
+    $sql="UPDATE gig_application SET status=? WHERE user_id=? AND gig_id=?";
+    $array=array("Declined",$applicantId,$gigId);
+    if (insertData($sql,$conn,$array)) {
+        return "success";
+    }else {
+        return "error";
+    }
+   
+   }
+   public function getApprovedArtists($conn,$gigId){
+    $sql="SELECT user.user_id, user.first_name, user.last_name, user.email FROM gig_application NATURAL JOIN user WHERE gig_application.gig_id=? AND gig_application.status=?";
+    $array=array($gigId,"Accepted");
+    $result=selectAllData($sql,$conn,$array);
+    return $result;
+   }
 
 
 }

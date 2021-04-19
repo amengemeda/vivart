@@ -35,12 +35,7 @@ $last_name = $recruiter->getLastName();
                 
             </div>
             <div class="navbar__left">
-                <form class="search_form" action="">
-                    <div class="search">
-                        <button class="button_search" type="submit"><i class="fa fa-search" name="search"></i></button>
-                        <input class="input" type="search" placeholder="Search...">
-                    </div>
-                </form>
+               
 
             </div>
 
@@ -85,7 +80,11 @@ $last_name = $recruiter->getLastName();
                 <div class="sidebar__link">
                 
                 <i class="fa fa-street-view"></i>
-                    <a href="applicants.html" target="frame">Applicants</a>
+                    <a href="applicants.php" target="frame">Applicants</a>
+                </div>
+                <div class="sidebar__link">
+                    <i class="fa fa-thumbs-up"></i>
+                    <a href="approved.php" target="frame">Approved</a>
                 </div>
                 <div class="sidebar__link">
                     <i class="fa fa-plus"></i>

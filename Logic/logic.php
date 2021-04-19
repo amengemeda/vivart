@@ -9,10 +9,11 @@ if(isset($_POST['type'])){
             $user = new User();
             $email = $_POST["email"];
             $password = $_POST["password"];
+            $userType="Artist";
             $dbConnect= new DBconnect();
             $conn= $dbConnect->getConnection();
             if(!empty($email) && !empty($password)){
-                echo $user->login($email, $password, $conn);
+                echo $user->login($email,$userType, $password, $conn);
             }
             else{
                 echo "Ensure all fields are completed";
@@ -53,9 +54,10 @@ if(isset($_POST['type'])){
                 $email = $_POST["email"];
                 $password = $_POST["password"];
                 $dbConnect= new DBconnect();
+                $userType="Recruiter";
                 $conn= $dbConnect->getConnection();
                 if(!empty($email) && !empty($password)){
-                    echo $user->login($email, $password, $conn);
+                    echo $user->login($email, $userType, $password, $conn);
                 }
                 else{
                     echo "Ensure all fields are completed";

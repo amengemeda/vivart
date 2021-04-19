@@ -1,0 +1,97 @@
+*{
+      font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+    background-color: white;
+    overflow-x: scroll;
+}
+html {
+    background-color: white;
+}
+
+.search{
+    border: 1px solid #348DE6;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    width: 98%;
+    margin-bottom: 10px;
+}
+.button_search{
+    border: none;
+    font-size: 22px;
+    box-shadow: none;
+    background-color: transparent;
+    color: #348DE6;
+    outline: none;
+    padding-bottom: 5px;
+}
+.inputSearch{
+    width: 100%;
+    border: none;
+    background: transparent;
+    height: 20px;
+    outline: none;
+}
+.applicationsTable {
+  border-collapse: collapse;
+  width: 99%;
+}
+.applicationsTable th {
+    background-color: #1ab4f1;
+    color: white;
+}
+.applicationsTable td {
+  border: 1px solid rgb(231, 231, 231);
+}
+.applicationsTable td, .applicationsTable th {
+  padding: 7px;
+  padding-bottom: 10px;
+}
+tr{
+    background-color: #ffffff;
+}
+.applicationsTable tr:nth-child(odd)
+{
+    background-color: #effdff;
+}
+tr:hover {
+    background-color: #f3f3f3;
+}
+.greenAccepted{
+    background-color: rgb(95, 243, 26);
+    height: 26px;
+    width: 55px;
+    color: white;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    text-align: center;
+    border-radius: 3px;
+}
+.greyPending{
+    background-color: rgb(201, 201, 201);
+    height: 26px;
+    width: 55px;
+    color: white;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    text-align: center;
+    border-radius: 3px;   
+}
+.redRejected{
+    background-color: red;
+    height: 26px;
+    width: 55px;
+    color: white;
+    font-size: 12px;
+    outline: none;
+    border: none;
+    text-align: center;
+    border-radius: 3px;
+}
+td{
+    color: #6e6e6e;
+}
