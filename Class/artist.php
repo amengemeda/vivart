@@ -113,6 +113,12 @@ class Artist extends User
         }
         
     }
+    public function getGigsApplied($conn){
+        $sql="SELECT gig_application.status, gig.gig_name, gig.gig_description FROM gig_application JOIN gig ON gig_application.gig_id=gig.gig_id WHERE gig_application.user_id = ?";
+        $array=array($this->user_id);
+        $result=selectAllData($sql,$conn,$array);
+        return $result;
+    }
 
 } 
     
