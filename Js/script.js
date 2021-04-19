@@ -3,6 +3,7 @@ function clearMessageField() {
     $(".error").text("");
     $(".success").text("");
 }
+
 $(document).ready(function () {
     $("#formLogin").submit(function (event) {
         event.preventDefault();

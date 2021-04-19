@@ -48,6 +48,10 @@ $gigsApplied= $artist->getGigsApplied($conn);
                 }
                
             }
+            echo "</table>";
+        }else{
+            echo "<center><h4>You have not applied to any gigs yet</h4></center>";
+        }
         ?>
 
        <!--  <tr>
@@ -68,7 +72,7 @@ $gigsApplied= $artist->getGigsApplied($conn);
                 other gig applications, so don't limit yourself</td>
         </tr>
  -->
-    </table>
+    
 </body>
 
 </html>
