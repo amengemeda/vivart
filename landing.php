@@ -21,8 +21,8 @@ $src=($artist->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$artist->getP
     <title>landing</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/landing.css" type="text/css" rel="stylesheet" />
-    <link href="css/editCraft.css" type="text/css" rel="stylesheet" />
+    <link href="Css/landing.css" type="text/css" rel="stylesheet" />
+    <link href="Css/editCraft.css" type="text/css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head> 
 <style>
@@ -231,7 +231,7 @@ $src=($artist->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$artist->getP
                                             <button type='button' class='file_selector' onclick='changeEvent()'>Change</button>
                                             <h3>Change Caption</h3>
                                             <textarea type='text' id='event_description'
-                                                name='event_description'></textarea>
+                                                name='event_description' maxlength='40'></textarea>
                                             <input type='text' id='event_id' name='event_id'>
                                             <br>
                                             <p class='error' id='eventEdit_error'></p>
@@ -338,7 +338,7 @@ $src=($artist->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$artist->getP
                                             <button type='button' class='file_selector' onclick='changeCraft()'>Change</button>
                                             <h3>Change Caption</h3>
                                             <textarea type='text' id='craft_description'
-                                                name='craft_description'></textarea>
+                                                name='craft_description' maxlength='40'></textarea>
                                             <br>
                                             <input type='text' id='craft_id' name='craft_id'>
                                             <br>

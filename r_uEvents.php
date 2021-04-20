@@ -24,7 +24,7 @@
         <input type="text" id="name" name="event_name"><br>
        
         <h2>Add Description</h2>
-        <textarea name="description" id="caption" ></textarea>
+        <textarea name="description" id="caption" maxlength="40" ></textarea>
         <p class="error" id="eventUpload_error"></p>
         <p class="success" id="eventUpload_success"></p>
         <button type="submit" id="upload" >Upload</button>
