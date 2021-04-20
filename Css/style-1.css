@@ -65,7 +65,7 @@ button {
     transition: transform 80ms ease-in;
 }
 button:hover{
-    background-color: #7faedd;
+    background-color: #99fad5;
     cursor: pointer;
     border: none;
 }
