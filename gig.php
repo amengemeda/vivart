@@ -4,7 +4,7 @@
     <title>Upload Gig</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/r_gig.css" type="text/css" rel="stylesheet" />
+    <link href=Css/r_gig.css" type="text/css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
 
@@ -24,7 +24,7 @@
         <input type="text" name="gig_name" id="gig_name">
         <br>
         <h2>Add Description</h2>
-        <textarea name="description" id="caption" ></textarea>
+        <textarea name="description" id="caption" maxlength="40"></textarea>
         <p class="error" id="gigUpload_error"></p>
         <p class="success" id="gigUpload_success"></p>
         <button type="submit"id="upload">Upload</button>

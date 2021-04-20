@@ -20,8 +20,8 @@ $src=($recruiter->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$recruiter
     <title>landing</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/r_landing.css" type="text/css" rel="stylesheet" />
-    <link href="css/editGig.css" type="text/css" rel="stylesheet" />
+    <link href="Css/r_landing.css" type="text/css" rel="stylesheet" />
+    <link href="Css/editGig.css" type="text/css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
@@ -223,7 +223,7 @@ $src=($recruiter->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$recruiter
                                             <button type='button' class='file_selector' onclick='changeEvent()'>Change</button>
                                             <h3>Change Caption</h3>
                                             <textarea type='text' id='event_description'
-                                                name='event_description'></textarea>                                 
+                                                name='event_description' maxlength='40'></textarea>                                 
                                             <input type='text' id='event_id' name='event_id'>
                                             <br>
                                             <p class='error' id='eventEdit_error'></p>
@@ -318,7 +318,7 @@ $src=($recruiter->getProfilePicture()=="")? ".idea\Pictures\man.jpeg":$recruiter
                                             <button type='button' class='file_selector' onclick='changeGig()'>Change</button>
                                             <h3>Change Caption</h3>
                                             <textarea type='text' id='gig_description'
-                                                name='gig_description'></textarea>
+                                                name='gig_description' maxlength='40'></textarea>
                                             <br>
                                             <input type='text' id='gig_id' name='gig_id'>
                                             <br>

@@ -27,7 +27,7 @@ session_start();
         <input type="text" name="art_type" id="art_type">
         <br>
         <h2>Add Caption</h2>
-        <textarea name="caption" id="caption" cols="30" rows="10"></textarea>
+        <textarea name="caption" id="caption" cols="30" rows="10" maxlength="40"></textarea>
         <p class="error" id="craftUpload_error"></p>
         <p class="success" id="craftUpload_success"></p>
         <button type="submit"id="upload">Upload</button>
